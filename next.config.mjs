@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: '/webtool',
+  basePath: process.env.BASE_PATH,
 };
 
 export default nextConfig;
