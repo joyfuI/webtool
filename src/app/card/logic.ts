@@ -1,18 +1,15 @@
-export type Card = {
-  name: string;
-  type: '할인' | '적립' | '캐시백';
-  benefitRate: number | 'themore' | 'toss';
-  minimumPaymentAmount: number;
-  limit: number | null;
-  note: string;
-};
+import type { Card } from './cardData';
 
 const getReward = (amount: number, card: Card): number => {
-  if (Number.isNaN(amount) || amount < card.minimumPaymentAmount) {
+  if (Number.isNaN(amount) || amount < (card.minimumPaymentAmount ?? 0)) {
     return 0;
   }
 
-  switch (card.benefitRate) {
+  if (card.limit && amount > card.limit) {
+    amount = card.limit;
+  }
+
+  switch (card.rewardsRate) {
     case 'themore':
       return amount % 1000;
 
@@ -20,9 +17,9 @@ const getReward = (amount: number, card: Card): number => {
       return amount < 10000 ? 300 : 500;
 
     default:
-      return card.benefitRate > 1 ?
-          card.benefitRate
-        : amount * card.benefitRate;
+      return card.rewardsRate > 1 ?
+          card.rewardsRate
+        : amount * card.rewardsRate;
   }
 };
 

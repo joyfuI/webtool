@@ -6,9 +6,8 @@ import TextField from '@mui/material/TextField';
 import Table from '@/components/Table';
 
 import { getRow } from './logic';
-import type { Card } from './logic';
 
-import cardData from './cardData.json';
+import cardData from './cardData';
 
 const Home = () => {
   const [amount, setAmount] = useState(0);
@@ -16,7 +15,7 @@ const Home = () => {
   const rows = useMemo(
     () =>
       cardData
-        .map((card) => getRow(amount, card as Card))
+        .map((card) => getRow(amount, card))
         .toSorted((a, b) => b.raw - a.raw),
     [amount],
   );
@@ -50,7 +49,7 @@ const Home = () => {
           { field: 'name', headerName: '카드이름' },
           { field: 'reward', headerName: '혜택' },
           { field: 'picking', headerName: '피킹률' },
-          { field: 'limit', headerName: '최대 혜택 실적' },
+          { field: 'limit', headerName: '최대 혜택 금액' },
           {
             field: 'note',
             headerName: '비고',
