@@ -6,13 +6,7 @@ const getReward = (
 ): number => {
   const card2 = {
     ...card,
-    ...((
-      card[industry as IndustryType] &&
-      (card[industry as IndustryType]?.minimumPaymentAmount ?? Infinity) <=
-        amount
-    ) ?
-      card[industry as IndustryType]
-    : {}),
+    ...card[industry as IndustryType],
   };
 
   if (Number.isNaN(amount) || amount < (card2.minimumPaymentAmount ?? 0)) {
@@ -26,6 +20,9 @@ const getReward = (
   switch (card2.rewardsRate) {
     case 'themore':
       return amount % 1000;
+
+    case 'themore2':
+      return (amount % 1000) * 2;
 
     case 'toss':
       return amount < 10000 ? 300 : 500;
@@ -48,10 +45,10 @@ export const getRow = (
   return {
     name: card.name,
     rewardStr: `${reward.toLocaleString()}원 ${type}`,
-    picking: (formData.amount > 0 ?
+    picking: `${(formData.amount > 0 ?
       (reward / formData.amount) * 100
     : 0
-    ).toFixed(2),
+    ).toFixed(2)}%`,
     limit: limit ? `${limit.toLocaleString()}원` : '무제한',
     note: card.note ?? '',
     reward,
