@@ -28,13 +28,13 @@ export const getRow = (amount: number, card: Card) => {
 
   return {
     name: card.name,
-    reward: `${reward.toLocaleString(undefined, {
+    rewardStr: `${reward.toLocaleString(undefined, {
       maximumFractionDigits: 0,
       roundingMode: 'trunc',
     })}원 ${card.type}`,
     picking: (amount > 0 ? (reward / amount) * 100 : 0).toFixed(2),
     limit: card.limit ? `${card.limit.toLocaleString()}원` : '무제한',
-    note: card.note,
-    raw: reward,
+    note: card.note ?? '',
+    reward,
   };
 };

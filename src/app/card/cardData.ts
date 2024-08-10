@@ -1,7 +1,7 @@
 export type Card = {
   name: string; // 이름
   type: '할인' | '적립' | '캐시백'; // 타입
-  rewardsRate: number | 'themore' | 'toss'; // 혜택률
+  rewardsRate: number | 'themore' | 'toss'; // 혜택률. 1보다 크면 고정 금액 혜택
   minimumPaymentAmount?: number; // 최소 결제 금액
   limit?: number; // 최대 혜택 금액
   note?: string; // 비고

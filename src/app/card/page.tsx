@@ -16,7 +16,7 @@ const Home = () => {
     () =>
       cardData
         .map((card) => getRow(amount, card))
-        .toSorted((a, b) => b.raw - a.raw),
+        .toSorted((a, b) => b.reward - a.reward),
     [amount],
   );
 
@@ -47,7 +47,7 @@ const Home = () => {
       <Table
         columns={[
           { field: 'name', headerName: '카드이름' },
-          { field: 'reward', headerName: '혜택' },
+          { field: 'rewardStr', headerName: '혜택' },
           { field: 'picking', headerName: '피킹률' },
           { field: 'limit', headerName: '최대 혜택 금액' },
           {
