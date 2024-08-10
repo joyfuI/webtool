@@ -1,18 +1,18 @@
 export type Card = {
   name: string;
-  type: 'discount' | 'earn' | 'cashback';
-  rate: number | 'themore' | 'toss';
-  minimum: number;
+  type: '할인' | '적립' | '캐시백';
+  benefitRate: number | 'themore' | 'toss';
+  minimumPaymentAmount: number;
   limit: number | null;
   note: string;
 };
 
 const getReward = (amount: number, card: Card): number => {
-  if (Number.isNaN(amount) || amount < card.minimum) {
+  if (Number.isNaN(amount) || amount < card.minimumPaymentAmount) {
     return 0;
   }
 
-  switch (card.rate) {
+  switch (card.benefitRate) {
     case 'themore':
       return amount % 1000;
 
@@ -20,7 +20,9 @@ const getReward = (amount: number, card: Card): number => {
       return amount < 10000 ? 300 : 500;
 
     default:
-      return card.rate > 1 ? card.rate : amount * card.rate;
+      return card.benefitRate > 1 ?
+          card.benefitRate
+        : amount * card.benefitRate;
   }
 };
 
@@ -32,7 +34,7 @@ export const getRow = (amount: number, card: Card) => {
     reward: `${reward.toLocaleString(undefined, {
       maximumFractionDigits: 0,
       roundingMode: 'trunc',
-    })}원 ${{ discount: '할인', earn: '적립', cashback: '캐시백' }[card.type]}`,
+    })}원 ${card.type}`,
     picking: (amount > 0 ? (reward / amount) * 100 : 0).toFixed(2),
     limit: card.limit ? `${card.limit.toLocaleString()}원` : '무제한',
     note: card.note,
