@@ -1,8 +1,10 @@
 'use client';
 import { useState, useMemo } from 'react';
+import type { ChangeEvent } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
+import Radio from '@/components/Radio';
 import Table from '@/components/Table';
 
 import { getRow } from './logic';
@@ -11,14 +13,19 @@ import cardData from './cardData';
 
 const Home = () => {
   const [amount, setAmount] = useState(0);
+  const [industry, setIndustry] = useState('기타');
 
   const rows = useMemo(
     () =>
       cardData
-        .map((card) => getRow(amount, card))
+        .map((card) => getRow(card, { amount, industry }))
         .toSorted((a, b) => b.reward - a.reward),
-    [amount],
+    [amount, industry],
   );
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, value: string) => {
+    setIndustry(value);
+  };
 
   return (
     <Box
@@ -42,6 +49,18 @@ const Home = () => {
           const num = parseInt(e.target.value);
           setAmount(num);
         }}
+      />
+
+      <Radio
+        name="industry"
+        options={[
+          { value: '음식점', label: '음식점' },
+          { value: '편의점', label: '편의점' },
+          { value: '대중교통', label: '대중교통' },
+          { value: '기타', label: '기타' },
+        ]}
+        value={industry}
+        onChange={handleChange}
       />
 
       <Table

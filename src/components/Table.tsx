@@ -14,7 +14,7 @@ import type theme from '@/theme';
 
 export type ColumnType = { field: string; headerName: string } & TableCellProps;
 
-export type RowType = { [key: string]: string | number };
+export type RowType = Record<string, string | number>;
 
 export type TableProps = {
   columns: ColumnType[];

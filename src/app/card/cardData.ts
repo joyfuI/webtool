@@ -1,13 +1,19 @@
-export type Card = {
-  name: string; // 이름
+type RewardType = {
   type: '할인' | '적립' | '캐시백'; // 타입
   rewardsRate: number | 'themore' | 'toss'; // 혜택률. 1보다 크면 고정 금액 혜택
   minimumPaymentAmount?: number; // 최소 결제 금액
   limit?: number; // 최대 혜택 금액
-  note?: string; // 비고
 };
 
-const cardData: Card[] = [
+export type IndustryType = '음식점' | '편의점' | '대중교통';
+
+export type CardType = {
+  name: string; // 이름
+  note?: string; // 비고
+} & Partial<Record<IndustryType, Partial<RewardType>>> &
+  RewardType;
+
+const cardData: CardType[] = [
   {
     name: '더모아 카드',
     type: '적립',
@@ -28,14 +34,15 @@ const cardData: Card[] = [
     type: '할인',
     rewardsRate: 0.01,
     minimumPaymentAmount: 0,
-    note: '1% 할인 / 전월실적 X / 무이자할부 3개월',
-  },
-  {
-    name: '케이 퍼스트 카드 (생활편의업종)',
-    type: '할인',
-    rewardsRate: 0.015,
-    minimumPaymentAmount: 0,
-    note: '만원 이상 음식점, 편의점 1.5% 할인 / 전월실적 X / 무이자할부 3개월',
+    음식점: {
+      rewardsRate: 0.015,
+      minimumPaymentAmount: 10000,
+    },
+    편의점: {
+      rewardsRate: 0.015,
+      minimumPaymentAmount: 10000,
+    },
+    note: '1% 할인 / 만원 이상 음식점, 편의점 1.5% 할인 / 전월실적 X / 무이자할부 3개월',
   },
   {
     name: '딥에코 카드',
@@ -87,9 +94,12 @@ const cardData: Card[] = [
   {
     name: '나라사랑 체크카드',
     type: '할인',
-    rewardsRate: 0.2,
-    minimumPaymentAmount: 0,
-    limit: 25000,
+    rewardsRate: 0,
+    대중교통: {
+      rewardsRate: 0.2,
+      minimumPaymentAmount: 0,
+      limit: 25000,
+    },
     note: '대중교통(버스/지하철) 20% 할인',
   },
   {
