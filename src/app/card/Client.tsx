@@ -7,7 +7,6 @@ import Radio from '@/components/Radio';
 import Table from '@/components/Table';
 
 import { getRow } from './logic';
-
 import cardData from './cardData';
 
 const Client = () => {

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { Ref } from 'react';
+import type { Ref, ReactNode } from 'react';
 import type { SxProps } from '@mui/material';
 import MuiTable from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,7 +14,7 @@ import type theme from '@/theme';
 
 export type ColumnType = { field: string; headerName: string } & TableCellProps;
 
-export type RowType = Record<string, string | number>;
+export type RowType = Record<string, ReactNode>;
 
 export type TableProps = {
   columns: ColumnType[];
