@@ -13,6 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import Link from './Link';
 
@@ -42,7 +43,11 @@ const Header = () => {
                 }}
               >
                 <Box role="presentation" sx={{ width: 250 }}>
-                  <Toolbar />
+                  <Toolbar sx={{ justifyContent: 'flex-end' }}>
+                    <IconButton onClick={toggleOpen}>
+                      <ChevronLeftIcon />
+                    </IconButton>
+                  </Toolbar>
                   <Divider />
                   <List>
                     {menu.map((item) => (

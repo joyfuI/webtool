@@ -26,11 +26,11 @@ const Radio = (
     <FormControl ref={ref} fullWidth sx={sx}>
       <FormLabel id={labelId}>업종</FormLabel>
       <RadioGroup row {...props} aria-labelledby={labelId}>
-        {options.map(({ key, value, ...props }, i) => (
+        {options.map(({ key, value, ...optionProps }, i) => (
           <FormControlLabel
             key={key ?? (value as string) ?? i}
-            {...props}
             value={value}
+            {...optionProps}
             control={<MuiRadio />}
           />
         ))}
