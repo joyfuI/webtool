@@ -1,3 +1,9 @@
+import type { ReactNode } from 'react';
+
+import KFirst from './note/KFirst';
+import KBank from './note/KBank';
+import TossBank from './note/TossBank';
+
 type RewardType = {
   type: '할인' | '적립' | '캐시백'; // 타입
   rewardsRate: number | 'themore' | 'themore2' | 'toss'; // 혜택률. 1보다 크면 고정 금액 혜택
@@ -17,7 +23,7 @@ export type IndustryType =
 
 export type CardType = {
   name: string; // 이름
-  note?: string; // 비고
+  note?: ReactNode | (() => ReactNode); // 비고
 } & Partial<Record<IndustryType, Partial<RewardType>>> &
   RewardType;
 
@@ -70,7 +76,7 @@ const cardData: CardType[] = [
     상품권: {
       rewardsRate: 0,
     },
-    note: '1% 할인 / 만원 이상 음식점, 편의점, 대형마트 1.5% 할인 / 전월실적 X / 무이자할부 3개월',
+    note: KFirst,
   },
   {
     name: '딥에코 카드',
@@ -156,7 +162,7 @@ const cardData: CardType[] = [
       rewardsRate: 300,
       minimumPaymentAmount: 5000,
     },
-    note: '5천원 이상 대상 가맹점(편의점, 카페, 패스트푸드) 당 하루 1회 300원 캐시백 / 전월실적: X',
+    note: KBank,
   },
   {
     name: '나라사랑 체크카드',
@@ -182,9 +188,9 @@ const cardData: CardType[] = [
     },
     대중교통: {
       rewardsRate: 'toss',
-      minimumPaymentAmount: 3000,
+      minimumPaymentAmount: 0,
     },
-    note: '대상 영역(대중교통, 편의점, 카페, 패스트푸드) 당 하루 1회 3천원~만원 300원, 만원 이상 500원 캐시백 / 전월실적: X',
+    note: TossBank,
   },
 ];
 

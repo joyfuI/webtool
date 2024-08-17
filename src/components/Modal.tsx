@@ -4,7 +4,6 @@ import Dialog from '@mui/material/Dialog';
 import type { DialogProps } from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 
@@ -56,8 +55,8 @@ const Modal = (
       {title ?
         <DialogTitle id={titleId}>{title}</DialogTitle>
       : null}
-      <DialogContent dividers>
-        <DialogContentText id={contentTextId}>{children}</DialogContentText>
+      <DialogContent id={contentTextId} dividers>
+        {children}
       </DialogContent>
       <DialogActions>
         {onSubmit ?

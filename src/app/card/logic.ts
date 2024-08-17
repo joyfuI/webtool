@@ -1,3 +1,5 @@
+import { createElement } from 'react';
+
 import type { CardType, IndustryType } from './cardData';
 
 const getReward = (
@@ -50,7 +52,10 @@ export const getRow = (
     : 0
     ).toFixed(2)}%`,
     limit: limit ? `${limit.toLocaleString()}원` : '무제한',
-    note: card.note ?? '',
+    note:
+      typeof card.note === 'function' ?
+        createElement(card.note)
+      : (card.note ?? ''),
     reward,
   };
 };
