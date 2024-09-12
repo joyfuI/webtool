@@ -112,8 +112,7 @@ const cardData: CardType[] = [
       rewardsRate: 0,
     },
     해외: {
-      rewardsRate: 0.01,
-      limit: 1000000,
+      rewardsRate: 0,
     },
     상품권: {
       rewardsRate: 0,
@@ -126,6 +125,9 @@ const cardData: CardType[] = [
     rewardsRate: 0.02,
     limit: 500000,
     대중교통: {
+      rewardsRate: 0,
+    },
+    해외: {
       rewardsRate: 0,
     },
     상품권: {
