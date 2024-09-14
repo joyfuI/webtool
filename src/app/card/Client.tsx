@@ -44,6 +44,7 @@ const Client = () => {
 
       <Radio
         name="industry"
+        label="업종"
         options={[
           { value: '음식점', label: '음식점' },
           { value: '편의점', label: '편의점' },

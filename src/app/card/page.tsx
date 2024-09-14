@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Client from './Client';
 
 export const metadata: Metadata = {
-  title: '카드혜택 계산기',
+  title: '카드 혜택 계산기',
 };
 
 const Home = () => {
