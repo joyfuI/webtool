@@ -19,7 +19,7 @@ import Link from './Link';
 
 import { useToggle } from '@/hooks';
 
-const menu = [{ key: 'card', title: '카드혜택 계산기', href: '/card' }];
+const menu = [{ key: 'card', title: '카드 혜택 계산기', href: '/card' }];
 
 const responsive = (xs: unknown, md: unknown): object => ({ xs, md });
 

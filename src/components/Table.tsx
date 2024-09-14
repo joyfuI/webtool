@@ -12,7 +12,10 @@ import Paper from '@mui/material/Paper';
 
 import type theme from '@/theme';
 
-export type ColumnType = { field: string; headerName: string } & TableCellProps;
+export type ColumnType = {
+  field: string;
+  headerName?: string;
+} & TableCellProps;
 
 export type RowType = Record<string, ReactNode>;
 
