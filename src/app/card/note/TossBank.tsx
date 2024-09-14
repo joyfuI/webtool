@@ -18,7 +18,7 @@ const TossBank = () => {
         >
           대상 영역
         </Link>{' '}
-        당 1일 1회 3천원~만원 300원, 만원 이상 500원 캐시백 / 전월실적: X
+        당 1일 1회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적: X
       </span>
 
       <Modal open={open} title="대상 영역" onClose={() => setOpen(false)}>

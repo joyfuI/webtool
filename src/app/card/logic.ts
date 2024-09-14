@@ -27,7 +27,7 @@ const getReward = (
       return (amount % 1000) * 2;
 
     case 'toss':
-      return amount < 10000 ? 300 : 500;
+      return amount < 10000 ? 100 : 500;
 
     default:
       return card2.rewardsRate > 1 ?
