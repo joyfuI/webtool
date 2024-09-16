@@ -34,7 +34,6 @@ const Client = () => {
         inputProps={{ min: 0, step: 100 }}
         InputLabelProps={{ shrink: true }}
         fullWidth
-        required
         autoFocus
         onChange={(e) => {
           const num = parseInt(e.target.value);
