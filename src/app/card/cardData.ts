@@ -14,7 +14,10 @@ type RewardType = {
 export type IndustryType =
   | '음식점'
   | '편의점'
+  | '패스트푸드'
+  | '카페'
   | '오픈마켓'
+  | '대형마트'
   | '전기요금'
   | '가스요금'
   | '해외'
@@ -65,6 +68,14 @@ const cardData: CardType[] = [
       minimumPaymentAmount: 10000,
     },
     편의점: {
+      rewardsRate: 0.015,
+      minimumPaymentAmount: 10000,
+    },
+    카페: {
+      rewardsRate: 0.015,
+      minimumPaymentAmount: 10000,
+    },
+    대형마트: {
       rewardsRate: 0.015,
       minimumPaymentAmount: 10000,
     },
@@ -141,11 +152,15 @@ const cardData: CardType[] = [
     name: '마이 체크카드',
     type: '캐시백',
     rewardsRate: 0,
-    음식점: {
+    편의점: {
       rewardsRate: 300,
       minimumPaymentAmount: 5000,
     },
-    편의점: {
+    패스트푸드: {
+      rewardsRate: 300,
+      minimumPaymentAmount: 5000,
+    },
+    카페: {
       rewardsRate: 300,
       minimumPaymentAmount: 5000,
     },
@@ -155,11 +170,15 @@ const cardData: CardType[] = [
     name: '토스뱅크 체크카드',
     type: '캐시백',
     rewardsRate: 0,
-    음식점: {
+    편의점: {
       rewardsRate: 'toss',
       minimumPaymentAmount: 3000,
     },
-    편의점: {
+    패스트푸드: {
+      rewardsRate: 'toss',
+      minimumPaymentAmount: 3000,
+    },
+    카페: {
       rewardsRate: 'toss',
       minimumPaymentAmount: 3000,
     },

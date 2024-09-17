@@ -47,7 +47,10 @@ const Client = () => {
         options={[
           { value: '음식점', label: '음식점' },
           { value: '편의점', label: '편의점' },
+          { value: '패스트푸드', label: '패스트푸드' },
+          { value: '카페', label: '카페' },
           { value: '오픈마켓', label: '오픈마켓' },
+          { value: '대형마트', label: '대형마트' },
           { value: '전기요금', label: '전기요금' },
           { value: '가스요금', label: '가스요금' },
           { value: '해외', label: '해외' },
