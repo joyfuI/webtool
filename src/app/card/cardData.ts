@@ -15,7 +15,6 @@ export type IndustryType =
   | '음식점'
   | '편의점'
   | '오픈마켓'
-  | '대중교통'
   | '전기요금'
   | '가스요금'
   | '해외'
@@ -69,10 +68,6 @@ const cardData: CardType[] = [
       rewardsRate: 0.015,
       minimumPaymentAmount: 10000,
     },
-    대중교통: {
-      rewardsRate: 0.015,
-      minimumPaymentAmount: 10000,
-    },
     상품권: {
       rewardsRate: 0,
     },
@@ -86,9 +81,6 @@ const cardData: CardType[] = [
     오픈마켓: {
       rewardsRate: 0.05,
     },
-    대중교통: {
-      rewardsRate: 0.05,
-    },
     note: '쿠팡, 11번가, G마켓, 옥션 5% 적립 / 전월실적 30만원 / 만보걷기 15일 이상인 경우 5천원 캐시백',
   },
   {
@@ -100,10 +92,6 @@ const cardData: CardType[] = [
     오픈마켓: {
       rewardsRate: 0.04,
       limit: 250000,
-    },
-    대중교통: {
-      rewardsRate: 0.05,
-      limit: 200000,
     },
     전기요금: {
       rewardsRate: 0,
@@ -124,9 +112,6 @@ const cardData: CardType[] = [
     type: '캐시백',
     rewardsRate: 0.02,
     limit: 500000,
-    대중교통: {
-      rewardsRate: 0,
-    },
     해외: {
       rewardsRate: 0,
     },
@@ -167,16 +152,6 @@ const cardData: CardType[] = [
     note: KBank,
   },
   {
-    name: '나라사랑 체크카드',
-    type: '할인',
-    rewardsRate: 0,
-    대중교통: {
-      rewardsRate: 0.2,
-      limit: 25000,
-    },
-    note: '대중교통(버스/지하철) 20% 할인 / 전월실적: 10만원',
-  },
-  {
     name: '토스뱅크 체크카드',
     type: '캐시백',
     rewardsRate: 0,
@@ -187,10 +162,6 @@ const cardData: CardType[] = [
     편의점: {
       rewardsRate: 'toss',
       minimumPaymentAmount: 3000,
-    },
-    대중교통: {
-      rewardsRate: 'toss',
-      minimumPaymentAmount: 0,
     },
     note: TossBank,
   },
