@@ -15,21 +15,21 @@
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
     "@mui/material-nextjs": "^5.16.4",
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^22.5.5",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.6.2"
   },
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
 }
