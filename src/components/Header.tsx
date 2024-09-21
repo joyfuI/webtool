@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import Link from './Link';
+import DarkModeButton from './DarkModeButton';
 
 import { useToggle } from '@/hooks';
 
@@ -98,6 +99,8 @@ const Header = () => {
                 </Button>
               ))}
             </Box>
+
+            <DarkModeButton />
           </Toolbar>
         </Container>
       </AppBar>
