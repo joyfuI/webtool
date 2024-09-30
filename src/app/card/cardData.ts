@@ -132,16 +132,6 @@ const cardData: CardType[] = [
     note: '네이버페이, 카카오페이, 페이코 2% 캐시백 / 전월실적: X',
   },
   {
-    name: '페이코 우리 체크카드',
-    type: '적립',
-    rewardsRate: 0.015,
-    limit: 666667,
-    전기요금: {
-      rewardsRate: 0,
-    },
-    note: '1.5% 페이코 포인트 적립 / 전월실적: X',
-  },
-  {
     name: '네이버페이 신한 체크카드',
     type: '적립',
     rewardsRate: 0.01,
