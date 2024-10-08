@@ -31,8 +31,10 @@ const Client = () => {
         value={amount}
         label="금액"
         type="number"
-        inputProps={{ min: 0, step: 100 }}
-        InputLabelProps={{ shrink: true }}
+        slotProps={{
+          htmlInput: { min: 0, step: 100, inputmode: 'numeric' },
+          inputLabel: { shrink: true },
+        }}
         fullWidth
         autoFocus
         onChange={(e) => {

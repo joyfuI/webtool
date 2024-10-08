@@ -109,7 +109,7 @@ const Client = () => {
           value={toDateString(date)}
           label="시작일"
           type="date"
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
           autoFocus
           onChange={(e) => {
             setDate(e.target.value ? new Date(e.target.value) : new Date());
@@ -119,8 +119,8 @@ const Client = () => {
           value={toDateString(endDate)}
           label="종료일"
           type="date"
+          slotProps={{ inputLabel: { shrink: true } }}
           disabled
-          InputLabelProps={{ shrink: true }}
         />
         <Typography sx={{ whiteSpace: 'nowrap' }}>
           영업일
@@ -139,8 +139,10 @@ const Client = () => {
           value={amount}
           label="1회 이용요금"
           type="number"
-          inputProps={{ min: 0, step: 100 }}
-          InputLabelProps={{ shrink: true }}
+          slotProps={{
+            htmlInput: { min: 0, step: 100, inputmode: 'numeric' },
+            inputLabel: { shrink: true },
+          }}
           onChange={(e) => {
             setAmount(parseInt(e.target.value));
           }}
@@ -150,8 +152,10 @@ const Client = () => {
           value={count}
           label="이용횟수"
           type="number"
-          inputProps={{ min: 0 }}
-          InputLabelProps={{ shrink: true }}
+          slotProps={{
+            htmlInput: { min: 0, inputmode: 'numeric' },
+            inputLabel: { shrink: true },
+          }}
           onChange={(e) => {
             setCount(parseInt(e.target.value));
           }}
