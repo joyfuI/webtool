@@ -140,7 +140,7 @@ const Client = () => {
           label="1회 이용요금"
           type="number"
           slotProps={{
-            htmlInput: { min: 0, step: 100, inputmode: 'numeric' },
+            htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
             inputLabel: { shrink: true },
           }}
           onChange={(e) => {
@@ -153,7 +153,7 @@ const Client = () => {
           label="이용횟수"
           type="number"
           slotProps={{
-            htmlInput: { min: 0, inputmode: 'numeric' },
+            htmlInput: { min: 0, inputMode: 'numeric' },
             inputLabel: { shrink: true },
           }}
           onChange={(e) => {

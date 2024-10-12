@@ -21,8 +21,8 @@ import DarkModeButton from './DarkModeButton';
 import { useToggle } from '@/hooks';
 
 const menu = [
-  { key: 'card', title: '카드 혜택 계산기', href: '/card' },
-  { key: 'pass', title: '지하철 정기권 계산기', href: '/pass' },
+  { title: '카드 혜택 계산기', href: '/card' },
+  { title: '지하철 정기권 계산기', href: '/pass' },
 ];
 
 const responsive = (xs: unknown, md: unknown): object => ({ xs, md });
@@ -55,7 +55,7 @@ const Header = () => {
                   <Divider />
                   <List>
                     {menu.map((item) => (
-                      <ListItem key={item.key} disablePadding>
+                      <ListItem key={item.href} disablePadding>
                         <ListItemButton
                           component={Link}
                           href={item.href}
@@ -89,7 +89,7 @@ const Header = () => {
             <Box sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}>
               {menu.map((item) => (
                 <Button
-                  key={item.key}
+                  key={item.href}
                   component={Link}
                   href={item.href}
                   onClick={toggleOpen}

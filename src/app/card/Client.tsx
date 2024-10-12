@@ -32,7 +32,7 @@ const Client = () => {
         label="금액"
         type="number"
         slotProps={{
-          htmlInput: { min: 0, step: 100, inputmode: 'numeric' },
+          htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
           inputLabel: { shrink: true },
         }}
         fullWidth
