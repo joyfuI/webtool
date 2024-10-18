@@ -9,10 +9,7 @@ const useModal = <T>(): [
   T,
   (value: undefined | boolean | T) => void,
 ] => {
-  const [state, setState] = useState<{ open: boolean; data: T }>({
-    open: false,
-    data: {} as T,
-  });
+  const [state, setState] = useState({ open: false, data: {} as T });
 
   const open = useMemo(() => state.open, [state.open]);
 

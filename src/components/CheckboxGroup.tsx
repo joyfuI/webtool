@@ -1,6 +1,5 @@
 import { useState, useEffect, useId, forwardRef } from 'react';
-import type { Ref, ReactNode, Attributes } from 'react';
-import type { ChangeEvent } from 'react';
+import type { Ref, ReactNode, Attributes, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
@@ -35,9 +34,8 @@ const CheckboxGroup = (
   }: CheckboxProps,
   ref: Ref<HTMLFieldSetElement>,
 ) => {
-  const [checkedList, setCheckedList] = useState<Set<string>>(
-    new Set(defaultValue ?? []),
-  );
+  const [checkedList, setCheckedList] = useState(new Set(defaultValue ?? []));
+  const labelId = useId();
 
   useEffect(() => {
     if (value) {
@@ -45,10 +43,8 @@ const CheckboxGroup = (
     }
   }, [value]);
 
-  const labelId = useId();
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>, checked: boolean) => {
-    if (checked) {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
       checkedList.add(e.target.value);
     } else {
       checkedList.delete(e.target.value);

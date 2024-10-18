@@ -23,6 +23,7 @@ import { useToggle } from '@/hooks';
 const menu = [
   { title: '카드 혜택 계산기', href: '/card' },
   { title: '지하철 정기권 계산기', href: '/pass' },
+  { title: 'FFmpeg', href: '/ffmpeg' },
 ];
 
 const responsive = (xs: unknown, md: unknown): object => ({ xs, md });
