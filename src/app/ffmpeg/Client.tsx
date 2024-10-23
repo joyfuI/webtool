@@ -7,6 +7,7 @@ import Download from './command/Download';
 import Trim from './command/Trim';
 import Mp3Extraction from './command/Mp3Extraction';
 import Copy from './command/Copy';
+import Aspect from './command/Aspect';
 
 const command = '.\\ffmpeg';
 
@@ -38,11 +39,12 @@ const Client = () => {
         />
       </Stack>
 
-      <Stack spacing={2} sx={{ mt: 3 }}>
+      <Stack spacing={3} sx={{ mt: 3 }}>
         <Download command={command} input={input} output={output} />
         <Trim command={command} input={input} output={output} />
         <Mp3Extraction command={command} input={input} output={output} />
         <Copy command={command} input={input} output={output} />
+        <Aspect command={command} input={input} output={output} />
       </Stack>
     </>
   );
