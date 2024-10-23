@@ -82,7 +82,7 @@ const TimeInput = (
           placeholder="시"
           slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
           onChange={handleChange}
-          sx={{ width: '50px' }}
+          sx={{ width: '40px' }}
         />
         <span>:</span>
         <Input
@@ -93,7 +93,7 @@ const TimeInput = (
           placeholder="분"
           slotProps={{ input: { min: 0, max: 59, inputMode: 'numeric' } }}
           onChange={handleChange}
-          sx={{ width: '50px' }}
+          sx={{ width: '40px' }}
         />
         <span>:</span>
         <Input
@@ -104,7 +104,7 @@ const TimeInput = (
           placeholder="초"
           slotProps={{ input: { min: 0, max: 59, inputMode: 'numeric' } }}
           onChange={handleChange}
-          sx={{ width: '50px' }}
+          sx={{ width: '40px' }}
         />
       </Stack>
     </Div>

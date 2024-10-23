@@ -32,7 +32,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             placeholder="가로"
             slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
             onChange={(e) => setWidth(parseFloat(e.target.value))}
-            sx={{ width: '50px' }}
+            sx={{ width: '40px' }}
           />
           <span>:</span>
           <Input
@@ -41,7 +41,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             placeholder="세로"
             slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
             onChange={(e) => setHeight(parseFloat(e.target.value))}
-            sx={{ width: '50px' }}
+            sx={{ width: '40px' }}
           />
         </Stack>
       </Div>

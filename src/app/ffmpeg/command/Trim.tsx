@@ -27,14 +27,18 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
       }}
       label="동영상 자르기"
     >
-      <Stack direction="row" spacing={5} sx={{ mb: 1 }}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={{ xs: 1, sm: 5 }}
+        sx={{ mb: 1 }}
+      >
         <TimeInput
           label="시작시간"
           value={ss}
           type="time"
           onChange={(e, v) => setSS(v)}
         />
-        <Stack direction="row" sx={{ alignItems: 'flex-end' }}>
+        <Stack direction="row" alignItems="flex-end" sx={{ overflowX: 'auto' }}>
           <TimeInput
             label="종료시간"
             value={to}
