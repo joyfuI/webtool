@@ -21,7 +21,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
         '-aspect': `${width}:${height}`,
         '': `"${output}"`,
       }}
-      label="비디오 화면비 조정"
+      label="화면비 조정"
     >
       <Div sx={{ mb: 1 }}>
         <FormLabel sx={{ fontSize: 14 }}>화면비</FormLabel>

@@ -7,7 +7,9 @@ import Download from './command/Download';
 import Trim from './command/Trim';
 import Mp3Extraction from './command/Mp3Extraction';
 import Copy from './command/Copy';
+import AudioRemove from './command/AudioRemove';
 import Aspect from './command/Aspect';
+import Transpose from './command/Transpose';
 
 const command = '.\\ffmpeg';
 
@@ -44,7 +46,9 @@ const Client = () => {
         <Trim command={command} input={input} output={output} />
         <Mp3Extraction command={command} input={input} output={output} />
         <Copy command={command} input={input} output={output} />
+        <AudioRemove command={command} input={input} output={output} />
         <Aspect command={command} input={input} output={output} />
+        <Transpose command={command} input={input} output={output} />
       </Stack>
     </>
   );

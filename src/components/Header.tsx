@@ -43,9 +43,7 @@ const Header = () => {
               <Drawer
                 open={open}
                 onClose={toggleOpen}
-                sx={{
-                  display: responsive('block', 'none'),
-                }}
+                sx={{ display: responsive('block', 'none') }}
               >
                 <Box role="presentation" sx={{ width: 250 }}>
                   <Toolbar sx={{ justifyContent: 'flex-end' }}>

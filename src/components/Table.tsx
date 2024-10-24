@@ -41,7 +41,9 @@ const Table = ({ columns, rows, sx }: TableProps, ref: Ref<HTMLDivElement>) => (
         {rows.map((row, i) => (
           <TableRow
             key={i}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            sx={{
+              '&:last-child td, &:last-child th': { border: 0 },
+            }}
           >
             {columns.map(({ field, headerName, ...props }) => (
               <TableCell key={field} {...props}>

@@ -28,7 +28,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
             <InitColorSchemeScript attribute="class" />
             <CssBaseline />
             <Header />
-            <Container component="main" sx={{ py: 2 }}>
+            <Container component="main" sx={{ pt: 2, pb: 4 }}>
               {children}
             </Container>
           </ThemeProvider>
