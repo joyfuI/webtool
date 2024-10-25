@@ -26,6 +26,9 @@ const getReward = (
     case 'themore2':
       return (amount % 1000) * 2;
 
+    case 'kfirst15':
+      return Math.floor(amount * (amount < 10000 ? 0.01 : 0.015));
+
     case 'toss':
       return amount < 10000 ? 100 : 500;
 

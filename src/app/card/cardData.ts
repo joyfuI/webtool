@@ -6,7 +6,7 @@ import TossBank from './note/TossBank';
 
 type RewardType = {
   type: '할인' | '적립' | '캐시백'; // 타입
-  rewardsRate: number | 'themore' | 'themore2' | 'toss'; // 혜택률. 1보다 크면 고정 금액 혜택
+  rewardsRate: number | 'themore' | 'themore2' | 'kfirst15' | 'toss'; // 혜택률. 1보다 크면 고정 금액 혜택
   minimumPaymentAmount?: number; // 최소 결제 금액
   limit?: number; // 최대 혜택 금액
 };
@@ -64,20 +64,16 @@ const cardData: CardType[] = [
     type: '할인',
     rewardsRate: 0.01,
     음식점: {
-      rewardsRate: 0.015,
-      minimumPaymentAmount: 10000,
+      rewardsRate: 'kfirst15',
     },
     편의점: {
-      rewardsRate: 0.015,
-      minimumPaymentAmount: 10000,
+      rewardsRate: 'kfirst15',
     },
     카페: {
-      rewardsRate: 0.015,
-      minimumPaymentAmount: 10000,
+      rewardsRate: 'kfirst15',
     },
     대형마트: {
-      rewardsRate: 0.015,
-      minimumPaymentAmount: 10000,
+      rewardsRate: 'kfirst15',
     },
     상품권: {
       rewardsRate: 0,
