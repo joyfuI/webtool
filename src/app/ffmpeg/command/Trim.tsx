@@ -20,9 +20,9 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
       command={command}
       args={{
         '-i': `"${input}"`,
+        '-c': 'copy',
         '-ss': ss,
         [distance ? '-t' : '-to']: distance ? t : to,
-        '-c': 'copy',
         '': `"${output}"`,
       }}
       label="동영상 자르기"

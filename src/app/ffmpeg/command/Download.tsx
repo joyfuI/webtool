@@ -23,9 +23,7 @@ const Download = ({ command, output }: DefaultCommandProps) => {
         value={url}
         placeholder="미디어 주소"
         fullWidth
-        onChange={(e) => {
-          setUrl(e.target.value);
-        }}
+        onChange={(e) => setUrl(e.target.value)}
         sx={{ mb: 1 }}
       />
     </CommandCopy>

@@ -30,7 +30,7 @@ const Transpose = ({ command, input, output }: DefaultCommandProps) => {
           { value: 'transpose=3', label: '270도/좌우반전' },
         ]}
         value={transpose.toString()}
-        onChange={(e, value) => setTranspose(value)}
+        onChange={(e, v) => setTranspose(v)}
         sx={{
           mb: 1,
           overflowX: 'auto',
