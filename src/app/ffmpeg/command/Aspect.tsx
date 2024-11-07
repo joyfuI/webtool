@@ -18,7 +18,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
       args={{
         '-i': `"${input}"`,
         '-c': 'copy',
-        '-aspect': `${width}:${height}`,
+        '-aspect': `${width || 1}:${height || 1}`,
         '': `"${output}"`,
       }}
       label="화면비 조정"
@@ -27,19 +27,19 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
         <FormLabel sx={{ fontSize: 14 }}>화면비</FormLabel>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Input
-            value={width}
+            value={Number.isNaN(width) ? '' : width}
             type="number"
             placeholder="가로"
-            slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
+            slotProps={{ input: { min: 1, inputMode: 'numeric' } }}
             onChange={(e) => setWidth(parseFloat(e.target.value))}
             sx={{ width: '50px' }}
           />
           <span>:</span>
           <Input
-            value={height}
+            value={Number.isNaN(height) ? '' : height}
             type="number"
             placeholder="세로"
-            slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
+            slotProps={{ input: { min: 1, inputMode: 'numeric' } }}
             onChange={(e) => setHeight(parseFloat(e.target.value))}
             sx={{ width: '50px' }}
           />

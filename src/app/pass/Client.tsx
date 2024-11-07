@@ -136,7 +136,7 @@ const Client = () => {
         spacing={2}
       >
         <TextField
-          value={amount}
+          value={Number.isNaN(amount) ? '' : amount}
           label="1회 이용요금"
           type="number"
           slotProps={{
@@ -149,7 +149,7 @@ const Client = () => {
           sx={{ maxWidth: '130px' }}
         />
         <TextField
-          value={count}
+          value={Number.isNaN(count) ? '' : count}
           label="이용횟수"
           type="number"
           slotProps={{
@@ -164,7 +164,7 @@ const Client = () => {
         <Typography sx={{ whiteSpace: 'nowrap' }}>
           금액
           <br />
-          {(amount * count).toLocaleString()}원
+          {(amount * count || 0).toLocaleString()}원
         </Typography>
       </Stack>
 

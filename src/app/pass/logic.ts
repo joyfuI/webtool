@@ -30,7 +30,7 @@ export const differenceInBusinessDays = (dateLeft: Date, dateRight: Date) => {
 };
 
 export const getNarasarang = (amount: number, count: number) => {
-  const sum = amount * count;
+  const sum = amount * count || 0;
   const discount = sum * 0.2;
   const actualAmount = sum - (discount > 5000 ? 5000 : discount);
 
@@ -41,10 +41,10 @@ export const getNarasarang = (amount: number, count: number) => {
 };
 
 export const getPass = (amount: number, count: number) => {
-  const sum = amount * count;
+  const sum = amount * count || 0;
   const actualAmount = 1400 * 44;
 
-  return count <= 60 ?
+  return (count || 0) <= 60 ?
       {
         actualAmount,
         gain: sum - actualAmount,
@@ -55,7 +55,7 @@ export const getPass = (amount: number, count: number) => {
 export const getClimate = (amount: number, count: number, option: string[]) => {
   const youth = option.includes('youth');
   const bikeseoul = option.includes('bikeseoul');
-  const sum = amount * count;
+  const sum = amount * count || 0;
   const actualAmount =
     youth ?
       bikeseoul ? 58000
@@ -70,8 +70,8 @@ export const getClimate = (amount: number, count: number, option: string[]) => {
 };
 
 export const getKPass = (amount: number, count: number, option: string) => {
-  const sum = amount * count;
-  const actualSum = amount * Math.min(count, 60);
+  const sum = amount * count || 0;
+  const actualSum = amount * Math.min(count, 60) || 0;
   const discount =
     count >= 15 ?
       (actualSum <= 200000 ? actualSum : 200000 + (actualSum - 200000) / 2) *

@@ -28,7 +28,7 @@ const Client = () => {
   return (
     <>
       <TextField
-        value={amount}
+        value={Number.isNaN(amount) ? '' : amount}
         label="금액"
         type="number"
         slotProps={{
