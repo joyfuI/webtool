@@ -11,6 +11,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -26,6 +27,7 @@ const menu = [
   { title: '글자 수 세기', href: '/count' },
   { title: '피보나치킨', href: '/fibonachicken' },
   { title: 'FFmpeg', href: '/ffmpeg' },
+  { title: 'etc.', href: '/etc' },
 ];
 
 const responsive = (xs: unknown, md: unknown): object => ({ xs, md });
@@ -87,18 +89,27 @@ const Header = () => {
             >
               웹툴
             </Typography>
-            <Box sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}>
+            <Stack
+              direction="row"
+              spacing={1}
+              sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}
+            >
               {menu.map((item) => (
                 <Button
                   key={item.href}
                   component={Link}
                   href={item.href}
-                  sx={{ display: 'block', my: 2, color: 'white' }}
+                  sx={{
+                    display: 'block',
+                    my: 2,
+                    color: 'white',
+                    textAlign: 'center',
+                  }}
                 >
                   {item.title}
                 </Button>
               ))}
-            </Box>
+            </Stack>
 
             <DarkModeButton />
           </Toolbar>
