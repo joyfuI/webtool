@@ -11,11 +11,7 @@ const TossBank = () => {
   return (
     <>
       <span>
-        <Link
-          component="span"
-          onClick={() => setOpen(true)}
-          sx={{ cursor: 'pointer' }}
-        >
+        <Link component="button" type="button" onClick={() => setOpen(true)}>
           대상 영역
         </Link>{' '}
         당 1일 1회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적: X

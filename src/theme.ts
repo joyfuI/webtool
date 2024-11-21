@@ -16,6 +16,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        button: {
+          verticalAlign: 'baseline',
+        },
+      },
+    },
   },
 });
 

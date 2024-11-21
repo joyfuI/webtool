@@ -99,12 +99,7 @@ const Header = () => {
                   key={item.href}
                   component={Link}
                   href={item.href}
-                  sx={{
-                    display: 'block',
-                    my: 2,
-                    color: 'white',
-                    textAlign: 'center',
-                  }}
+                  sx={{ my: 2, color: 'white' }}
                 >
                   {item.title}
                 </Button>

@@ -12,11 +12,7 @@ const KBank = () => {
     <>
       <span>
         5천원 이상{' '}
-        <Link
-          component="span"
-          onClick={() => setOpen(true)}
-          sx={{ cursor: 'pointer' }}
-        >
+        <Link component="button" type="button" onClick={() => setOpen(true)}>
           대상 가맹점
         </Link>{' '}
         각 영역별 1일 1회 300원 캐시백 / 전월실적: X
