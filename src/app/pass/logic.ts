@@ -1,5 +1,5 @@
 export const toDateString = (date: Date) =>
-  `${date.getFullYear()}-${date.getMonth().toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+  `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 
 export const addDays = (date: Date, amount: number) =>
   new Date(date.getFullYear(), date.getMonth(), date.getDate() + amount);

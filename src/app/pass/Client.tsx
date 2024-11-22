@@ -25,7 +25,7 @@ const Client = () => {
   const [climateOption, setClimateOption] = useState(['youth']);
   const [kPassOption, setKPassOption] = useState('youth');
 
-  const endDate = addDays(date, 30);
+  const endDate = addDays(date, 29);
   const businessDay = differenceInBusinessDays(date, endDate);
 
   useEffect(() => {
