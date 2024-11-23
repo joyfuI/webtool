@@ -27,7 +27,7 @@ export type TableProps = {
 
 const Table = ({ columns, rows, sx }: TableProps, ref: Ref<HTMLDivElement>) => (
   <TableContainer ref={ref} component={Paper} sx={sx}>
-    <MuiTable sx={{ whiteSpace: 'nowrap' }}>
+    <MuiTable stickyHeader sx={{ whiteSpace: 'nowrap' }}>
       <TableHead>
         <TableRow>
           {columns.map(({ field, headerName, ...props }) => (

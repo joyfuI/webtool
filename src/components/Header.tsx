@@ -24,6 +24,7 @@ import { useToggle } from '@/hooks';
 const menu = [
   { title: '카드 혜택 계산기', href: '/card' },
   { title: '지하철 정기권 계산기', href: '/pass' },
+  { title: '나이 계산기', href: '/age' },
   { title: '글자 수 세기', href: '/count' },
   { title: '피보나치킨', href: '/fibonachicken' },
   { title: 'FFmpeg', href: '/ffmpeg' },
