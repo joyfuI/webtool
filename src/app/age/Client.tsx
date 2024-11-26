@@ -1,12 +1,15 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { blueGrey } from '@mui/material/colors';
 
 import Table from '@/components/Table';
+
+import type theme from '@/theme';
 
 import {
   toDateString,
@@ -31,6 +34,23 @@ const Client = () => {
       diff: formatDistanceYear(year - todayYear + i),
     }));
   }, [date]);
+
+  const style = useCallback(
+    (t: typeof theme) => {
+      const year = date.getFullYear();
+      const todayYear = new Date().getFullYear();
+      const i = todayYear - year + 1;
+      return {
+        [`& .MuiTableBody-root > .MuiTableRow-root:nth-child(${i})`]: {
+          bgcolor: blueGrey[50],
+          ...t.applyStyles('dark', {
+            bgcolor: blueGrey[900],
+          }),
+        },
+      };
+    },
+    [date],
+  );
 
   return (
     <>
@@ -97,6 +117,7 @@ const Client = () => {
           { field: 'diff', headerName: '비교' },
         ]}
         rows={rows}
+        sx={style}
       />
     </>
   );
