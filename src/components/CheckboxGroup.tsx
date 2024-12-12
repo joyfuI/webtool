@@ -1,4 +1,4 @@
-import { useState, useEffect, useId, forwardRef } from 'react';
+import { useState, useEffect, useId } from 'react';
 import type { Ref, ReactNode, Attributes, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
@@ -12,6 +12,7 @@ import FormLabel from '@mui/material/FormLabel';
 import type theme from '@/theme';
 
 export type CheckboxProps = {
+  ref?: Ref<HTMLFieldSetElement>;
   label?: ReactNode;
   options: (Omit<FormControlLabelProps & Attributes, 'control'> & {
     value: string;
@@ -22,18 +23,16 @@ export type CheckboxProps = {
   sx?: SxProps<typeof theme>;
 } & Omit<FormGroupProps, 'defaultValue' | 'onChange'>;
 
-const CheckboxGroup = (
-  {
-    label,
-    options,
-    value,
-    defaultValue,
-    onChange,
-    sx,
-    ...props
-  }: CheckboxProps,
-  ref: Ref<HTMLFieldSetElement>,
-) => {
+const CheckboxGroup = ({
+  ref,
+  label,
+  options,
+  value,
+  defaultValue,
+  onChange,
+  sx,
+  ...props
+}: CheckboxProps) => {
   const [checkedList, setCheckedList] = useState(new Set(defaultValue ?? []));
   const labelId = useId();
 
@@ -76,4 +75,4 @@ const CheckboxGroup = (
   );
 };
 
-export default forwardRef(CheckboxGroup);
+export default CheckboxGroup;

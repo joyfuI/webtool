@@ -1,4 +1,4 @@
-import { useId, forwardRef } from 'react';
+import { useId } from 'react';
 import type { Ref, ReactNode, Attributes } from 'react';
 import type { SxProps } from '@mui/material';
 import MuiRadio from '@mui/material/Radio';
@@ -12,15 +12,13 @@ import FormLabel from '@mui/material/FormLabel';
 import type theme from '@/theme';
 
 export type RadioProps = {
+  ref?: Ref<HTMLFieldSetElement>;
   label?: ReactNode;
   options: Omit<FormControlLabelProps & Attributes, 'control'>[];
   sx?: SxProps<typeof theme>;
 } & RadioGroupProps;
 
-const Radio = (
-  { label, options, sx, ...props }: RadioProps,
-  ref: Ref<HTMLFieldSetElement>,
-) => {
+const Radio = ({ ref, label, options, sx, ...props }: RadioProps) => {
   const labelId = useId();
 
   return (
@@ -44,4 +42,4 @@ const Radio = (
   );
 };
 
-export default forwardRef(Radio);
+export default Radio;

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useId, forwardRef } from 'react';
+import { useRef, useEffect, useId } from 'react';
 import type { Ref, ReactNode, FormEvent } from 'react';
 import Dialog from '@mui/material/Dialog';
 import type { DialogProps } from '@mui/material/Dialog';
@@ -8,6 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 
 export type ModalProps = {
+  ref?: Ref<HTMLDivElement>;
   title?: ReactNode;
   onClose?: () => void;
   onSubmit?: (
@@ -18,10 +19,15 @@ export type ModalProps = {
   ) => void;
 } & DialogProps;
 
-const Modal = (
-  { children, open, title, onClose, onSubmit, ...props }: ModalProps,
-  ref: Ref<HTMLDivElement>,
-) => {
+const Modal = ({
+  ref,
+  children,
+  open,
+  title,
+  onClose,
+  onSubmit,
+  ...props
+}: ModalProps) => {
   const titleId = useId();
   const contentTextId = useId();
 
@@ -75,4 +81,4 @@ const Modal = (
   );
 };
 
-export default forwardRef(Modal);
+export default Modal;

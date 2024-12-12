@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import type { Ref, ReactNode } from 'react';
 import type { SxProps } from '@mui/material';
 import MuiTable from '@mui/material/Table';
@@ -20,12 +19,13 @@ export type ColumnType = {
 export type RowType = Record<string, ReactNode>;
 
 export type TableProps = {
+  ref?: Ref<HTMLDivElement>;
   columns: ColumnType[];
   rows: RowType[];
   sx?: SxProps<typeof theme>;
 };
 
-const Table = ({ columns, rows, sx }: TableProps, ref: Ref<HTMLDivElement>) => (
+const Table = ({ ref, columns, rows, sx }: TableProps) => (
   <TableContainer ref={ref} component={Paper} sx={sx}>
     <MuiTable stickyHeader sx={{ whiteSpace: 'nowrap' }}>
       <TableHead>
@@ -57,4 +57,4 @@ const Table = ({ columns, rows, sx }: TableProps, ref: Ref<HTMLDivElement>) => (
   </TableContainer>
 );
 
-export default forwardRef(Table);
+export default Table;

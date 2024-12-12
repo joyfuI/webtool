@@ -1,4 +1,4 @@
-import { useMemo, forwardRef } from 'react';
+import { useMemo } from 'react';
 import type { Ref, ReactNode } from 'react';
 import type { SxProps } from '@mui/material';
 import FormLabel from '@mui/material/FormLabel';
@@ -13,6 +13,7 @@ import type theme from '@/theme';
 import copyText from '@/utils/copyText';
 
 export type CommandCopyProps = {
+  ref?: Ref<HTMLDivElement>;
   children?: ReactNode;
   command?: string;
   args?: Record<string, string>;
@@ -20,10 +21,14 @@ export type CommandCopyProps = {
   sx?: SxProps<typeof theme>;
 };
 
-const CommandCopy = (
-  { children, command, args, label, sx }: CommandCopyProps,
-  ref: Ref<HTMLDivElement>,
-) => {
+const CommandCopy = ({
+  ref,
+  children,
+  command,
+  args,
+  label,
+  sx,
+}: CommandCopyProps) => {
   const value = useMemo(
     () =>
       command ?
@@ -64,4 +69,4 @@ const CommandCopy = (
   );
 };
 
-export default forwardRef(CommandCopy);
+export default CommandCopy;

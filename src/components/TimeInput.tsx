@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { Ref, ReactNode, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
 import FormLabel from '@mui/material/FormLabel';
@@ -11,6 +11,7 @@ import Div from './Div';
 import type theme from '@/theme';
 
 export type TimeInputProps = {
+  ref?: Ref<HTMLDivElement>;
   label?: ReactNode;
   value?: string;
   defaultValue?: string;
@@ -18,10 +19,15 @@ export type TimeInputProps = {
   sx?: SxProps<typeof theme>;
 } & Omit<InputProps, 'onChange'>;
 
-const TimeInput = (
-  { label, value, defaultValue, onChange, sx, ...props }: TimeInputProps,
-  ref: Ref<HTMLDivElement>,
-) => {
+const TimeInput = ({
+  ref,
+  label,
+  value,
+  defaultValue,
+  onChange,
+  sx,
+  ...props
+}: TimeInputProps) => {
   const [time, setTime] = useState(
     defaultValue
       ?.split(':')
@@ -111,4 +117,4 @@ const TimeInput = (
   );
 };
 
-export default forwardRef(TimeInput);
+export default TimeInput;
