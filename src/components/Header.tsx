@@ -26,6 +26,7 @@ const menu = [
   { title: '지하철 정기권 계산기', href: '/pass' },
   { title: '나이 계산기', href: '/age' },
   { title: '글자 수 세기', href: '/count' },
+  { title: 'JSON 포매터', href: '/json' },
   { title: '피보나치킨', href: '/fibonachicken' },
   { title: 'FFmpeg', href: '/ffmpeg' },
   { title: 'etc.', href: '/etc' },
