@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import type { Ref, ReactNode, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
+import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import Stack from '@mui/material/Stack';
 import Input from '@mui/material/Input';
 import type { InputProps } from '@mui/material/Input';
-
-import Div from './Div';
 
 import type theme from '@/theme';
 
@@ -75,7 +74,7 @@ const TimeInput = ({
   };
 
   return (
-    <Div ref={ref} sx={sx}>
+    <Box ref={ref} sx={sx}>
       {label ?
         <FormLabel sx={{ fontSize: 14 }}>{label}</FormLabel>
       : null}
@@ -113,7 +112,7 @@ const TimeInput = ({
           sx={{ width: '40px' }}
         />
       </Stack>
-    </Div>
+    </Box>
   );
 };
 

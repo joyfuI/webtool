@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import Stack from '@mui/material/Stack';
 import Input from '@mui/material/Input';
 
-import Div from '@/components/Div';
 import CommandCopy from '@/components/CommandCopy';
 
 import type { DefaultCommandProps } from '../logic';
@@ -23,7 +23,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
       }}
       label="화면비 조정"
     >
-      <Div sx={{ mb: 1 }}>
+      <Box sx={{ mb: 1 }}>
         <FormLabel sx={{ fontSize: 14 }}>화면비</FormLabel>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Input
@@ -44,7 +44,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             sx={{ width: '50px' }}
           />
         </Stack>
-      </Div>
+      </Box>
     </CommandCopy>
   );
 };

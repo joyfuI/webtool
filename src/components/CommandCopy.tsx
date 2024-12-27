@@ -1,13 +1,12 @@
 import { useMemo } from 'react';
 import type { Ref, ReactNode } from 'react';
 import type { SxProps } from '@mui/material';
+import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-
-import Div from './Div';
 
 import type theme from '@/theme';
 import copyText from '@/utils/copyText';
@@ -46,7 +45,7 @@ const CommandCopy = ({
   );
 
   return (
-    <Div ref={ref} sx={sx}>
+    <Box ref={ref} sx={sx}>
       {label ?
         <FormLabel component="legend" sx={{ mb: 1 }}>
           {label}
@@ -65,7 +64,7 @@ const CommandCopy = ({
         readOnly
         fullWidth
       />
-    </Div>
+    </Box>
   );
 };
 
