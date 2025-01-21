@@ -44,6 +44,25 @@ const cardData: CardType[] = [
     note: '5천원 이상 결제 시 천원 미만 금액 가맹점 당 하루 1회 적립 / 전월실적 30만원',
   },
   {
+    name: '네이버 현대 카드',
+    type: '적립',
+    rewardsRate: 0.01,
+    오픈마켓: {
+      rewardsRate: 0.05,
+      limit: 200000,
+    },
+    전기요금: {
+      rewardsRate: 0,
+    },
+    가스요금: {
+      rewardsRate: 0,
+    },
+    상품권: {
+      rewardsRate: 0,
+    },
+    note: '1% 네이버페이 포인트 적립 / 네이버플러스 멤버십 적립 대상 5% 네이버페이 포인트 적립 / 전월실적 30만원',
+  },
+  {
     name: '톡톡 마이포인트 카드',
     type: '적립',
     rewardsRate: 0.055,
