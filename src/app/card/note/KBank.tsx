@@ -15,7 +15,7 @@ const KBank = () => {
         <Link component="button" type="button" onClick={() => setOpen(true)}>
           대상 가맹점
         </Link>{' '}
-        각 영역별 1일 1회 300원 캐시백 / 전월실적: X
+        각 영역별 1일 1회 300원 캐시백 / 전월실적 X
       </span>
 
       <Modal open={open} title="대상 가맹점" onClose={() => setOpen(false)}>

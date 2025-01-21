@@ -57,7 +57,7 @@ const cardData: CardType[] = [
     상품권: {
       rewardsRate: 0,
     },
-    note: 'KB Pay 5.5% 적립 / 전월실적: X',
+    note: 'KB Pay 5.5% 적립 / 전월실적 X',
   },
   {
     name: '케이 퍼스트 카드',
@@ -79,16 +79,6 @@ const cardData: CardType[] = [
       rewardsRate: 0,
     },
     note: KFirst,
-  },
-  {
-    name: '딥에코 카드',
-    type: '캐시백',
-    rewardsRate: 0,
-    limit: 600000,
-    오픈마켓: {
-      rewardsRate: 0.05,
-    },
-    note: '쿠팡, 11번가, G마켓, 옥션 5% 적립 / 전월실적 30만원 / 만보걷기 15일 이상인 경우 5천원 캐시백',
   },
   {
     name: '카드의정석 포인트 카드',
@@ -125,14 +115,14 @@ const cardData: CardType[] = [
     상품권: {
       rewardsRate: 0,
     },
-    note: '네이버페이, 카카오페이, 페이코 2% 캐시백 / 전월실적: X',
+    note: '네이버페이, 카카오페이, 페이코 2% 캐시백 / 전월실적 X',
   },
   {
     name: '네이버페이 신한 체크카드',
     type: '적립',
     rewardsRate: 0.01,
     limit: 1000000,
-    note: '1% 네이버페이 포인트 적립 / 전월실적: X',
+    note: '1% 네이버페이 포인트 적립 / 전월실적 X',
   },
   {
     name: '마이 체크카드',
