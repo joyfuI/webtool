@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 
 import Download from './command/Download';
 import Trim from './command/Trim';
-import Mp3Extraction from './command/Mp3Extraction';
+import AudioExtraction from './command/AudioExtraction';
 import Copy from './command/Copy';
 import AudioRemove from './command/AudioRemove';
 import Aspect from './command/Aspect';
@@ -46,7 +46,7 @@ const Client = () => {
       <Stack spacing={3} sx={{ mt: 3 }}>
         <Download command={command} input={input} output={output} />
         <Trim command={command} input={input} output={output} />
-        <Mp3Extraction command={command} input={input} output={output} />
+        <AudioExtraction command={command} input={input} output={output} />
         <Copy command={command} input={input} output={output} />
         <AudioRemove command={command} input={input} output={output} />
         <Aspect command={command} input={input} output={output} />
