@@ -7,7 +7,7 @@ import TimeInput from '@/components/TimeInput';
 
 import { useToggle } from '@/hooks';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
 const Trim = ({ command, input, output }: DefaultCommandProps) => {
   const [ss, setSS] = useState('00:00:00');

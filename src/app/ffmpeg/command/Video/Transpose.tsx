@@ -3,7 +3,7 @@ import { useState } from 'react';
 import CommandCopy from '@/components/CommandCopy';
 import Radio from '@/components/Radio';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
 const Transpose = ({ command, input, output }: DefaultCommandProps) => {
   const [transpose, setTranspose] = useState('transpose=2');

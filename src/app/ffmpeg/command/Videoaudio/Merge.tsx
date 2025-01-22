@@ -4,9 +4,9 @@ import Input from '@mui/material/Input';
 
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
-const VideoAudio = ({ command, output }: DefaultCommandProps) => {
+const Merge = ({ command, output }: DefaultCommandProps) => {
   const [video, setVideo] = useState('input.ts');
   const [audio, setAudio] = useState('input.mp3');
 
@@ -39,4 +39,4 @@ const VideoAudio = ({ command, output }: DefaultCommandProps) => {
   );
 };
 
-export default VideoAudio;
+export default Merge;

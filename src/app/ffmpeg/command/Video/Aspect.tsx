@@ -6,7 +6,7 @@ import Input from '@mui/material/Input';
 
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
 const Aspect = ({ command, input, output }: DefaultCommandProps) => {
   const [width, setWidth] = useState(16);

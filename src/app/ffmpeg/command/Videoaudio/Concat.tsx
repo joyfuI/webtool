@@ -6,11 +6,13 @@ import Checkbox from '@mui/material/Checkbox';
 
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import { useToggle } from '@/hooks';
+
+import type { DefaultCommandProps } from '../../logic';
 
 const Concat = ({ command, output }: DefaultCommandProps) => {
   const [files, setFiles] = useState('');
-  const [sameCodec, setSameCodec] = useState(true);
+  const [sameCodec, toggleSameCodec] = useToggle(true);
 
   const list = files.split('\n');
 
@@ -46,9 +48,7 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
         />
         <FormControlLabel
           checked={sameCodec}
-          control={
-            <Checkbox onChange={(e) => setSameCodec(e.target.checked)} />
-          }
+          control={<Checkbox onChange={toggleSameCodec} />}
           label="동일코덱"
           labelPlacement="top"
           sx={{ whiteSpace: 'nowrap' }}

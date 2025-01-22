@@ -1,5 +1,6 @@
 'use client';
 import { createTheme } from '@mui/material/styles';
+import type {} from '@mui/lab/themeAugmentation';
 
 const theme = createTheme({
   colorSchemes: { light: true, dark: true },
@@ -20,6 +21,13 @@ const theme = createTheme({
       styleOverrides: {
         button: {
           verticalAlign: 'baseline',
+        },
+      },
+    },
+    MuiTabPanel: {
+      styleOverrides: {
+        root: {
+          padding: 0,
         },
       },
     },

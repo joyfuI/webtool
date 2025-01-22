@@ -3,9 +3,9 @@ import Input from '@mui/material/Input';
 
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
-const Download = ({ command, output }: DefaultCommandProps) => {
+const M3u8Download = ({ command, output }: DefaultCommandProps) => {
   const [url, setUrl] = useState('');
 
   return (
@@ -30,4 +30,4 @@ const Download = ({ command, output }: DefaultCommandProps) => {
   );
 };
 
-export default Download;
+export default M3u8Download;

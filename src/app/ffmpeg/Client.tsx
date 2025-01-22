@@ -2,19 +2,19 @@
 import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+
+import { useHash } from '@/hooks';
 
 import Download from './command/Download';
-import Trim from './command/Trim';
-import AudioExtraction from './command/AudioExtraction';
-import Copy from './command/Copy';
-import AudioRemove from './command/AudioRemove';
-import Aspect from './command/Aspect';
-import Transpose from './command/Transpose';
-import Reverse from './command/Reverse';
-import Concat from './command/Concat';
-import VideoAudio from './command/VideoAudio';
+import Videoaudio from './command/Videoaudio';
+import Video from './command/Video';
+import Audio from './command/Audio';
 import Recommended from './command/Recommended';
 
 const command = '.\\ffmpeg';
@@ -22,10 +22,11 @@ const command = '.\\ffmpeg';
 const Client = () => {
   const [input, setInput] = useState('input.ts');
   const [output, setOutput] = useState('output.mp4');
+  const [tab, setTab] = useHash();
 
   return (
     <>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
         <TextField
           value={input}
           label="변환할 파일명"
@@ -43,18 +44,22 @@ const Client = () => {
         />
       </Stack>
 
-      <Stack spacing={3} sx={{ mt: 3 }}>
+      <TabContext value={tab || 'download'}>
+        <Box sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={(e, v) => setTab(v)}>
+            <Tab label="다운로드" value="download" />
+            <Tab label="동영상" value="videoaudio" />
+            <Tab label="비디오" value="video" />
+            <Tab label="오디오" value="audio" />
+          </TabList>
+        </Box>
         <Download command={command} input={input} output={output} />
-        <Trim command={command} input={input} output={output} />
-        <AudioExtraction command={command} input={input} output={output} />
-        <Copy command={command} input={input} output={output} />
-        <AudioRemove command={command} input={input} output={output} />
-        <Aspect command={command} input={input} output={output} />
-        <Transpose command={command} input={input} output={output} />
-        <Reverse command={command} input={input} output={output} />
-        <Concat command={command} input={input} output={output} />
-        <VideoAudio command={command} input={input} output={output} />
+        <Videoaudio command={command} input={input} output={output} />
+        <Video command={command} input={input} output={output} />
+        <Audio command={command} input={input} output={output} />
+      </TabContext>
 
+      <Stack spacing={3} sx={{ mt: 3 }}>
         <ButtonGroup variant="outlined" sx={{ justifyContent: 'center' }}>
           <Button
             href="https://ffmpeg.org/ffmpeg.html"

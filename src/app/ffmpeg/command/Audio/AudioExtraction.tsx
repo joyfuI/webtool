@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
 const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
   const [codec, setCodec] = useState('mp3');

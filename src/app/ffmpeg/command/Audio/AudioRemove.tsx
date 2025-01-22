@@ -1,6 +1,6 @@
 import CommandCopy from '@/components/CommandCopy';
 
-import type { DefaultCommandProps } from '../logic';
+import type { DefaultCommandProps } from '../../logic';
 
 const AudioRemove = ({ command, input, output }: DefaultCommandProps) => {
   return (
