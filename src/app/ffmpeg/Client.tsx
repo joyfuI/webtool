@@ -59,26 +59,27 @@ const Client = () => {
         <Audio command={command} input={input} output={output} />
       </TabContext>
 
-      <Stack spacing={3} sx={{ mt: 3 }}>
-        <ButtonGroup variant="outlined" sx={{ justifyContent: 'center' }}>
-          <Button
-            href="https://ffmpeg.org/ffmpeg.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            ffmpeg 문서
-          </Button>
-          <Button
-            href="https://ffmpeg.org/ffmpeg-filters.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            ffmpeg 필터 문서
-          </Button>
-        </ButtonGroup>
+      <ButtonGroup
+        variant="outlined"
+        sx={{ width: '100%', my: 3, justifyContent: 'center' }}
+      >
+        <Button
+          href="https://ffmpeg.org/ffmpeg.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ffmpeg 문서
+        </Button>
+        <Button
+          href="https://ffmpeg.org/ffmpeg-filters.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ffmpeg 필터 문서
+        </Button>
+      </ButtonGroup>
 
-        <Recommended command={command} input={input} output={output} />
-      </Stack>
+      <Recommended command={command} input={input} output={output} />
     </>
   );
 };
