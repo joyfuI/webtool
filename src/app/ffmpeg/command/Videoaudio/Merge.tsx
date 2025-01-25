@@ -7,8 +7,8 @@ import CommandCopy from '@/components/CommandCopy';
 import type { DefaultCommandProps } from '../../logic';
 
 const Merge = ({ command, output }: DefaultCommandProps) => {
-  const [video, setVideo] = useState('input.ts');
-  const [audio, setAudio] = useState('input.mp3');
+  const [video, setVideo] = useState('input.mp4');
+  const [audio, setAudio] = useState('input.m4a');
 
   return (
     <CommandCopy
@@ -16,7 +16,7 @@ const Merge = ({ command, output }: DefaultCommandProps) => {
       args={{
         '-i': `"${video}" -i "${audio}"`,
         '-c:v': 'copy',
-        '-c:a': 'aac',
+        '-c:a': 'copy',
         '': `"${output}"`,
       }}
       label="비디오+오디오 합치기"
