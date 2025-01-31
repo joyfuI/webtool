@@ -25,7 +25,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
     >
       <Box sx={{ mb: 1 }}>
         <FormLabel sx={{ fontSize: 14 }}>화면비</FormLabel>
-        <Stack direction="row" alignItems="center" spacing={1}>
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
           <Input
             value={Number.isNaN(width) ? '' : width}
             type="number"

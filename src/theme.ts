@@ -24,10 +24,22 @@ const theme = createTheme({
         },
       },
     },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+    },
     MuiTabPanel: {
       styleOverrides: {
         root: {
           padding: 0,
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          margin: '8px 0',
         },
       },
     },

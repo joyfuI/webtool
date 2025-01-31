@@ -38,7 +38,10 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
           type="time"
           onChange={(e, v) => setSS(v)}
         />
-        <Stack direction="row" alignItems="flex-end" sx={{ overflowX: 'auto' }}>
+        <Stack
+          direction="row"
+          sx={{ alignItems: 'flex-end', overflowX: 'auto' }}
+        >
           <TimeInput
             label="종료시간"
             value={to}

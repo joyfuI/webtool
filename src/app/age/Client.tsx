@@ -69,9 +69,7 @@ const Client = () => {
       <Stack
         direction="row"
         spacing={2}
-        justifyContent="center"
-        useFlexGap
-        sx={{ mt: 3, flexWrap: 'wrap' }}
+        sx={{ mt: 3, justifyContent: 'center', flexWrap: 'wrap' }}
       >
         <Card sx={{ minWidth: 170 }}>
           <CardContent>

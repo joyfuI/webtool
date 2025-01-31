@@ -35,7 +35,11 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
       }
       label="동영상 합치기"
     >
-      <Stack direction="row" alignItems="flex-start" spacing={1} sx={{ mb: 1 }}>
+      <Stack
+        direction="row"
+        spacing={1}
+        sx={{ mb: 1, alignItems: 'flex-start' }}
+      >
         <Input
           value={files}
           placeholder="파일 목록"

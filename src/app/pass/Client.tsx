@@ -101,9 +101,11 @@ const Client = () => {
     <>
       <Stack
         direction="row"
-        alignItems="center"
-        justifyContent="center"
         spacing={2}
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
         <TextField
           value={toDateString(date)}
@@ -131,9 +133,11 @@ const Client = () => {
 
       <Stack
         direction="row"
-        alignItems="center"
-        justifyContent="center"
         spacing={2}
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
         <TextField
           value={Number.isNaN(amount) ? '' : amount}

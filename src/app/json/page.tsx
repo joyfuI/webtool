@@ -10,14 +10,7 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <Box
-      component="form"
-      autoComplete="off"
-      noValidate
-      sx={{
-        '& .MuiTextField-root': { my: 1 },
-      }}
-    >
+    <Box component="form" autoComplete="off" noValidate>
       <Client />
     </Box>
   );

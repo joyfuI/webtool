@@ -78,7 +78,7 @@ const TimeInput = ({
       {label ?
         <FormLabel sx={{ fontSize: 14 }}>{label}</FormLabel>
       : null}
-      <Stack direction="row" alignItems="center" spacing={1}>
+      <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
         <Input
           {...props}
           name="hour"
