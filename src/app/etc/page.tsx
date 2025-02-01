@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 import ZeroWidthSpace from './ZeroWidthSpace';
+import WeverseLive from './WeverseLive';
 
 export const metadata: Metadata = {
   title: 'etc.',
@@ -10,16 +11,10 @@ export const metadata: Metadata = {
 
 const Home = () => {
   return (
-    <Box
-      component="form"
-      autoComplete="off"
-      noValidate
-      sx={{
-        '& .MuiTextField-root': { my: 1 },
-      }}
-    >
+    <Stack spacing={3} sx={{ alignItems: 'flex-start' }}>
       <ZeroWidthSpace />
-    </Box>
+      <WeverseLive />
+    </Stack>
   );
 };
 
