@@ -12,24 +12,24 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.0",
-    "@mui/lab": "6.0.0-beta.24",
-    "@mui/material": "^6.4.0",
-    "@mui/material-nextjs": "^6.3.1",
+    "@mui/icons-material": "^6.4.5",
+    "@mui/lab": "6.0.0-beta.28",
+    "@mui/material": "^6.4.5",
+    "@mui/material-nextjs": "^6.4.3",
     "babel-plugin-react-compiler": "19.0.0-beta-decd7b8-20250118",
-    "next": "^15.1.5",
+    "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.7",
-    "@types/react": "^19.0.7",
-    "@types/react-dom": "^19.0.3",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^15.1.5",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.4.2",
+    "eslint-config-next": "^15.1.7",
+    "eslint-config-prettier": "^10.0.1",
+    "prettier": "^3.5.1",
     "typescript": "^5.7.3"
   },
-  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
+  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
 }
