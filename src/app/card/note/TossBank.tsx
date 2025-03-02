@@ -5,6 +5,8 @@ import Table from '@/components/Table';
 
 import { useModal } from '@/hooks';
 
+const title = '오프라인 캐시백 영역';
+
 const TossBank = () => {
   const [open, , setOpen] = useModal();
 
@@ -12,12 +14,12 @@ const TossBank = () => {
     <>
       <span>
         <Link component="button" type="button" onClick={() => setOpen(true)}>
-          오프라인 캐시백 영역
+          {title}
         </Link>{' '}
-        당 일 1회/월 10회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적 X
+        당 일1회 월10회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적 X
       </span>
 
-      <Modal open={open} title="대상 영역" onClose={() => setOpen(false)}>
+      <Modal open={open} title={title} onClose={() => setOpen(false)}>
         <Table
           columns={[
             { field: 'area', headerName: '영역' },

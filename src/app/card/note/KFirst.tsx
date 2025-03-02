@@ -5,6 +5,8 @@ import Table from '@/components/Table';
 
 import { useModal } from '@/hooks';
 
+const title = '생활 편의 업종';
+
 const KFirst = () => {
   const [open, , setOpen] = useModal();
 
@@ -13,12 +15,12 @@ const KFirst = () => {
       <span>
         1% 할인 / 만원 이상{' '}
         <Link component="button" type="button" onClick={() => setOpen(true)}>
-          생활 편의 업종
+          {title}
         </Link>{' '}
         1.5% 할인 / 전월실적 X / 무이자할부 3개월
       </span>
 
-      <Modal open={open} title="생활 편의 업종" onClose={() => setOpen(false)}>
+      <Modal open={open} title={title} onClose={() => setOpen(false)}>
         <Table
           columns={[
             { field: 'area', headerName: '업종' },
