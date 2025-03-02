@@ -137,13 +137,6 @@ const cardData: CardType[] = [
     note: '네이버페이, 카카오페이, 페이코 2% 캐시백 / 전월실적 X',
   },
   {
-    name: '네이버페이 신한 체크카드',
-    type: '적립',
-    rewardsRate: 0.01,
-    limit: 1000000,
-    note: '1% 네이버페이 포인트 적립 / 전월실적 X',
-  },
-  {
     name: '마이 체크카드',
     type: '캐시백',
     rewardsRate: 0,
@@ -178,6 +171,27 @@ const cardData: CardType[] = [
       minimumPaymentAmount: 3000,
     },
     note: TossBank,
+  },
+  {
+    name: '네이버페이 머니카드',
+    type: '적립',
+    rewardsRate: 0.003,
+    오픈마켓: {
+      rewardsRate: 0.015,
+    },
+    전기요금: {
+      rewardsRate: 0,
+    },
+    가스요금: {
+      rewardsRate: 0,
+    },
+    해외: {
+      rewardsRate: 0.03,
+    },
+    상품권: {
+      rewardsRate: 0,
+    },
+    note: '0.3% 네이버페이 포인트 적립 / 네이버쇼핑 1.5% 네이버페이 포인트 적립 / 해외 3%, 수수료 네이버페이 포인트 적립 / 전월실적 X',
   },
 ];
 
