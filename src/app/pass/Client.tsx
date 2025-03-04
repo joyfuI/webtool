@@ -1,5 +1,12 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
+import {
+  useQueryState,
+  parseAsIsoDate,
+  parseAsInteger,
+  parseAsArrayOf,
+  parseAsString,
+} from 'nuqs';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -19,18 +26,29 @@ import {
 } from './logic';
 
 const Client = () => {
-  const [date, setDate] = useState(() => new Date());
-  const [amount, setAmount] = useState(1700);
-  const [count, setCount] = useState(0);
-  const [climateOption, setClimateOption] = useState(['youth']);
-  const [kPassOption, setKPassOption] = useState('youth');
+  const [date, setDate] = useQueryState(
+    'date',
+    parseAsIsoDate.withDefault(new Date()),
+  );
+  const [amount, setAmount] = useQueryState(
+    'amount',
+    parseAsInteger.withDefault(1700),
+  );
+  const [climateOption, setClimateOption] = useQueryState(
+    'climate',
+    parseAsArrayOf(parseAsString).withDefault(['youth']),
+  );
+  const [kPassOption, setKPassOption] = useQueryState(
+    'kpass',
+    parseAsString.withDefault('youth'),
+  );
 
   const endDate = addDays(date, 29);
   const businessDay = differenceInBusinessDays(date, endDate);
-
-  useEffect(() => {
-    setCount(businessDay * 2);
-  }, [businessDay]);
+  const [count, setCount] = useQueryState(
+    'count',
+    parseAsInteger.withDefault(businessDay * 2),
+  );
 
   const rows = useMemo(() => {
     const narasarang = getNarasarang(amount, count);

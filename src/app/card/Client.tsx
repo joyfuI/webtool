@@ -1,6 +1,7 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import type { ChangeEvent } from 'react';
+import { useQueryState, parseAsInteger, parseAsString } from 'nuqs';
 import TextField from '@mui/material/TextField';
 
 import Radio from '@/components/Radio';
@@ -10,8 +11,14 @@ import { getRow } from './logic';
 import cardData from './cardData';
 
 const Client = () => {
-  const [amount, setAmount] = useState(0);
-  const [industry, setIndustry] = useState('기타');
+  const [amount, setAmount] = useQueryState(
+    'amount',
+    parseAsInteger.withDefault(0),
+  );
+  const [industry, setIndustry] = useQueryState(
+    'industry',
+    parseAsString.withDefault('기타'),
+  );
 
   const rows = useMemo(
     () =>

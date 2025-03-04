@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useQueryState, parseAsString } from 'nuqs';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -20,8 +20,14 @@ import Recommended from './command/Recommended';
 const command = '.\\ffmpeg';
 
 const Client = () => {
-  const [input, setInput] = useState('input.ts');
-  const [output, setOutput] = useState('output.mp4');
+  const [input, setInput] = useQueryState(
+    'input',
+    parseAsString.withDefault('input.ts'),
+  );
+  const [output, setOutput] = useQueryState(
+    'output',
+    parseAsString.withDefault('output.mp4'),
+  );
   const [tab, setTab] = useHash();
 
   return (

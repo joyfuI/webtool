@@ -1,5 +1,6 @@
 'use client';
-import { useState, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useQueryState, parseAsIsoDate } from 'nuqs';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -22,7 +23,10 @@ import {
 } from './logic';
 
 const Client = () => {
-  const [date, setDate] = useState(() => new Date(1997, 0, 5));
+  const [date, setDate] = useQueryState(
+    'date',
+    parseAsIsoDate.withDefault(new Date(1997, 0, 5)),
+  );
 
   const rows = useMemo(() => {
     const year = date.getFullYear();
