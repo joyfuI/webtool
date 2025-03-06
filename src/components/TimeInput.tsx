@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import type { Ref, ReactNode, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';

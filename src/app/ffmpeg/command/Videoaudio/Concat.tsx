@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Input from '@mui/material/Input';

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import Stack from '@mui/material/Stack';
 
@@ -10,14 +11,16 @@ export const metadata: Metadata = {
   title: 'etc.',
 };
 
-const Home = () => {
+const Page = () => {
   return (
     <Stack spacing={3} sx={{ alignItems: 'flex-start' }}>
-      <ZeroWidthSpace />
-      <WeverseLive />
-      <WeverseReplay />
+      <Suspense>
+        <ZeroWidthSpace />
+        <WeverseLive />
+        <WeverseReplay />
+      </Suspense>
     </Stack>
   );
 };
 
-export default Home;
+export default Page;

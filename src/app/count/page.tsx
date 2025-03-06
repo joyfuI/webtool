@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import Box from '@mui/material/Box';
 
@@ -8,12 +9,14 @@ export const metadata: Metadata = {
   title: '글자 수 세기',
 };
 
-const Home = () => {
+const Page = () => {
   return (
     <Box component="form" autoComplete="off" noValidate>
-      <Client />
+      <Suspense>
+        <Client />
+      </Suspense>
     </Box>
   );
 };
 
-export default Home;
+export default Page;

@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';

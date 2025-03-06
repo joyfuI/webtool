@@ -1,3 +1,4 @@
+'use client';
 import { useRef, useEffect, useId } from 'react';
 import type { Ref, ReactNode, FormEvent } from 'react';
 import Dialog from '@mui/material/Dialog';
