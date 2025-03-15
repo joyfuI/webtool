@@ -1,13 +1,13 @@
-import { useId } from 'react';
-import type { Ref, ReactNode, Attributes } from 'react';
 import type { SxProps } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
 import MuiRadio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import type { RadioGroupProps } from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import { useId } from 'react';
+import type { Attributes, ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -23,11 +23,11 @@ const Radio = ({ ref, label, options, sx, ...props }: RadioProps) => {
 
   return (
     <FormControl ref={ref} component="fieldset" fullWidth sx={sx}>
-      {label ?
+      {label ? (
         <FormLabel component="legend" id={labelId}>
           {label}
         </FormLabel>
-      : null}
+      ) : null}
       <RadioGroup row {...props} aria-labelledby={label ? labelId : undefined}>
         {options.map(({ key, value, ...optionProps }, i) => (
           <FormControlLabel

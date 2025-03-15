@@ -1,13 +1,13 @@
-import Stack from '@mui/material/Stack';
 import TabPanel from '@mui/lab/TabPanel';
+import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
 
-import Trim from './Trim';
-import Copy from './Copy';
-import Reverse from './Reverse';
 import Concat from './Concat';
+import Copy from './Copy';
 import Merge from './Merge';
+import Reverse from './Reverse';
+import Trim from './Trim';
 
 const Videoaudio = ({ command, input, output }: DefaultCommandProps) => {
   return (

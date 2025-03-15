@@ -1,7 +1,9 @@
 export const toDateString = (date: Date) =>
-  `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+  `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 
-export const range = (length: number, start: number = 0) =>
+export const range = (length: number, start = 0) =>
   Array.from({ length }, (_, i) => i + start);
 
 export const getYearAge = (birth: Date, base: Date = new Date()) => {

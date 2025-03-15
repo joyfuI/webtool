@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
-import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 

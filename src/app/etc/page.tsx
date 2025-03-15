@@ -3,9 +3,9 @@ import { Suspense } from 'react';
 
 import Stack from '@mui/material/Stack';
 
-import ZeroWidthSpace from './ZeroWidthSpace';
 import WeverseLive from './WeverseLive';
 import WeverseReplay from './WeverseReplay';
+import ZeroWidthSpace from './ZeroWidthSpace';
 
 export const metadata: Metadata = {
   title: 'etc.',

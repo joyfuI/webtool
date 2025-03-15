@@ -1,5 +1,5 @@
-import type { Ref, ReactNode } from 'react';
 import type { SxProps } from '@mui/material';
+import Paper from '@mui/material/Paper';
 import MuiTable from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +7,7 @@ import type { TableCellProps } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import type { ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -40,6 +40,7 @@ const Table = ({ ref, columns, rows, sx }: TableProps) => (
       <TableBody>
         {rows.map((row, i) => (
           <TableRow
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={i}
             sx={{
               '&:last-child td, &:last-child th': { border: 0 },

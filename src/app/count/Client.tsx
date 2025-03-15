@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
 import Grid from '@mui/material/Grid2';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 
 import { charCount, lineCount } from './logic';
 

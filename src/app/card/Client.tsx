@@ -1,14 +1,14 @@
 'use client';
+import TextField from '@mui/material/TextField';
+import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';
 import { useMemo } from 'react';
 import type { ChangeEvent } from 'react';
-import { useQueryState, parseAsInteger, parseAsString } from 'nuqs';
-import TextField from '@mui/material/TextField';
 
 import Radio from '@/components/Radio';
 import Table from '@/components/Table';
 
-import { getRow } from './logic';
 import cardData from './cardData';
+import { getRow } from './logic';
 
 const Client = () => {
   const [amount, setAmount] = useQueryState(
@@ -28,7 +28,7 @@ const Client = () => {
     [amount, industry],
   );
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>, value: string) => {
+  const handleChange = (_e: ChangeEvent<HTMLInputElement>, value: string) => {
     setIndustry(value);
   };
 
@@ -45,7 +45,7 @@ const Client = () => {
         fullWidth
         autoFocus
         onChange={(e) => {
-          const num = parseInt(e.target.value);
+          const num = Number.parseInt(e.target.value);
           setAmount(num);
         }}
       />

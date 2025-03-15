@@ -1,12 +1,14 @@
 export const toDateString = (date: Date) =>
-  `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+  `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 
 export const addDays = (date: Date, amount: number) =>
   new Date(date.getFullYear(), date.getMonth(), date.getDate() + amount);
 
 export const differenceInBusinessDays = (dateLeft: Date, dateRight: Date) => {
-  let startDate;
-  let endDate;
+  let startDate: Date;
+  let endDate: Date;
   if (dateLeft.getTime() < dateRight.getTime()) {
     startDate = dateLeft;
     endDate = dateRight;
@@ -44,8 +46,8 @@ export const getPass = (amount: number, count: number) => {
   const sum = amount * count || 0;
   const actualAmount = 1400 * 44;
 
-  return (count || 0) <= 60 ?
-      {
+  return (count || 0) <= 60
+    ? {
         actualAmount,
         gain: sum - actualAmount,
       }
@@ -56,12 +58,13 @@ export const getClimate = (amount: number, count: number, option: string[]) => {
   const youth = option.includes('youth');
   const bikeseoul = option.includes('bikeseoul');
   const sum = amount * count || 0;
-  const actualAmount =
-    youth ?
-      bikeseoul ? 58000
+  const actualAmount = youth
+    ? bikeseoul
+      ? 58000
       : 55000
-    : bikeseoul ? 65000
-    : 62000;
+    : bikeseoul
+      ? 65000
+      : 62000;
 
   return {
     actualAmount,
@@ -73,10 +76,10 @@ export const getKPass = (amount: number, count: number, option: string) => {
   const sum = amount * count || 0;
   const actualSum = amount * Math.min(count, 60) || 0;
   const discount =
-    count >= 15 ?
-      (actualSum <= 200000 ? actualSum : 200000 + (actualSum - 200000) / 2) *
-      ({ common: 0.2, youth: 0.3, lowIncome: 0.53 }[option] ?? 0)
-    : 0;
+    count >= 15
+      ? (actualSum <= 200000 ? actualSum : 200000 + (actualSum - 200000) / 2) *
+        ({ common: 0.2, youth: 0.3, lowIncome: 0.53 }[option] ?? 0)
+      : 0;
   const actualAmount = sum - discount;
 
   return {

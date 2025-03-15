@@ -41,7 +41,6 @@
         "noHeadElement": "error",
         "noHeadImportInDocument": "error",
         "noImgElement": "error",
-        "useComponentExportOnlyModules": "error",
         "useConsistentCurlyBraces": "error",
         "useGoogleFontDisplay": "error"
       },
@@ -75,7 +74,7 @@
   },
   "json": {
     "formatter": {
-      "enabled": true
+      "enabled": false
     },
     "linter": {
       "enabled": true

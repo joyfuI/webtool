@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
-import KFirst from './note/KFirst';
 import KBank from './note/KBank';
+import KFirst from './note/KFirst';
 import TossBank from './note/TossBank';
 
 type RewardType = {

@@ -1,9 +1,9 @@
 'use client';
-import { useState, useMemo } from 'react';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import { useMemo, useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import KeyboardDoubleArrowIcon from '@/components/KeyboardDoubleArrowIcon';
@@ -19,7 +19,7 @@ const Client = () => {
 
   return (
     <CommandCopy
-      command={`.\\aria2c`} // 이렇게 안 하면 역슬래시가 이중으로 넘어감
+      command=".\aria2c"
       args={{
         '': `"${m3u8}"`,
       }}

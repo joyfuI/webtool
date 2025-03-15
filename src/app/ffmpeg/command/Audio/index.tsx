@@ -1,11 +1,11 @@
-import Stack from '@mui/material/Stack';
 import TabPanel from '@mui/lab/TabPanel';
+import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
 
 import AudioExtraction from './AudioExtraction';
-import Sync from './Sync';
 import AudioRemove from './AudioRemove';
+import Sync from './Sync';
 
 const Audio = ({ command, input, output }: DefaultCommandProps) => {
   return (

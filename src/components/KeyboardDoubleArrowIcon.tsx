@@ -1,7 +1,7 @@
-import type { Breakpoint } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import type { Breakpoint } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export type KeyboardDoubleArrowIconProps = {
   breakpoint?: Breakpoint;
@@ -12,9 +12,11 @@ const KeyboardDoubleArrowIcon = ({
 }: KeyboardDoubleArrowIconProps) => {
   const matches = useMediaQuery((theme) => theme.breakpoints.down(breakpoint));
 
-  return matches ?
-      <KeyboardDoubleArrowDownIcon />
-    : <KeyboardDoubleArrowRightIcon />;
+  return matches ? (
+    <KeyboardDoubleArrowDownIcon />
+  ) : (
+    <KeyboardDoubleArrowRightIcon />
+  );
 };
 
 export default KeyboardDoubleArrowIcon;

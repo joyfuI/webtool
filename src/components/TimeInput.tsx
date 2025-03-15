@@ -1,12 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
-import type { Ref, ReactNode, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
-import Stack from '@mui/material/Stack';
 import Input from '@mui/material/Input';
 import type { InputProps } from '@mui/material/Input';
+import Stack from '@mui/material/Stack';
+import { useEffect, useState } from 'react';
+import type { ChangeEvent, ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -33,7 +33,7 @@ const TimeInput = ({
       ?.split(':')
       .slice(0, 3)
       .map((item) => {
-        const num = parseInt(item);
+        const num = Number.parseInt(item);
         return Number.isNaN(num) ? undefined : num;
       }) ?? [0, 0, 0],
   );
@@ -45,7 +45,7 @@ const TimeInput = ({
           .split(':')
           .slice(0, 3)
           .map((item) => {
-            const num = parseInt(item);
+            const num = Number.parseInt(item);
             return Number.isNaN(num) ? undefined : num;
           }),
       );
@@ -54,7 +54,7 @@ const TimeInput = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const nextTime = [...time];
-    const num = parseInt(e.target.value);
+    const num = Number.parseInt(e.target.value);
     switch (e.target.name) {
       case 'hour':
         nextTime[0] = Number.isNaN(num) ? undefined : num;
@@ -76,9 +76,7 @@ const TimeInput = ({
 
   return (
     <Box ref={ref} sx={sx}>
-      {label ?
-        <FormLabel sx={{ fontSize: 14 }}>{label}</FormLabel>
-      : null}
+      {label ? <FormLabel sx={{ fontSize: 14 }}>{label}</FormLabel> : null}
       <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
         <Input
           {...props}

@@ -1,12 +1,12 @@
-import { useMemo } from 'react';
-import type { Ref, ReactNode } from 'react';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { useMemo } from 'react';
+import type { ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 import copyText from '@/utils/copyText';
@@ -30,27 +30,27 @@ const CommandCopy = ({
 }: CommandCopyProps) => {
   const value = useMemo(
     () =>
-      command ?
-        `${command}${
-          args ?
-            ` ${Object.entries(args ?? {})
-              .map(([key, value]) =>
-                key && value ? `${key} ${value}` : `${key}${value}`,
-              )
-              .join(' ')}`
-          : ''
-        }`
-      : '',
+      command
+        ? `${command}${
+            args
+              ? ` ${Object.entries(args ?? {})
+                  .map(([key, value]) =>
+                    key && value ? `${key} ${value}` : `${key}${value}`,
+                  )
+                  .join(' ')}`
+              : ''
+          }`
+        : '',
     [command, args],
   );
 
   return (
     <Box ref={ref} sx={sx}>
-      {label ?
+      {label ? (
         <FormLabel component="legend" sx={{ mb: 1 }}>
           {label}
         </FormLabel>
-      : null}
+      ) : null}
       {children}
       <OutlinedInput
         value={value}

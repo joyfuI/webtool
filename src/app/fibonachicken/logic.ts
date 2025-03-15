@@ -9,7 +9,7 @@ const inverseFibonacci = (num: number) =>
 
 const isPerfect = (num: number) => {
   const rootn = Math.floor(Math.sqrt(num));
-  return rootn * rootn === num ? true : false;
+  return rootn * rootn === num;
 };
 
 const isFibonacci = (num: number) => {
@@ -28,10 +28,9 @@ export const fibonaChicken = (num: number): number => {
   let i = inverseFibonacci(num);
   if (isFibonacci(num)) {
     return binet(i - 1);
-  } else {
-    while (num > binet(i)) {
-      i += 1;
-    }
-    return binet(i - 2) + fibonaChicken(num - binet(i - 1));
   }
+  while (num > binet(i)) {
+    i += 1;
+  }
+  return binet(i - 2) + fibonaChicken(num - binet(i - 1));
 };

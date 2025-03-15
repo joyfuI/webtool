@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
-import Stack from '@mui/material/Stack';
-import Input from '@mui/material/Input';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Input from '@mui/material/Input';
+import Stack from '@mui/material/Stack';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -21,18 +21,20 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
     <CommandCopy
       command={command}
       args={
-        sameCodec ?
-          {
-            '-i': `"concat:${list.join('|')}"`,
-            '-c': 'copy',
-            '': `"${output}"`,
-          }
-        : {
-            '-i': `"${list.join('" -i "')}"`,
-            '-filter_complex': `"${list.map((v, i) => `[${i}:v:0][${i}:a:0]`).join('')}concat=n=${list.length}:v=1:a=1[outv][outa]"`,
-            '-map': '"[outv]" -map "[outa]"',
-            '': `"${output}"`,
-          }
+        sameCodec
+          ? {
+              '-i': `"concat:${list.join('|')}"`,
+              '-c': 'copy',
+              '': `"${output}"`,
+            }
+          : {
+              '-i': `"${list.join('" -i "')}"`,
+              '-filter_complex': `"${list
+                .map((_v, i) => `[${i}:v:0][${i}:a:0]`)
+                .join('')}concat=n=${list.length}:v=1:a=1[outv][outa]"`,
+              '-map': '"[outv]" -map "[outa]"',
+              '': `"${output}"`,
+            }
       }
       label="동영상 합치기"
     >

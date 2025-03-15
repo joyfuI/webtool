@@ -1,8 +1,8 @@
-import { useColorScheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
 import ContrastIcon from '@mui/icons-material/Contrast';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import IconButton from '@mui/material/IconButton';
+import { useColorScheme } from '@mui/material/styles';
 
 const DarkModeButton = () => {
   const { mode, setMode } = useColorScheme();
@@ -30,7 +30,6 @@ const DarkModeButton = () => {
         </IconButton>
       );
 
-    case 'system':
     default:
       return (
         <IconButton

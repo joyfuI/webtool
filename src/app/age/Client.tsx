@@ -1,25 +1,25 @@
 'use client';
-import { useCallback, useMemo } from 'react';
-import { useQueryState, parseAsIsoDate } from 'nuqs';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { blueGrey } from '@mui/material/colors';
+import { parseAsIsoDate, useQueryState } from 'nuqs';
+import { useCallback, useMemo } from 'react';
 
 import Table from '@/components/Table';
 
 import type theme from '@/theme';
 
 import {
-  toDateString,
-  range,
+  EVENT_LIST,
+  formatDistanceYear,
   getAge,
   getKoreanAge,
   getYearAge,
-  formatDistanceYear,
-  EVENT_LIST,
+  range,
+  toDateString,
 } from './logic';
 
 const Client = () => {
@@ -31,7 +31,7 @@ const Client = () => {
   const rows = useMemo(() => {
     const year = date.getFullYear();
     const todayYear = new Date().getFullYear();
-    return range(100).map((v, i) => ({
+    return range(100).map((_v, i) => ({
       year: `${year + i}년`,
       age: `${i + 1}세`,
       event: EVENT_LIST.get(i + 1),

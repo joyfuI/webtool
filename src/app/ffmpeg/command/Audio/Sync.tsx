@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
 import Input from '@mui/material/Input';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -28,7 +28,7 @@ const Sync = ({ command, input, output }: DefaultCommandProps) => {
         type="number"
         placeholder="초"
         slotProps={{ input: { inputMode: 'numeric' } }}
-        onChange={(e) => setItsoffset(parseFloat(e.target.value))}
+        onChange={(e) => setItsoffset(Number.parseFloat(e.target.value))}
         sx={{ width: '70px', mb: 1 }}
       />
     </CommandCopy>

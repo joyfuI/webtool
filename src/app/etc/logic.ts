@@ -26,7 +26,8 @@ export const response = (str: string): string => {
     const videos = playback.videos.list;
     videos.sort(
       (a, b) =>
-        parseInt(b.encodingOption.name) - parseInt(a.encodingOption.name),
+        Number.parseInt(b.encodingOption.name) -
+        Number.parseInt(a.encodingOption.name),
     ); // 화질순으로 정렬
     return videos[0].source;
   } catch {

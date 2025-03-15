@@ -1,7 +1,7 @@
 'use client';
-import { useQueryState, parseAsInteger } from 'nuqs';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { parseAsInteger, useQueryState } from 'nuqs';
 
 import { fibonaChicken } from './logic';
 
@@ -27,7 +27,7 @@ const Client = () => {
         fullWidth
         autoFocus
         onChange={(e) => {
-          const num = parseInt(e.target.value);
+          const num = Number.parseInt(e.target.value);
           setCount(num);
         }}
       />

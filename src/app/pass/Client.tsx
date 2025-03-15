@@ -1,28 +1,28 @@
 'use client';
-import { useMemo } from 'react';
-import {
-  useQueryState,
-  parseAsIsoDate,
-  parseAsInteger,
-  parseAsArrayOf,
-  parseAsString,
-} from 'nuqs';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import {
+  parseAsArrayOf,
+  parseAsInteger,
+  parseAsIsoDate,
+  parseAsString,
+  useQueryState,
+} from 'nuqs';
+import { useMemo } from 'react';
 
 import CheckboxGroup from '@/components/CheckboxGroup';
 import Radio from '@/components/Radio';
 import Table from '@/components/Table';
 
 import {
-  toDateString,
   addDays,
   differenceInBusinessDays,
-  getNarasarang,
-  getPass,
   getClimate,
   getKPass,
+  getNarasarang,
+  getPass,
+  toDateString,
 } from './logic';
 
 const Client = () => {
@@ -85,11 +85,11 @@ const Client = () => {
         climate: (
           <>
             서울 내 지하철·전철 / 버스(시내, 마을, 심야)
-            {climateOption.includes('bikeseoul') ?
+            {climateOption.includes('bikeseoul') ? (
               <>
                 <br />/ 따릉이(2시간권)
               </>
-            : null}
+            ) : null}
             <br />* 구간 외 사용 불가
           </>
         ),
@@ -99,9 +99,9 @@ const Client = () => {
         head: '실질금액',
         narasarang: `${narasarang.actualAmount.toLocaleString()}원`,
         pass:
-          pass.actualAmount !== undefined ?
-            `${pass.actualAmount.toLocaleString()}원`
-          : '-',
+          pass.actualAmount !== undefined
+            ? `${pass.actualAmount.toLocaleString()}원`
+            : '-',
         climate: `${climate.actualAmount.toLocaleString()}원`,
         kPass: `${kPass.actualAmount.toLocaleString()}원`,
       },
@@ -166,7 +166,7 @@ const Client = () => {
             inputLabel: { shrink: true },
           }}
           onChange={(e) => {
-            setAmount(parseInt(e.target.value));
+            setAmount(Number.parseInt(e.target.value));
           }}
           sx={{ maxWidth: '130px' }}
         />
@@ -179,7 +179,7 @@ const Client = () => {
             inputLabel: { shrink: true },
           }}
           onChange={(e) => {
-            setCount(parseInt(e.target.value));
+            setCount(Number.parseInt(e.target.value));
           }}
           sx={{ maxWidth: '130px' }}
         />
@@ -197,7 +197,7 @@ const Client = () => {
           { value: 'bikeseoul', label: '따릉이' },
         ]}
         value={climateOption}
-        onChange={(e, value) => setClimateOption(value)}
+        onChange={(_e, value) => setClimateOption(value)}
       />
 
       <Radio
@@ -209,7 +209,7 @@ const Client = () => {
           { value: 'lowIncome', label: '저소득(기초생활수급자/차상위계층)' },
         ]}
         value={kPassOption}
-        onChange={(e, value) => setKPassOption(value)}
+        onChange={(_e, value) => setKPassOption(value)}
       />
 
       <Table

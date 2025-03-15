@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
-import Stack from '@mui/material/Stack';
 import Input from '@mui/material/Input';
+import Stack from '@mui/material/Stack';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -32,7 +32,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             type="number"
             placeholder="가로"
             slotProps={{ input: { min: 1, inputMode: 'numeric' } }}
-            onChange={(e) => setWidth(parseFloat(e.target.value))}
+            onChange={(e) => setWidth(Number.parseFloat(e.target.value))}
             sx={{ width: '50px' }}
           />
           <span>:</span>
@@ -41,7 +41,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             type="number"
             placeholder="세로"
             slotProps={{ input: { min: 1, inputMode: 'numeric' } }}
-            onChange={(e) => setHeight(parseFloat(e.target.value))}
+            onChange={(e) => setHeight(Number.parseFloat(e.target.value))}
             sx={{ width: '50px' }}
           />
         </Stack>

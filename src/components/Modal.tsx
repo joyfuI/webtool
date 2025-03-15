@@ -1,12 +1,12 @@
 'use client';
-import { useRef, useEffect, useId } from 'react';
-import type { Ref, ReactNode, FormEvent } from 'react';
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import type { DialogProps } from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-import Button from '@mui/material/Button';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import { useEffect, useId, useRef } from 'react';
+import type { FormEvent, ReactNode, Ref } from 'react';
 
 export type ModalProps = {
   ref?: Ref<HTMLDivElement>;
@@ -59,24 +59,23 @@ const Modal = ({
       aria-labelledby={titleId}
       aria-describedby={contentTextId}
     >
-      {title ?
-        <DialogTitle id={titleId}>{title}</DialogTitle>
-      : null}
+      {title ? <DialogTitle id={titleId}>{title}</DialogTitle> : null}
       <DialogContent id={contentTextId} dividers>
         {children}
       </DialogContent>
       <DialogActions>
-        {onSubmit ?
+        {onSubmit ? (
           <>
             <Button onClick={onClose}>취소</Button>
             <Button ref={buttonRef} type="submit">
               확인
             </Button>
           </>
-        : <Button ref={buttonRef} onClick={onClose}>
+        ) : (
+          <Button ref={buttonRef} onClick={onClose}>
             확인
           </Button>
-        }
+        )}
       </DialogActions>
     </Dialog>
   );

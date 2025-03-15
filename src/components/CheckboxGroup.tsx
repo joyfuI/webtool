@@ -1,14 +1,14 @@
 'use client';
-import { useState, useEffect, useId } from 'react';
-import type { Ref, ReactNode, Attributes, ChangeEvent } from 'react';
 import type { SxProps } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import FormGroup from '@mui/material/FormGroup';
-import type { FormGroupProps } from '@mui/material/FormGroup';
+import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
+import type { FormGroupProps } from '@mui/material/FormGroup';
 import FormLabel from '@mui/material/FormLabel';
+import { useEffect, useId, useState } from 'react';
+import type { Attributes, ChangeEvent, ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -55,11 +55,11 @@ const CheckboxGroup = ({
 
   return (
     <FormControl ref={ref} component="fieldset" fullWidth sx={sx}>
-      {label ?
+      {label ? (
         <FormLabel component="legend" id={labelId}>
           {label}
         </FormLabel>
-      : null}
+      ) : null}
       <FormGroup row {...props} aria-labelledby={label ? labelId : undefined}>
         {options.map(({ key, value, ...optionProps }, i) => (
           <FormControlLabel

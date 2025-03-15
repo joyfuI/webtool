@@ -33,8 +33,8 @@ const getReward = (
       return amount < 10000 ? 100 : 500;
 
     default:
-      return card2.rewardsRate > 1 ?
-          card2.rewardsRate
+      return card2.rewardsRate > 1
+        ? card2.rewardsRate
         : Math.floor(amount * card2.rewardsRate);
   }
 };
@@ -50,15 +50,14 @@ export const getRow = (
   return {
     name: card.name,
     rewardStr: `${reward.toLocaleString()}원 ${type}`,
-    picking: `${(formData.amount > 0 ?
-      (reward / formData.amount) * 100
-    : 0
+    picking: `${(
+      formData.amount > 0 ? (reward / formData.amount) * 100 : 0
     ).toFixed(2)}%`,
     limit: limit ? `${limit.toLocaleString()}원` : '무제한',
     note:
-      typeof card.note === 'function' ?
-        createElement(card.note)
-      : (card.note ?? ''),
+      typeof card.note === 'function'
+        ? createElement(card.note)
+        : (card.note ?? ''),
     reward,
   };
 };

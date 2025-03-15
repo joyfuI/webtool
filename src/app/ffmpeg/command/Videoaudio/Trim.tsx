@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import TimeInput from '@/components/TimeInput';
@@ -37,7 +37,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
           label="시작시간"
           value={ss}
           type="time"
-          onChange={(e, v) => setSS(v)}
+          onChange={(_e, v) => setSS(v)}
         />
         <Stack
           direction="row"
@@ -48,7 +48,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
             value={to}
             type="time"
             disabled={distance}
-            onChange={(e, v) => setTO(v)}
+            onChange={(_e, v) => setTO(v)}
           />
           <Switch
             checked={distance}
@@ -60,7 +60,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
             value={t}
             type="time"
             disabled={!distance}
-            onChange={(e, v) => setT(v)}
+            onChange={(_e, v) => setT(v)}
           />
         </Stack>
       </Stack>

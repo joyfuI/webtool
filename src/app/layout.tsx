@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+import { ThemeProvider } from '@mui/material/styles';
 import type { Metadata } from 'next';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import type { ReactNode } from 'react';
 
 import Header from '@/components/Header';
 
