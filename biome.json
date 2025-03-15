@@ -16,8 +16,7 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto",
-    "useEditorconfig": true
+    "attributePosition": "auto"
   },
   "organizeImports": {
     "enabled": true
@@ -81,8 +80,12 @@
     }
   },
   "css": {
+    "parser": {
+      "cssModules": true
+    },
     "formatter": {
-      "enabled": true
+      "enabled": true,
+      "quoteStyle": "single"
     },
     "linter": {
       "enabled": true
