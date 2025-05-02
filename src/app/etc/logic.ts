@@ -10,26 +10,28 @@ export const requestHeader = (str: string): Record<string, string> => {
   return obj;
 };
 
-type PlaybackType = {
-  videos: {
-    list: {
-      encodingOption: Record<string, string>;
-      source: string;
-    }[];
-  };
-};
-
 export const response = (str: string): string => {
   try {
     const obj = JSON.parse(str);
-    const playback = JSON.parse(obj.playback) as PlaybackType;
-    const videos = playback.videos.list;
+    const xmlParser = new DOMParser();
+    const xmlDoc = xmlParser.parseFromString(obj.playback, 'text/xml');
+    const videos = Array.from(
+      xmlDoc.getElementsByTagName('Representation'),
+    ).filter((video) => video.getAttribute('mimeType') === 'video/mp4');
     videos.sort(
       (a, b) =>
-        Number.parseInt(b.encodingOption.name) -
-        Number.parseInt(a.encodingOption.name),
+        Number.parseInt(
+          b.querySelector('[kind="resolution"]')?.textContent ?? '0',
+        ) -
+        Number.parseInt(
+          a.querySelector('[kind="resolution"]')?.textContent ?? '0',
+        ),
     ); // 화질순으로 정렬
-    return videos[0].source;
+    const baseURL = videos[0].querySelector('BaseURL')?.textContent;
+    if (!baseURL) {
+      throw new Error('BaseURL not found');
+    }
+    return baseURL;
   } catch {
     return '';
   }
