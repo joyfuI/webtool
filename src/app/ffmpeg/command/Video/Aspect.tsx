@@ -1,5 +1,4 @@
 'use client';
-import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
@@ -24,7 +23,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
       }}
       label="화면비 조정"
     >
-      <Box sx={{ mb: 1 }}>
+      <Stack sx={{ mb: 1 }}>
         <FormLabel sx={{ fontSize: 14 }}>화면비</FormLabel>
         <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
           <Input
@@ -45,7 +44,7 @@ const Aspect = ({ command, input, output }: DefaultCommandProps) => {
             sx={{ width: '50px' }}
           />
         </Stack>
-      </Box>
+      </Stack>
     </CommandCopy>
   );
 };

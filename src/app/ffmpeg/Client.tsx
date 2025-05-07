@@ -13,6 +13,7 @@ import { useHash } from '@/hooks';
 
 import Audio from './command/Audio';
 import Download from './command/Download';
+import Generate from './command/Generate';
 import Recommended from './command/Recommended';
 import Video from './command/Video';
 import Videoaudio from './command/Videoaudio';
@@ -57,12 +58,14 @@ const Client = () => {
             <Tab label="동영상" value="videoaudio" />
             <Tab label="비디오" value="video" />
             <Tab label="오디오" value="audio" />
+            <Tab label="생성" value="generate" />
           </TabList>
         </Box>
         <Download command={command} input={input} output={output} />
         <Videoaudio command={command} input={input} output={output} />
         <Video command={command} input={input} output={output} />
         <Audio command={command} input={input} output={output} />
+        <Generate command={command} input={input} output={output} />
       </TabContext>
 
       <ButtonGroup
