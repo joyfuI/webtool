@@ -5,6 +5,7 @@ import type { DefaultCommandProps } from '../../logic';
 
 import AudioExtraction from './AudioExtraction';
 import AudioRemove from './AudioRemove';
+import Metadata from './Metadata';
 import Sync from './Sync';
 
 const Audio = ({ command, input, output }: DefaultCommandProps) => {
@@ -14,6 +15,7 @@ const Audio = ({ command, input, output }: DefaultCommandProps) => {
         <AudioExtraction command={command} input={input} output={output} />
         <Sync command={command} input={input} output={output} />
         <AudioRemove command={command} input={input} output={output} />
+        <Metadata command={command} input={input} output={output} />
       </Stack>
     </TabPanel>
   );
