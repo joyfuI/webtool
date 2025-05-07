@@ -18,7 +18,7 @@ const Transpose = ({ command, input, output }: DefaultCommandProps) => {
         '-vf': `"${transpose}"`,
         '': `"${output}"`,
       }}
-      label="동영상 회전"
+      label="화면 회전"
     >
       <Radio
         name="transpose"
