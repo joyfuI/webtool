@@ -46,7 +46,7 @@ jobs:
           ftp_host: ${{ secrets.FTP_HOST }}
           ftp_username: ${{ secrets.FTP_USERNAME }}
           ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: 'out'
+          local_source_dir: "out"
           dist_target_dir: ${{ secrets.DIST_TARGET_DIR }}
-          delete: 'true'
+          delete: "true"
           exclude: "'^.htaccess$'"
