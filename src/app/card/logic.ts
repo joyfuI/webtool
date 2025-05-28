@@ -2,16 +2,31 @@ import { createElement } from 'react';
 
 import type { CardType, IndustryType } from './cardData';
 
+type FormData = {
+  amount: number;
+  discount?: number;
+  industry: string;
+};
+
 const getReward = (
   card: CardType,
-  { amount, industry }: { amount: number; industry: string },
+  { amount, discount, industry }: FormData,
 ): number => {
   const card2 = {
     ...card,
     ...card[industry as IndustryType],
   };
 
-  if (Number.isNaN(amount) || amount < (card2.minimumPaymentAmount ?? 0)) {
+  if (Number.isNaN(amount)) {
+    return 0;
+  }
+
+  if (discount) {
+    amount *= 1 - discount / 100;
+    amount = Math.floor(amount / 10) * 10;
+  }
+
+  if (amount < (card2.minimumPaymentAmount ?? 0)) {
     return 0;
   }
 
@@ -39,10 +54,7 @@ const getReward = (
   }
 };
 
-export const getRow = (
-  card: CardType,
-  formData: { amount: number; industry: string },
-) => {
+export const getRow = (card: CardType, formData: FormData) => {
   const type = card[formData.industry as IndustryType]?.type ?? card.type;
   const reward = getReward(card, formData);
   const limit = card[formData.industry as IndustryType]?.limit ?? card.limit;

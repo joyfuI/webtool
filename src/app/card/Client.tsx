@@ -1,4 +1,6 @@
 'use client';
+import InputAdornment from '@mui/material/InputAdornment';
+import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';
 import { useMemo } from 'react';
@@ -15,6 +17,7 @@ const Client = () => {
     'amount',
     parseAsInteger.withDefault(0),
   );
+  const [discount, setDiscount] = useQueryState('discount', parseAsInteger);
   const [industry, setIndustry] = useQueryState(
     'industry',
     parseAsString.withDefault('기타'),
@@ -23,9 +26,11 @@ const Client = () => {
   const rows = useMemo(
     () =>
       cardData
-        .map((card) => getRow(card, { amount, industry }))
+        .map((card) =>
+          getRow(card, { amount, discount: discount ?? 0, industry }),
+        )
         .toSorted((a, b) => b.reward - a.reward),
-    [amount, industry],
+    [amount, discount, industry],
   );
 
   const handleChange = (_e: ChangeEvent<HTMLInputElement>, value: string) => {
@@ -34,21 +39,39 @@ const Client = () => {
 
   return (
     <>
-      <TextField
-        value={Number.isNaN(amount) ? '' : amount}
-        label="금액"
-        type="number"
-        slotProps={{
-          htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
-          inputLabel: { shrink: true },
-        }}
-        fullWidth
-        autoFocus
-        onChange={(e) => {
-          const num = Number.parseInt(e.target.value);
-          setAmount(num);
-        }}
-      />
+      <Stack direction="row" spacing={2}>
+        <TextField
+          value={Number.isNaN(amount) ? '' : amount}
+          label="금액"
+          type="number"
+          slotProps={{
+            htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
+            inputLabel: { shrink: true },
+          }}
+          fullWidth
+          autoFocus
+          onChange={(e) => {
+            const num = Number.parseInt(e.target.value);
+            setAmount(num);
+          }}
+        />
+        <TextField
+          variant="standard"
+          value={discount ?? ''}
+          label="할인"
+          type="number"
+          slotProps={{
+            htmlInput: { min: 0, max: 100, inputMode: 'numeric' },
+            input: {
+              endAdornment: <InputAdornment position="end">%</InputAdornment>,
+            },
+          }}
+          onChange={(e) => {
+            const num = Number.parseInt(e.target.value);
+            setDiscount(Number.isNaN(num) ? null : num);
+          }}
+        />
+      </Stack>
 
       <Radio
         name="industry"
