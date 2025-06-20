@@ -1,13 +1,12 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "ignoreUnknown": false
+  },
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": []
   },
   "formatter": {
     "enabled": true,
@@ -16,41 +15,75 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto"
-  },
-  "organizeImports": {
-    "enabled": true
+    "attributePosition": "auto",
+    "bracketSpacing": true,
+    "expand": "never",
+    "useEditorconfig": true
   },
   "linter": {
     "enabled": true,
+    "domains": {
+      "next": "all",
+      "project": "all",
+      "react": "all"
+    },
     "rules": {
       "recommended": true,
       "correctness": {
         "noNodejsModules": "error",
         "noUndeclaredVariables": "error",
-        "noUnusedFunctionParameters": "warn",
-        "noUnusedImports": "warn",
-        "noUnusedPrivateClassMembers": "warn",
-        "noUnusedVariables": "warn",
-        "useHookAtTopLevel": "error"
+        "useImportExtensions": "off"
       },
       "nursery": {
-        "noCommonJs": "error",
-        "noDocumentImportInPage": "error",
-        "noHeadElement": "error",
-        "noHeadImportInDocument": "error",
-        "noImgElement": "error",
-        "useConsistentCurlyBraces": "error",
-        "useGoogleFontDisplay": "error"
+        "noReactPropAssign": "error",
+        "noUnresolvedImports": "off"
+      },
+      "performance": {
+        "noBarrelFile": "error",
+        "noDelete": "error",
+        "noNamespaceImport": "error",
+        "noReExportAll": "error",
+        "useTopLevelRegex": "error"
       },
       "style": {
+        "noCommonJs": "error",
         "noNamespace": "error",
         "useBlockStatements": "error",
+        "useConsistentCurlyBraces": "error",
         "useFragmentSyntax": "error"
       },
       "suspicious": {
         "noConsole": "warn",
         "noEmptyBlockStatements": "warn"
+      }
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [
+                "next",
+                "next/**"
+              ],
+              [
+                "react",
+                "react-dom"
+              ],
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        },
+        "useSortedAttributes": "on",
+        "useSortedProperties": "on"
       }
     }
   },
@@ -64,10 +97,12 @@
       "trailingCommas": "all",
       "semicolons": "always",
       "arrowParentheses": "always",
-      "bracketSameLine": false,
-      "bracketSpacing": true
+      "bracketSameLine": false
     },
     "linter": {
+      "enabled": true
+    },
+    "assist": {
       "enabled": true
     }
   },
@@ -76,6 +111,9 @@
       "enabled": false
     },
     "linter": {
+      "enabled": true
+    },
+    "assist": {
       "enabled": true
     }
   },
@@ -88,6 +126,14 @@
       "quoteStyle": "single"
     },
     "linter": {
+      "enabled": true
+    },
+    "assist": {
+      "enabled": true
+    }
+  },
+  "html": {
+    "formatter": {
       "enabled": true
     }
   }

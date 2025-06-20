@@ -1,17 +1,14 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-
 import Box from '@mui/material/Box';
 
 import Client from './Client';
 
-export const metadata: Metadata = {
-  title: '글자 수 세기',
-};
+export const metadata: Metadata = { title: '글자 수 세기' };
 
 const Page = () => {
   return (
-    <Box component="form" autoComplete="off" noValidate>
+    <Box autoComplete="off" component="form" noValidate>
       <Suspense>
         <Client />
       </Suspense>

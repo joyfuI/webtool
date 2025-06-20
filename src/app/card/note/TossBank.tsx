@@ -2,8 +2,7 @@ import Link from '@mui/material/Link';
 
 import Modal from '@/components/Modal';
 import Table from '@/components/Table';
-
-import { useModal } from '@/hooks';
+import useModal from '@/hooks/useModal';
 
 const title = '오프라인 캐시백 영역';
 
@@ -13,13 +12,13 @@ const TossBank = () => {
   return (
     <>
       <span>
-        <Link component="button" type="button" onClick={() => setOpen(true)}>
+        <Link component="button" onClick={() => setOpen(true)} type="button">
           {title}
         </Link>{' '}
         당 일1회 월10회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적 X
       </span>
 
-      <Modal open={open} title={title} onClose={() => setOpen(false)}>
+      <Modal onClose={() => setOpen(false)} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '영역' },

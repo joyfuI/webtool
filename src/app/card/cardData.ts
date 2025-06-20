@@ -35,31 +35,18 @@ const cardData: CardType[] = [
     type: '적립',
     rewardsRate: 'themore',
     minimumPaymentAmount: 5000,
-    해외: {
-      rewardsRate: 'themore2',
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    해외: { rewardsRate: 'themore2' },
+    상품권: { rewardsRate: 0 },
     note: '5천원 이상 결제 시 천원 미만 금액 가맹점 당 하루 1회 적립 / 전월실적 30만원',
   },
   {
     name: '네이버 현대 카드',
     type: '적립',
     rewardsRate: 0.01,
-    오픈마켓: {
-      rewardsRate: 0.05,
-      limit: 200000,
-    },
-    전기요금: {
-      rewardsRate: 0,
-    },
-    가스요금: {
-      rewardsRate: 0,
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    오픈마켓: { rewardsRate: 0.05, limit: 200000 },
+    전기요금: { rewardsRate: 0 },
+    가스요금: { rewardsRate: 0 },
+    상품권: { rewardsRate: 0 },
     note: '1% 네이버페이 포인트 적립 / 네이버플러스 멤버십 적립 대상 5% 네이버페이 포인트 적립 / 전월실적 30만원',
   },
   {
@@ -67,36 +54,20 @@ const cardData: CardType[] = [
     type: '적립',
     rewardsRate: 0.055,
     limit: 200000,
-    전기요금: {
-      rewardsRate: 0,
-    },
-    해외: {
-      rewardsRate: 0,
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    전기요금: { rewardsRate: 0 },
+    해외: { rewardsRate: 0 },
+    상품권: { rewardsRate: 0 },
     note: 'KB Pay 5.5% 적립 / 전월실적 X',
   },
   {
     name: '케이 퍼스트 카드',
     type: '할인',
     rewardsRate: 0.01,
-    음식점: {
-      rewardsRate: 'kfirst15',
-    },
-    편의점: {
-      rewardsRate: 'kfirst15',
-    },
-    카페: {
-      rewardsRate: 'kfirst15',
-    },
-    대형마트: {
-      rewardsRate: 'kfirst15',
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    음식점: { rewardsRate: 'kfirst15' },
+    편의점: { rewardsRate: 'kfirst15' },
+    카페: { rewardsRate: 'kfirst15' },
+    대형마트: { rewardsRate: 'kfirst15' },
+    상품권: { rewardsRate: 0 },
     note: KFirst,
   },
   {
@@ -105,22 +76,11 @@ const cardData: CardType[] = [
     rewardsRate: 0.038,
     minimumPaymentAmount: 10000,
     limit: 333333,
-    오픈마켓: {
-      rewardsRate: 0.04,
-      limit: 250000,
-    },
-    전기요금: {
-      rewardsRate: 0,
-    },
-    가스요금: {
-      rewardsRate: 0,
-    },
-    해외: {
-      rewardsRate: 0,
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    오픈마켓: { rewardsRate: 0.04, limit: 250000 },
+    전기요금: { rewardsRate: 0 },
+    가스요금: { rewardsRate: 0 },
+    해외: { rewardsRate: 0 },
+    상품권: { rewardsRate: 0 },
     note: '만원 이상 네이버페이, 카카오페이, 페이코 4% 적립 / 전월실적 30만원',
   },
   {
@@ -128,69 +88,37 @@ const cardData: CardType[] = [
     type: '캐시백',
     rewardsRate: 0.02,
     limit: 500000,
-    해외: {
-      rewardsRate: 0,
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    해외: { rewardsRate: 0 },
+    상품권: { rewardsRate: 0 },
     note: '네이버페이, 카카오페이, 페이코 2% 캐시백 / 전월실적 X',
   },
   {
     name: '마이 체크카드',
     type: '캐시백',
     rewardsRate: 0,
-    편의점: {
-      rewardsRate: 300,
-      minimumPaymentAmount: 5000,
-    },
-    패스트푸드: {
-      rewardsRate: 300,
-      minimumPaymentAmount: 5000,
-    },
-    카페: {
-      rewardsRate: 300,
-      minimumPaymentAmount: 5000,
-    },
+    편의점: { rewardsRate: 300, minimumPaymentAmount: 5000 },
+    패스트푸드: { rewardsRate: 300, minimumPaymentAmount: 5000 },
+    카페: { rewardsRate: 300, minimumPaymentAmount: 5000 },
     note: KBank,
   },
   {
     name: '토스뱅크 체크카드',
     type: '캐시백',
     rewardsRate: 0,
-    편의점: {
-      rewardsRate: 'toss',
-      minimumPaymentAmount: 3000,
-    },
-    패스트푸드: {
-      rewardsRate: 'toss',
-      minimumPaymentAmount: 3000,
-    },
-    카페: {
-      rewardsRate: 'toss',
-      minimumPaymentAmount: 3000,
-    },
+    편의점: { rewardsRate: 'toss', minimumPaymentAmount: 3000 },
+    패스트푸드: { rewardsRate: 'toss', minimumPaymentAmount: 3000 },
+    카페: { rewardsRate: 'toss', minimumPaymentAmount: 3000 },
     note: TossBank,
   },
   {
     name: '네이버페이 머니카드',
     type: '적립',
     rewardsRate: 0.003,
-    오픈마켓: {
-      rewardsRate: 0.015,
-    },
-    전기요금: {
-      rewardsRate: 0,
-    },
-    가스요금: {
-      rewardsRate: 0,
-    },
-    해외: {
-      rewardsRate: 0.03,
-    },
-    상품권: {
-      rewardsRate: 0,
-    },
+    오픈마켓: { rewardsRate: 0.015 },
+    전기요금: { rewardsRate: 0 },
+    가스요금: { rewardsRate: 0 },
+    해외: { rewardsRate: 0.03 },
+    상품권: { rewardsRate: 0 },
     note: '0.3% 네이버페이 포인트 적립 / 네이버쇼핑 1.5% 네이버페이 포인트 적립 / 해외 3%, 수수료 네이버페이 포인트 적립 / 전월실적 X',
   },
 ];

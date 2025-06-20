@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: process.env.BASE_PATH,
   allowedDevOrigins: ['*'],
-  experimental: {
-    reactCompiler: true,
-  },
+  experimental: { reactCompiler: true },
 };
 
 export default nextConfig;

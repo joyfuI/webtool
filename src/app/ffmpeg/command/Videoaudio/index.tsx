@@ -2,7 +2,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
-
 import Concat from './Concat';
 import Copy from './Copy';
 import Merge from './Merge';

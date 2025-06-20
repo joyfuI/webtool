@@ -1,3 +1,5 @@
+import type { ReactNode, Ref } from 'react';
+import { useMemo } from 'react';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -5,8 +7,6 @@ import FormLabel from '@mui/material/FormLabel';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { useMemo } from 'react';
-import type { ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 import copyText from '@/utils/copyText';
@@ -53,7 +53,6 @@ const CommandCopy = ({
       ) : null}
       {children}
       <OutlinedInput
-        value={value}
         endAdornment={
           <InputAdornment position="end">
             <IconButton onClick={() => copyText(value)}>
@@ -61,8 +60,9 @@ const CommandCopy = ({
             </IconButton>
           </InputAdornment>
         }
-        readOnly
         fullWidth
+        readOnly
+        value={value}
       />
     </Box>
   );

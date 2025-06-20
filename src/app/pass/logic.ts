@@ -36,22 +36,14 @@ export const getNarasarang = (amount: number, count: number) => {
   const discount = sum * 0.2;
   const actualAmount = sum - (discount > 5000 ? 5000 : discount);
 
-  return {
-    actualAmount,
-    gain: sum - actualAmount,
-  };
+  return { actualAmount, gain: sum - actualAmount };
 };
 
 export const getPass = (amount: number, count: number) => {
   const sum = amount * count || 0;
   const actualAmount = 1400 * 44;
 
-  return (count || 0) <= 60
-    ? {
-        actualAmount,
-        gain: sum - actualAmount,
-      }
-    : {};
+  return (count || 0) <= 60 ? { actualAmount, gain: sum - actualAmount } : {};
 };
 
 export const getClimate = (amount: number, count: number, option: string[]) => {
@@ -66,10 +58,7 @@ export const getClimate = (amount: number, count: number, option: string[]) => {
       ? 65000
       : 62000;
 
-  return {
-    actualAmount,
-    gain: sum - actualAmount,
-  };
+  return { actualAmount, gain: sum - actualAmount };
 };
 
 export const getKPass = (amount: number, count: number, option: string) => {
@@ -82,8 +71,5 @@ export const getKPass = (amount: number, count: number, option: string) => {
       : 0;
   const actualAmount = sum - discount;
 
-  return {
-    actualAmount,
-    gain: sum - actualAmount,
-  };
+  return { actualAmount, gain: sum - actualAmount };
 };

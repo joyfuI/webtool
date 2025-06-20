@@ -1,14 +1,14 @@
 'use client';
+import type { Attributes, ChangeEvent, ReactNode, Ref } from 'react';
+import { useEffect, useId, useState } from 'react';
 import type { SxProps } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import type { FormGroupProps } from '@mui/material/FormGroup';
+import FormGroup from '@mui/material/FormGroup';
 import FormLabel from '@mui/material/FormLabel';
-import { useEffect, useId, useState } from 'react';
-import type { Attributes, ChangeEvent, ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -54,7 +54,7 @@ const CheckboxGroup = ({
   };
 
   return (
-    <FormControl ref={ref} component="fieldset" fullWidth sx={sx}>
+    <FormControl component="fieldset" fullWidth ref={ref} sx={sx}>
       {label ? (
         <FormLabel component="legend" id={labelId}>
           {label}
@@ -65,10 +65,10 @@ const CheckboxGroup = ({
           <FormControlLabel
             key={key ?? value ?? i}
             {...optionProps}
-            value={value}
             checked={checkedList.has(value)}
-            defaultChecked={defaultValue?.includes(value)}
             control={<Checkbox onChange={handleChange} />}
+            defaultChecked={defaultValue?.includes(value)}
+            value={value}
           />
         ))}
       </FormGroup>

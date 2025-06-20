@@ -1,8 +1,8 @@
 'use client';
+import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 
 import { charCount, lineCount } from './logic';
 
@@ -11,7 +11,7 @@ const Client = () => {
 
   return (
     <>
-      <Grid container columnSpacing={4}>
+      <Grid columnSpacing={4} container>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h6">
             공백 포함: <b>{charCount(value)}</b> 자 (
@@ -32,12 +32,12 @@ const Client = () => {
       </Grid>
 
       <TextField
-        value={value}
+        autoFocus
+        fullWidth
         minRows={15}
         multiline
-        fullWidth
-        autoFocus
         onChange={(e) => setValue(e.target.value)}
+        value={value}
       />
     </>
   );

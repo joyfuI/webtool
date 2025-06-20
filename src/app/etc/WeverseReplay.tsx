@@ -1,13 +1,12 @@
 'use client';
+import { useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useMemo, useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import KeyboardDoubleArrowIcon from '@/components/KeyboardDoubleArrowIcon';
-
 import copyText from '@/utils/copyText';
 
 import { response } from './logic';
@@ -19,10 +18,8 @@ const Client = () => {
 
   return (
     <CommandCopy
+      args={{ '': `"${m3u8}"` }}
       command=".\aria2c"
-      args={{
-        '': `"${m3u8}"`,
-      }}
       label="위버스 다운로드 (REPLAY)"
     >
       <Stack
@@ -47,12 +44,12 @@ const Client = () => {
         </Typography>
         <KeyboardDoubleArrowIcon />
         <TextField
-          value={playInfo}
-          variant="standard"
-          rows={1}
           multiline
           onChange={(e) => setPlayInfo(e.target.value)}
+          rows={1}
           sx={{ width: '200px' }}
+          value={playInfo}
+          variant="standard"
         />
       </Stack>
     </CommandCopy>

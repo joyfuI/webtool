@@ -1,12 +1,12 @@
 'use client';
+import type { FormEvent, ReactNode, Ref } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
 import type { DialogProps } from '@mui/material/Dialog';
+import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useEffect, useId, useRef } from 'react';
-import type { FormEvent, ReactNode, Ref } from 'react';
 
 export type ModalProps = {
   ref?: Ref<HTMLDivElement>;
@@ -14,9 +14,7 @@ export type ModalProps = {
   onClose?: () => void;
   onSubmit?: (
     event: FormEvent<HTMLFormElement>,
-    data: {
-      [k: string]: FormDataEntryValue;
-    },
+    data: { [k: string]: FormDataEntryValue },
   ) => void;
 } & DialogProps;
 
@@ -41,7 +39,6 @@ const Modal = ({
 
   return (
     <Dialog
-      scroll="paper"
       PaperProps={{
         component: 'form',
         onSubmit: (e: FormEvent<HTMLFormElement>) => {
@@ -52,15 +49,16 @@ const Modal = ({
           onClose?.();
         },
       }}
+      scroll="paper"
       {...props}
-      ref={ref}
-      open={open}
-      onClose={onClose}
-      aria-labelledby={titleId}
       aria-describedby={contentTextId}
+      aria-labelledby={titleId}
+      onClose={onClose}
+      open={open}
+      ref={ref}
     >
       {title ? <DialogTitle id={titleId}>{title}</DialogTitle> : null}
-      <DialogContent id={contentTextId} dividers>
+      <DialogContent dividers id={contentTextId}>
         {children}
       </DialogContent>
       <DialogActions>
@@ -72,7 +70,7 @@ const Modal = ({
             </Button>
           </>
         ) : (
-          <Button ref={buttonRef} onClick={onClose}>
+          <Button onClick={onClose} ref={buttonRef}>
             확인
           </Button>
         )}

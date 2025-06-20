@@ -1,8 +1,8 @@
 'use client';
+import { useState } from 'react';
 import FormLabel from '@mui/material/FormLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -16,7 +16,6 @@ const Color = ({ command, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-t': `${second || 0}`,
         '-f': 'lavfi',
@@ -27,6 +26,7 @@ const Color = ({ command, output }: DefaultCommandProps) => {
         '-crf': '31',
         '': `"${output}"`,
       }}
+      command={command}
       label="단색 컬러"
     >
       <Stack
@@ -37,43 +37,43 @@ const Color = ({ command, output }: DefaultCommandProps) => {
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>색</FormLabel>
           <Input
-            value={color.replace('0x', '#')}
-            type="color"
             onChange={(e) => setColor(e.target.value.replace('#', '0x'))}
             sx={{ width: '30px' }}
+            type="color"
+            value={color.replace('0x', '#')}
           />
         </Stack>
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>크기</FormLabel>
           <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
             <Input
-              value={Number.isNaN(width) ? '' : width}
-              type="number"
+              onChange={(e) => setWidth(Number.parseFloat(e.target.value))}
               placeholder="가로"
               slotProps={{ input: { inputMode: 'numeric' } }}
-              onChange={(e) => setWidth(Number.parseFloat(e.target.value))}
               sx={{ width: '80px' }}
+              type="number"
+              value={Number.isNaN(width) ? '' : width}
             />
             <span>:</span>
             <Input
-              value={Number.isNaN(height) ? '' : height}
-              type="number"
+              onChange={(e) => setHeight(Number.parseFloat(e.target.value))}
               placeholder="세로"
               slotProps={{ input: { inputMode: 'numeric' } }}
-              onChange={(e) => setHeight(Number.parseFloat(e.target.value))}
               sx={{ width: '80px' }}
+              type="number"
+              value={Number.isNaN(height) ? '' : height}
             />
           </Stack>
         </Stack>
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>길이</FormLabel>
           <Input
-            value={Number.isNaN(second) || second === undefined ? '' : second}
-            type="number"
+            onChange={(e) => setSecond(Number.parseFloat(e.target.value))}
             placeholder="초"
             slotProps={{ input: { inputMode: 'numeric' } }}
-            onChange={(e) => setSecond(Number.parseFloat(e.target.value))}
             sx={{ width: '50px' }}
+            type="number"
+            value={Number.isNaN(second) || second === undefined ? '' : second}
           />
         </Stack>
       </Stack>

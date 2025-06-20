@@ -1,12 +1,11 @@
 'use client';
+import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
-import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import TimeInput from '@/components/TimeInput';
-
-import { useToggle } from '@/hooks';
+import useToggle from '@/hooks/useToggle';
 
 import type { DefaultCommandProps } from '../../logic';
 
@@ -18,7 +17,6 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${input}"`,
         '-c': 'copy',
@@ -26,6 +24,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
         [distance ? '-t' : '-to']: distance ? t : to,
         '': `"${output}"`,
       }}
+      command={command}
       label="동영상 자르기"
     >
       <Stack
@@ -35,20 +34,20 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
       >
         <TimeInput
           label="시작시간"
-          value={ss}
-          type="time"
           onChange={(_e, v) => setSS(v)}
+          type="time"
+          value={ss}
         />
         <Stack
           direction="row"
           sx={{ alignItems: 'flex-end', overflowX: 'auto' }}
         >
           <TimeInput
-            label="종료시간"
-            value={to}
-            type="time"
             disabled={distance}
+            label="종료시간"
             onChange={(_e, v) => setTO(v)}
+            type="time"
+            value={to}
           />
           <Switch
             checked={distance}
@@ -56,11 +55,11 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
             onChange={toggleDistance}
           />
           <TimeInput
-            label="구간길이"
-            value={t}
-            type="time"
             disabled={!distance}
+            label="구간길이"
             onChange={(_e, v) => setT(v)}
+            type="time"
+            value={t}
           />
         </Stack>
       </Stack>

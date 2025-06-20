@@ -1,12 +1,12 @@
 'use client';
+import type { ChangeEvent, ReactNode, Ref } from 'react';
+import { useEffect, useState } from 'react';
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
-import Input from '@mui/material/Input';
 import type { InputProps } from '@mui/material/Input';
+import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import { useEffect, useState } from 'react';
-import type { ChangeEvent, ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -81,34 +81,34 @@ const TimeInput = ({
         <Input
           {...props}
           name="hour"
-          value={time[0] ?? ''}
-          type="number"
+          onChange={handleChange}
           placeholder="시"
           slotProps={{ input: { min: 0, inputMode: 'numeric' } }}
-          onChange={handleChange}
           sx={{ width: '40px' }}
+          type="number"
+          value={time[0] ?? ''}
         />
         <span>:</span>
         <Input
           {...props}
           name="minute"
-          value={time[1] ?? ''}
-          type="number"
+          onChange={handleChange}
           placeholder="분"
           slotProps={{ input: { min: 0, max: 59, inputMode: 'numeric' } }}
-          onChange={handleChange}
           sx={{ width: '40px' }}
+          type="number"
+          value={time[1] ?? ''}
         />
         <span>:</span>
         <Input
           {...props}
           name="second"
-          value={time[2] ?? ''}
-          type="number"
+          onChange={handleChange}
           placeholder="초"
           slotProps={{ input: { min: 0, max: 59, inputMode: 'numeric' } }}
-          onChange={handleChange}
           sx={{ width: '40px' }}
+          type="number"
+          value={time[2] ?? ''}
         />
       </Stack>
     </Box>

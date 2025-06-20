@@ -1,10 +1,12 @@
 'use client';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
-import type { ChangeEvent } from 'react';
+
+import { errorMessageRegex } from '@/utils/regex';
 
 import { formatJson, minifyJson } from './logic';
 
@@ -23,7 +25,7 @@ const Client = () => {
       setValue(func(value));
     } catch (e) {
       if (e instanceof SyntaxError) {
-        setError(e.message.replace(/^.*:\s*/, ''));
+        setError(e.message.replace(errorMessageRegex, ''));
       }
     }
   };
@@ -32,27 +34,27 @@ const Client = () => {
     <>
       <Stack
         direction="row"
-        divider={<Divider orientation="vertical" flexItem />}
+        divider={<Divider flexItem orientation="vertical" />}
         spacing={2}
         sx={{ mb: 1, justifyContent: 'center' }}
       >
-        <Button variant="contained" onClick={handleClick(formatJson)}>
+        <Button onClick={handleClick(formatJson)} variant="contained">
           포매팅
         </Button>
-        <Button variant="contained" onClick={handleClick(minifyJson)}>
+        <Button onClick={handleClick(minifyJson)} variant="contained">
           압축
         </Button>
       </Stack>
 
       <TextField
-        value={value}
-        minRows={15}
-        helperText={error}
-        error={!!error}
-        multiline
-        fullWidth
         autoFocus
+        error={!!error}
+        fullWidth
+        helperText={error}
+        minRows={15}
+        multiline
         onChange={handleChange}
+        value={value}
       />
     </>
   );

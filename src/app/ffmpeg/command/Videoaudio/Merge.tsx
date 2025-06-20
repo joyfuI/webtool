@@ -1,7 +1,7 @@
 'use client';
+import { useState } from 'react';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -13,27 +13,27 @@ const Merge = ({ command, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${video}" -i "${audio}"`,
         '-c:v': 'copy',
         '-c:a': 'copy',
         '': `"${output}"`,
       }}
+      command={command}
       label="비디오+오디오 합치기"
     >
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <Input
-          value={video}
-          placeholder="비디오 파일"
           fullWidth
           onChange={(e) => setVideo(e.target.value)}
+          placeholder="비디오 파일"
+          value={video}
         />
         <Input
-          value={audio}
-          placeholder="오디오 파일"
           fullWidth
           onChange={(e) => setAudio(e.target.value)}
+          placeholder="오디오 파일"
+          value={audio}
         />
       </Stack>
     </CommandCopy>

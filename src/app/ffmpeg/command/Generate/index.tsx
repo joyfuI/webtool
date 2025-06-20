@@ -2,7 +2,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
-
 import Color from './Color';
 import Stitch from './Stitch';
 

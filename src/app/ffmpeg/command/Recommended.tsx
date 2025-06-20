@@ -5,7 +5,6 @@ import type { DefaultCommandProps } from '../logic';
 const Recommended = ({ command, input, output }: DefaultCommandProps) => {
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${input}"`,
         '-threads': '0',
@@ -23,6 +22,7 @@ const Recommended = ({ command, input, output }: DefaultCommandProps) => {
         '-strict': 'experimental',
         '': `"${output}"`,
       }}
+      command={command}
       label="720p 인코딩"
     />
   );

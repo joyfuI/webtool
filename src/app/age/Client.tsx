@@ -1,15 +1,14 @@
 'use client';
+import { useCallback, useMemo } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { blueGrey } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { blueGrey } from '@mui/material/colors';
 import { parseAsIsoDate, useQueryState } from 'nuqs';
-import { useCallback, useMemo } from 'react';
 
 import Table from '@/components/Table';
-
 import type theme from '@/theme';
 
 import {
@@ -47,9 +46,7 @@ const Client = () => {
       return {
         [`& .MuiTableBody-root > .MuiTableRow-root:nth-child(${i})`]: {
           bgcolor: blueGrey[50],
-          ...t.applyStyles('dark', {
-            bgcolor: blueGrey[900],
-          }),
+          ...t.applyStyles('dark', { bgcolor: blueGrey[900] }),
         },
       };
     },
@@ -59,15 +56,15 @@ const Client = () => {
   return (
     <>
       <TextField
-        value={toDateString(date)}
-        label="생년월일"
-        type="date"
-        slotProps={{ inputLabel: { shrink: true } }}
-        fullWidth
         autoFocus
+        fullWidth
+        label="생년월일"
         onChange={(e) => {
           setDate(e.target.value ? new Date(e.target.value) : new Date());
         }}
+        slotProps={{ inputLabel: { shrink: true } }}
+        type="date"
+        value={toDateString(date)}
       />
 
       <Stack
@@ -77,7 +74,7 @@ const Client = () => {
       >
         <Card sx={{ minWidth: 170 }}>
           <CardContent>
-            <Typography variant="h5" sx={{ mb: 1 }}>
+            <Typography sx={{ mb: 1 }} variant="h5">
               만 나이
             </Typography>
             <Typography variant="body1">{getAge(date)}세</Typography>
@@ -86,9 +83,9 @@ const Client = () => {
 
         <Card sx={{ minWidth: 170 }}>
           <CardContent>
-            <Typography variant="h5" sx={{ mb: 1 }}>
+            <Typography sx={{ mb: 1 }} variant="h5">
               세는나이
-              <Typography variant="caption" sx={{ mb: 1 }}>
+              <Typography sx={{ mb: 1 }} variant="caption">
                 {' '}
                 (한국나이)
               </Typography>
@@ -99,7 +96,7 @@ const Client = () => {
 
         <Card sx={{ minWidth: 170 }}>
           <CardContent>
-            <Typography variant="h5" sx={{ mb: 1 }}>
+            <Typography sx={{ mb: 1 }} variant="h5">
               연 나이
             </Typography>
             <Typography variant="body1">{getYearAge(date)}세</Typography>
@@ -107,7 +104,7 @@ const Client = () => {
         </Card>
       </Stack>
 
-      <Typography variant="caption" sx={{ display: 'inline-block', mt: 5 }}>
+      <Typography sx={{ display: 'inline-block', mt: 5 }} variant="caption">
         * 나이는 세는나이 기준이며, 빠른생일/조기입학/입학유예 등은 고려하지
         않음
       </Typography>

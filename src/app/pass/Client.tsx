@@ -1,4 +1,5 @@
 'use client';
+import { useMemo } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -9,7 +10,6 @@ import {
   parseAsString,
   useQueryState,
 } from 'nuqs';
-import { useMemo } from 'react';
 
 import CheckboxGroup from '@/components/CheckboxGroup';
 import Radio from '@/components/Radio';
@@ -120,27 +120,24 @@ const Client = () => {
       <Stack
         direction="row"
         spacing={2}
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        sx={{ alignItems: 'center', justifyContent: 'center' }}
       >
         <TextField
-          value={toDateString(date)}
-          label="시작일"
-          type="date"
-          slotProps={{ inputLabel: { shrink: true } }}
           autoFocus
+          label="시작일"
           onChange={(e) => {
             setDate(e.target.value ? new Date(e.target.value) : new Date());
           }}
+          slotProps={{ inputLabel: { shrink: true } }}
+          type="date"
+          value={toDateString(date)}
         />
         <TextField
-          value={toDateString(endDate)}
-          label="종료일"
-          type="date"
-          slotProps={{ inputLabel: { shrink: true } }}
           disabled
+          label="종료일"
+          slotProps={{ inputLabel: { shrink: true } }}
+          type="date"
+          value={toDateString(endDate)}
         />
         <Typography sx={{ whiteSpace: 'nowrap' }}>
           영업일
@@ -152,36 +149,33 @@ const Client = () => {
       <Stack
         direction="row"
         spacing={2}
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        sx={{ alignItems: 'center', justifyContent: 'center' }}
       >
         <TextField
-          value={Number.isNaN(amount) ? '' : amount}
           label="1회 이용요금"
-          type="number"
+          onChange={(e) => {
+            setAmount(Number.parseInt(e.target.value));
+          }}
           slotProps={{
             htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
             inputLabel: { shrink: true },
           }}
-          onChange={(e) => {
-            setAmount(Number.parseInt(e.target.value));
-          }}
           sx={{ maxWidth: '130px' }}
+          type="number"
+          value={Number.isNaN(amount) ? '' : amount}
         />
         <TextField
-          value={Number.isNaN(count) ? '' : count}
           label="이용횟수"
-          type="number"
+          onChange={(e) => {
+            setCount(Number.parseInt(e.target.value));
+          }}
           slotProps={{
             htmlInput: { min: 0, inputMode: 'numeric' },
             inputLabel: { shrink: true },
           }}
-          onChange={(e) => {
-            setCount(Number.parseInt(e.target.value));
-          }}
           sx={{ maxWidth: '130px' }}
+          type="number"
+          value={Number.isNaN(count) ? '' : count}
         />
         <Typography sx={{ whiteSpace: 'nowrap' }}>
           금액
@@ -192,24 +186,24 @@ const Client = () => {
 
       <CheckboxGroup
         label="기후동행카드"
+        onChange={(_e, value) => setClimateOption(value)}
         options={[
           { value: 'youth', label: '청년할인(19~39세)' },
           { value: 'bikeseoul', label: '따릉이' },
         ]}
         value={climateOption}
-        onChange={(_e, value) => setClimateOption(value)}
       />
 
       <Radio
-        name="kPass"
         label="K-패스"
+        name="kPass"
+        onChange={(_e, value) => setKPassOption(value)}
         options={[
           { value: 'common', label: '일반' },
           { value: 'youth', label: '청년(19~34세)' },
           { value: 'lowIncome', label: '저소득(기초생활수급자/차상위계층)' },
         ]}
         value={kPassOption}
-        onChange={(_e, value) => setKPassOption(value)}
       />
 
       <Table
@@ -217,11 +211,7 @@ const Client = () => {
           { field: 'head', align: 'center', variant: 'head' },
           { field: 'narasarang', headerName: '나라사랑카드', align: 'center' },
           { field: 'pass', headerName: '서울전용 정기권', align: 'center' },
-          {
-            field: 'climate',
-            headerName: '기후동행카드',
-            align: 'center',
-          },
+          { field: 'climate', headerName: '기후동행카드', align: 'center' },
           { field: 'kPass', headerName: 'K-패스', align: 'center' },
         ]}
         rows={rows}

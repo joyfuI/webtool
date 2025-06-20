@@ -1,13 +1,12 @@
 'use client';
+import { useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useMemo, useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import KeyboardDoubleArrowIcon from '@/components/KeyboardDoubleArrowIcon';
-
 import copyText from '@/utils/copyText';
 
 import { requestHeader } from './logic';
@@ -20,13 +19,13 @@ const Client = () => {
 
   return (
     <CommandCopy
-      command=".\yt-dlp"
       args={{
         ...(authorization
           ? { '--add-headers': `"Authorization:${authorization}"` }
           : {}),
         '': `"${m3u8}"`,
       }}
+      command=".\yt-dlp"
       label="위버스 다운로드 (LIVE)"
     >
       <Stack
@@ -51,12 +50,12 @@ const Client = () => {
         </Typography>
         <KeyboardDoubleArrowIcon />
         <TextField
-          value={playInfo}
-          variant="standard"
-          rows={1}
           multiline
           onChange={(e) => setPlayInfo(e.target.value)}
+          rows={1}
           sx={{ width: '200px' }}
+          value={playInfo}
+          variant="standard"
         />
       </Stack>
 
@@ -82,10 +81,10 @@ const Client = () => {
         </Typography>
         <KeyboardDoubleArrowIcon />
         <TextField
-          value={m3u8}
-          variant="standard"
           onChange={(e) => setM3u8(e.target.value)}
           sx={{ width: '200px' }}
+          value={m3u8}
+          variant="standard"
         />
       </Stack>
     </CommandCopy>

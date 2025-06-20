@@ -9,7 +9,7 @@ import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import { parseAsString, useQueryState } from 'nuqs';
 
-import { useHash } from '@/hooks';
+import useHash from '@/hooks/useHash';
 
 import Audio from './command/Audio';
 import Download from './command/Download';
@@ -35,19 +35,19 @@ const Client = () => {
     <>
       <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
         <TextField
-          value={input}
-          label="변환할 파일명"
-          slotProps={{ inputLabel: { shrink: true } }}
-          fullWidth
           autoFocus
+          fullWidth
+          label="변환할 파일명"
           onChange={(e) => setInput(e.target.value)}
+          slotProps={{ inputLabel: { shrink: true } }}
+          value={input}
         />
         <TextField
-          value={output}
-          label="변환된 파일명"
-          slotProps={{ inputLabel: { shrink: true } }}
           fullWidth
+          label="변환된 파일명"
           onChange={(e) => setOutput(e.target.value)}
+          slotProps={{ inputLabel: { shrink: true } }}
+          value={output}
         />
       </Stack>
 
@@ -69,20 +69,20 @@ const Client = () => {
       </TabContext>
 
       <ButtonGroup
-        variant="outlined"
         sx={{ width: '100%', my: 3, justifyContent: 'center' }}
+        variant="outlined"
       >
         <Button
           href="https://ffmpeg.org/ffmpeg.html"
-          target="_blank"
           rel="noreferrer"
+          target="_blank"
         >
           ffmpeg 문서
         </Button>
         <Button
           href="https://ffmpeg.org/ffmpeg-filters.html"
-          target="_blank"
           rel="noreferrer"
+          target="_blank"
         >
           ffmpeg 필터 문서
         </Button>

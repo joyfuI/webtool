@@ -2,8 +2,7 @@ import Link from '@mui/material/Link';
 
 import Modal from '@/components/Modal';
 import Table from '@/components/Table';
-
-import { useModal } from '@/hooks';
+import useModal from '@/hooks/useModal';
 
 const title = '대상 가맹점';
 
@@ -14,13 +13,13 @@ const KBank = () => {
     <>
       <span>
         5천원 이상{' '}
-        <Link component="button" type="button" onClick={() => setOpen(true)}>
+        <Link component="button" onClick={() => setOpen(true)} type="button">
           {title}
         </Link>{' '}
         각 영역별 일1회 300원 캐시백 / 전월실적 X
       </span>
 
-      <Modal open={open} title={title} onClose={() => setOpen(false)}>
+      <Modal onClose={() => setOpen(false)} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '영역' },

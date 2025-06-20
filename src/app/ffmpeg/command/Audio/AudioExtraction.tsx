@@ -1,9 +1,10 @@
 'use client';
+import { useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
+import { extensionRegex } from '@/utils/regex';
 
 import type { DefaultCommandProps } from '../../logic';
 
@@ -12,7 +13,6 @@ const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${input}"`,
         '-vn': '',
@@ -25,17 +25,18 @@ const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
           },
           aac: { '-c:a': 'copy' },
         }[codec],
-        '': `"${output.replace(/\.\w+$/, `.${codec}`)}"`,
+        '': `"${output.replace(extensionRegex, `.${codec}`)}"`,
       }}
+      command={command}
       label="오디오 추출"
     >
       <Select
-        value={codec}
-        variant="standard"
         onChange={(e) => {
           setCodec(e.target.value);
         }}
         sx={{ mb: 1 }}
+        value={codec}
+        variant="standard"
       >
         <MenuItem value="mp3">MP3</MenuItem>
         <MenuItem value="aac">AAC</MenuItem>

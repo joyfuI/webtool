@@ -1,13 +1,13 @@
+import type { ReactNode, Ref } from 'react';
 import type { SxProps } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import MuiTable from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import type { TableCellProps } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import type { ReactNode, Ref } from 'react';
 
 import type theme from '@/theme';
 
@@ -26,7 +26,7 @@ export type TableProps = {
 };
 
 const Table = ({ ref, columns, rows, sx }: TableProps) => (
-  <TableContainer ref={ref} component={Paper} sx={sx}>
+  <TableContainer component={Paper} ref={ref} sx={sx}>
     <MuiTable stickyHeader sx={{ whiteSpace: 'nowrap' }}>
       <TableHead>
         <TableRow>
@@ -40,11 +40,9 @@ const Table = ({ ref, columns, rows, sx }: TableProps) => (
       <TableBody>
         {rows.map((row, i) => (
           <TableRow
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            // biome-ignore lint/suspicious/noArrayIndexKey: key로 사용할 만한 값이 없음
             key={i}
-            sx={{
-              '&:last-child td, &:last-child th': { border: 0 },
-            }}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             {columns.map(({ field, headerName, ...props }) => (
               <TableCell key={field} {...props}>

@@ -2,20 +2,13 @@ import { createElement } from 'react';
 
 import type { CardType, IndustryType } from './cardData';
 
-type FormData = {
-  amount: number;
-  discount?: number;
-  industry: string;
-};
+type FormData = { amount: number; discount?: number; industry: string };
 
 const getReward = (
   card: CardType,
   { amount, discount, industry }: FormData,
 ): number => {
-  const card2 = {
-    ...card,
-    ...card[industry as IndustryType],
-  };
+  const card2 = { ...card, ...card[industry as IndustryType] };
 
   if (Number.isNaN(amount)) {
     return 0;

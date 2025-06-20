@@ -11,9 +11,9 @@ const DarkModeButton = () => {
     case 'light':
       return (
         <IconButton
-          size="large"
           color="inherit"
           onClick={() => setMode('dark')}
+          size="large"
         >
           <LightModeIcon />
         </IconButton>
@@ -22,9 +22,9 @@ const DarkModeButton = () => {
     case 'dark':
       return (
         <IconButton
-          size="large"
           color="inherit"
           onClick={() => setMode('system')}
+          size="large"
         >
           <DarkModeIcon />
         </IconButton>
@@ -33,9 +33,9 @@ const DarkModeButton = () => {
     default:
       return (
         <IconButton
-          size="large"
           color="inherit"
           onClick={() => setMode('light')}
+          size="large"
         >
           <ContrastIcon />
         </IconButton>

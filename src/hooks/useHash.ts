@@ -8,8 +8,7 @@ const subscribe = (callback: () => void) => {
   };
 };
 
-const getSnapshot = () =>
-  decodeURIComponent(window.location.hash.replace(/^#/, ''));
+const getSnapshot = () => decodeURIComponent(window.location.hash.slice(1));
 
 const getServerSnapshot = () => '';
 

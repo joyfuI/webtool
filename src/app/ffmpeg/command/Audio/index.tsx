@@ -2,7 +2,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
-
 import AudioExtraction from './AudioExtraction';
 import AudioRemove from './AudioRemove';
 import Metadata from './Metadata';

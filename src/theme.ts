@@ -1,4 +1,5 @@
 'use client';
+// biome-ignore lint/correctness/noUnusedImports: @mui/lab 사용법 자체가 이럼
 import type {} from '@mui/lab/themeAugmentation';
 import { createTheme } from '@mui/material/styles';
 
@@ -10,39 +11,11 @@ const theme = createTheme({
       '"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif',
   },
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-        },
-      },
-    },
-    MuiLink: {
-      styleOverrides: {
-        button: {
-          verticalAlign: 'baseline',
-        },
-      },
-    },
-    MuiStack: {
-      defaultProps: {
-        useFlexGap: true,
-      },
-    },
-    MuiTabPanel: {
-      styleOverrides: {
-        root: {
-          padding: 0,
-        },
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          margin: '8px 0',
-        },
-      },
-    },
+    MuiButton: { styleOverrides: { root: { textTransform: 'none' } } },
+    MuiLink: { styleOverrides: { button: { verticalAlign: 'baseline' } } },
+    MuiStack: { defaultProps: { useFlexGap: true } },
+    MuiTabPanel: { styleOverrides: { root: { padding: 0 } } },
+    MuiTextField: { styleOverrides: { root: { margin: '8px 0' } } },
   },
 });
 

@@ -2,7 +2,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import Stack from '@mui/material/Stack';
 
 import type { DefaultCommandProps } from '../../logic';
-
 import M3u8Download from './M3u8Download';
 
 const Download = ({ command, input, output }: DefaultCommandProps) => {

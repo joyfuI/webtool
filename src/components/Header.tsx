@@ -16,10 +16,10 @@ import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+import useToggle from '@/hooks/useToggle';
+
 import DarkModeButton from './DarkModeButton';
 import Link from './Link';
-
-import { useToggle } from '@/hooks';
 
 const menu = [
   { title: '카드 혜택 계산기', href: '/card' },
@@ -43,12 +43,12 @@ const Header = () => {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ display: responsive('flex', 'none'), flexGrow: 1 }}>
-              <IconButton size="large" color="inherit" onClick={toggleOpen}>
+              <IconButton color="inherit" onClick={toggleOpen} size="large">
                 <MenuIcon />
               </IconButton>
               <Drawer
-                open={open}
                 onClose={toggleOpen}
+                open={open}
                 sx={{ display: responsive('block', 'none') }}
               >
                 <Box role="presentation" sx={{ width: 250 }}>
@@ -60,7 +60,7 @@ const Header = () => {
                   <Divider />
                   <List>
                     {menu.map((item) => (
-                      <ListItem key={item.href} disablePadding>
+                      <ListItem disablePadding key={item.href}>
                         <ListItemButton
                           component={Link}
                           href={item.href}
@@ -77,7 +77,6 @@ const Header = () => {
 
             <Typography
               component={Link}
-              variant="h6"
               href="/"
               noWrap
               sx={{
@@ -88,6 +87,7 @@ const Header = () => {
                 fontWeight: 700,
                 textDecoration: 'none',
               }}
+              variant="h6"
             >
               웹툴
             </Typography>
@@ -98,9 +98,9 @@ const Header = () => {
             >
               {menu.map((item) => (
                 <Button
-                  key={item.href}
                   component={Link}
                   href={item.href}
+                  key={item.href}
                   sx={{ color: 'white' }}
                 >
                   {item.title}

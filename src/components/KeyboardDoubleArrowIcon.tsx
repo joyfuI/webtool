@@ -3,9 +3,7 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import type { Breakpoint } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export type KeyboardDoubleArrowIconProps = {
-  breakpoint?: Breakpoint;
-};
+export type KeyboardDoubleArrowIconProps = { breakpoint?: Breakpoint };
 
 const KeyboardDoubleArrowIcon = ({
   breakpoint = 'sm',

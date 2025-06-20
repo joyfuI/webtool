@@ -1,10 +1,10 @@
 'use client';
+import type { ChangeEvent } from 'react';
+import { useMemo } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';
-import { useMemo } from 'react';
-import type { ChangeEvent } from 'react';
 
 import Radio from '@/components/Radio';
 import Table from '@/components/Table';
@@ -41,41 +41,42 @@ const Client = () => {
     <>
       <Stack direction="row" spacing={2}>
         <TextField
-          value={Number.isNaN(amount) ? '' : amount}
-          label="금액"
-          type="number"
-          slotProps={{
-            htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
-            inputLabel: { shrink: true },
-          }}
-          fullWidth
           autoFocus
+          fullWidth
+          label="금액"
           onChange={(e) => {
             const num = Number.parseInt(e.target.value);
             setAmount(num);
           }}
+          slotProps={{
+            htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
+            inputLabel: { shrink: true },
+          }}
+          type="number"
+          value={Number.isNaN(amount) ? '' : amount}
         />
         <TextField
-          variant="standard"
-          value={discount ?? ''}
           label="할인"
-          type="number"
+          onChange={(e) => {
+            const num = Number.parseInt(e.target.value);
+            setDiscount(Number.isNaN(num) ? null : num);
+          }}
           slotProps={{
             htmlInput: { min: 0, max: 100, inputMode: 'numeric' },
             input: {
               endAdornment: <InputAdornment position="end">%</InputAdornment>,
             },
           }}
-          onChange={(e) => {
-            const num = Number.parseInt(e.target.value);
-            setDiscount(Number.isNaN(num) ? null : num);
-          }}
+          type="number"
+          value={discount ?? ''}
+          variant="standard"
         />
       </Stack>
 
       <Radio
-        name="industry"
         label="업종"
+        name="industry"
+        onChange={handleChange}
         options={[
           { value: '음식점', label: '음식점' },
           { value: '편의점', label: '편의점' },
@@ -90,7 +91,6 @@ const Client = () => {
           { value: '기타', label: '기타' },
         ]}
         value={industry}
-        onChange={handleChange}
       />
 
       <Table

@@ -1,7 +1,7 @@
 'use client';
+import { useState } from 'react';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -13,7 +13,6 @@ const Stitch = ({ command, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${video1}" -i "${video2}"`,
         '-filter_complex':
@@ -25,20 +24,21 @@ const Stitch = ({ command, output }: DefaultCommandProps) => {
         '-preset': 'slow',
         '': `"${output}"`,
       }}
+      command={command}
       label="동영상 두 개 나란히 배치"
     >
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <Input
-          value={video1}
-          placeholder="첫번째 동영상 파일"
           fullWidth
           onChange={(e) => setVideo1(e.target.value)}
+          placeholder="첫번째 동영상 파일"
+          value={video1}
         />
         <Input
-          value={video2}
-          placeholder="두번째 동영상 파일"
           fullWidth
           onChange={(e) => setVideo2(e.target.value)}
+          placeholder="두번째 동영상 파일"
+          value={video2}
         />
       </Stack>
     </CommandCopy>

@@ -1,6 +1,6 @@
 'use client';
-import Input from '@mui/material/Input';
 import { useState } from 'react';
+import Input from '@mui/material/Input';
 
 import CommandCopy from '@/components/CommandCopy';
 
@@ -11,21 +11,21 @@ const M3u8Download = ({ command, output }: DefaultCommandProps) => {
 
   return (
     <CommandCopy
-      command={command}
       args={{
         '-i': `"${url}"`,
         '-c': 'copy',
         '-bsf:a': 'aac_adtstoasc',
         '': `"${output}"`,
       }}
+      command={command}
       label="m3u8 다운로드"
     >
       <Input
-        value={url}
-        placeholder="미디어 주소"
         fullWidth
         onChange={(e) => setUrl(e.target.value)}
+        placeholder="미디어 주소"
         sx={{ mb: 1 }}
+        value={url}
       />
     </CommandCopy>
   );

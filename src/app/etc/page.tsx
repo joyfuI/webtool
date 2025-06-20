@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-
 import Stack from '@mui/material/Stack';
 
 import WeverseLive from './WeverseLive';
 import WeverseReplay from './WeverseReplay';
 import ZeroWidthSpace from './ZeroWidthSpace';
 
-export const metadata: Metadata = {
-  title: 'etc.',
-};
+export const metadata: Metadata = { title: 'etc.' };
 
 const Page = () => {
   return (

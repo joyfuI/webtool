@@ -2,8 +2,7 @@ import Link from '@mui/material/Link';
 
 import Modal from '@/components/Modal';
 import Table from '@/components/Table';
-
-import { useModal } from '@/hooks';
+import useModal from '@/hooks/useModal';
 
 const title = '생활 편의 업종';
 
@@ -14,13 +13,13 @@ const KFirst = () => {
     <>
       <span>
         1% 할인 / 만원 이상{' '}
-        <Link component="button" type="button" onClick={() => setOpen(true)}>
+        <Link component="button" onClick={() => setOpen(true)} type="button">
           {title}
         </Link>{' '}
         1.5% 할인 / 전월실적 X / 무이자할부 3개월
       </span>
 
-      <Modal open={open} title={title} onClose={() => setOpen(false)}>
+      <Modal onClose={() => setOpen(false)} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '업종' },
