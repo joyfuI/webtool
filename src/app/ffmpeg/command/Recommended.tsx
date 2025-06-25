@@ -7,23 +7,17 @@ const Recommended = ({ command, input, output }: DefaultCommandProps) => {
     <CommandCopy
       args={{
         '-i': `"${input}"`,
-        '-threads': '0',
-        '-scodec': 'copy',
-        '-vcodec': 'libx264',
+        '-c:v': 'libx265',
         '-preset': 'slow',
-        '-tune': 'film',
         '-crf': '23',
-        '-sws_flags': 'lanczos',
-        '-vf': '"yadif=0:-1, scale=-1:720, setsar=1:1"',
-        '-r': '30000/1001',
-        '-acodec': 'aac',
-        '-ac': '2',
-        '-ab': '192k',
-        '-strict': 'experimental',
+        '-vf': '"scale=-1:1080, yadif=0:-1, setsar=1:1"',
+        '-c:a': 'aac',
+        '-b:a': '128k',
+        '-c:s': 'copy',
         '': `"${output}"`,
       }}
       command={command}
-      label="720p 인코딩"
+      label="1080p 인코딩"
     />
   );
 };
