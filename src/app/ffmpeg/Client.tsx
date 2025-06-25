@@ -12,6 +12,7 @@ import { parseAsString, useQueryState } from 'nuqs';
 import useHash from '@/hooks/useHash';
 
 import Audio from './command/Audio';
+import Convert from './command/Convert';
 import Download from './command/Download';
 import Generate from './command/Generate';
 import Recommended from './command/Recommended';
@@ -58,6 +59,7 @@ const Client = () => {
             <Tab label="동영상" value="videoaudio" />
             <Tab label="비디오" value="video" />
             <Tab label="오디오" value="audio" />
+            <Tab label="변환" value="convert" />
             <Tab label="생성" value="generate" />
           </TabList>
         </Box>
@@ -65,6 +67,7 @@ const Client = () => {
         <Videoaudio command={command} input={input} output={output} />
         <Video command={command} input={input} output={output} />
         <Audio command={command} input={input} output={output} />
+        <Convert command={command} input={input} output={output} />
         <Generate command={command} input={input} output={output} />
       </TabContext>
 
