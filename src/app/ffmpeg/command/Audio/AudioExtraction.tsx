@@ -16,15 +16,9 @@ const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
       args={{
         '-i': `"${input}"`,
         '-vn': '',
-        ...{
-          mp3: {
-            '-acodec': 'libmp3lame',
-            '-ar': '44.1k',
-            '-ac': '2',
-            '-ab': '192k',
-          },
-          aac: { '-c:a': 'copy' },
-        }[codec],
+        ...{ mp3: { '-map': '0:a', '-f': 'mp3' }, aac: { '-c:a': 'copy' } }[
+          codec
+        ],
         '': `"${output.replace(extensionRegex, `.${codec}`)}"`,
       }}
       command={command}
