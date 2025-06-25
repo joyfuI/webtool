@@ -15,10 +15,10 @@ const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
     <CommandCopy
       args={{
         '-i': `"${input}"`,
-        '-vn': '',
-        ...{ mp3: { '-map': '0:a', '-f': 'mp3' }, aac: { '-c:a': 'copy' } }[
-          codec
-        ],
+        ...{
+          mp3: { '-map': '0:a', '-f': 'mp3' },
+          aac: { '-vn': '', '-c:a': 'copy' },
+        }[codec],
         '': `"${output.replace(extensionRegex, `.${codec}`)}"`,
       }}
       command={command}
