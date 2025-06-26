@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import KBank from './note/KBank';
 import KFirst from './note/KFirst';
+import OneThe from './note/OneThe';
 import TossBank from './note/TossBank';
 
 type RewardType = {
@@ -30,6 +31,16 @@ export type CardType = {
   RewardType;
 
 const cardData: CardType[] = [
+  {
+    name: '원더 카드',
+    type: '적립',
+    rewardsRate: 0.01,
+    limit: 50000,
+    음식점: { rewardsRate: 0.02 },
+    편의점: { rewardsRate: 0.03 },
+    패스트푸드: { rewardsRate: 0.02 },
+    note: OneThe,
+  },
   {
     name: '더모아 카드',
     type: '적립',
