@@ -12,7 +12,7 @@ const Reverse = ({ command, input, output }: DefaultCommandProps) => {
         '': `"${output}"`,
       }}
       command={command}
-      label="동영상 역재생"
+      label="역재생"
     />
   );
 };

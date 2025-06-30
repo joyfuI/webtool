@@ -35,7 +35,7 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
             }
       }
       command={command}
-      label="동영상 합치기"
+      label="이어붙이기"
     >
       <Stack
         direction="row"

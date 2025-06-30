@@ -7,7 +7,7 @@ const Copy = ({ command, input, output }: DefaultCommandProps) => {
     <CommandCopy
       args={{ '-i': `"${input}"`, '-c': 'copy', '': `"${output}"` }}
       command={command}
-      label="동영상 복사"
+      label="복사"
     />
   );
 };

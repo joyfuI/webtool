@@ -25,7 +25,7 @@ const Stitch = ({ command, output }: DefaultCommandProps) => {
         '': `"${output}"`,
       }}
       command={command}
-      label="동영상 두 개 나란히 배치"
+      label="두 개 나란히 배치"
     >
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <Input

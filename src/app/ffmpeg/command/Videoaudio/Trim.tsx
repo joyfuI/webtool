@@ -25,7 +25,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
         '': `"${output}"`,
       }}
       command={command}
-      label="동영상 자르기"
+      label="자르기"
     >
       <Stack
         direction={{ xs: 'column', sm: 'row' }}

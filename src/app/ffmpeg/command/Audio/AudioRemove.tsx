@@ -12,7 +12,7 @@ const AudioRemove = ({ command, input, output }: DefaultCommandProps) => {
         '': `"${output}"`,
       }}
       command={command}
-      label="오디오 제거"
+      label="소리 제거"
     />
   );
 };
