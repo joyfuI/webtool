@@ -1,5 +1,4 @@
 'use client';
-// biome-ignore lint/correctness/noUnusedImports: @mui/lab 사용법 자체가 이럼
 import type {} from '@mui/lab/themeAugmentation';
 import { createTheme } from '@mui/material/styles';
 
