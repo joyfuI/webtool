@@ -41,8 +41,11 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ display: responsive('flex', 'none'), flexGrow: 1 }}>
+        <Toolbar
+          disableGutters
+          sx={{ gap: 3, justifyContent: 'space-between' }}
+        >
+          <Box sx={{ display: responsive('flex', 'none') }}>
             <IconButton color="inherit" onClick={toggleOpen} size="large">
               <MenuIcon />
             </IconButton>
@@ -81,8 +84,6 @@ const Header = () => {
             noWrap
             sx={{
               display: 'flex',
-              mr: 3,
-              flexGrow: responsive(1, 0),
               color: 'inherit',
               fontWeight: 700,
               textDecoration: 'none',
@@ -94,7 +95,11 @@ const Header = () => {
           <Stack
             direction="row"
             spacing={1}
-            sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}
+            sx={{
+              display: responsive('none', 'flex'),
+              flexGrow: 1,
+              overflowX: 'auto',
+            }}
           >
             {menu.map((item) => (
               <Button
