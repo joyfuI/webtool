@@ -6,9 +6,7 @@ import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 
-import { errorMessageRegex } from '@/utils/regex';
-
-import { formatJson, minifyJson } from './logic';
+import { decode, encode } from './logic';
 
 const Client = () => {
   const [value, setValue] = useState('');
@@ -24,8 +22,8 @@ const Client = () => {
       setError('');
       setValue(func(value));
     } catch (e) {
-      if (e instanceof SyntaxError) {
-        setError(e.message.replace(errorMessageRegex, ''));
+      if (e instanceof DOMException) {
+        setError(e.message);
       } else {
         throw e;
       }
@@ -40,11 +38,11 @@ const Client = () => {
         spacing={2}
         sx={{ mb: 1, justifyContent: 'center' }}
       >
-        <Button onClick={handleClick(formatJson)} variant="contained">
-          포매팅
+        <Button onClick={handleClick(encode)} variant="contained">
+          인코딩
         </Button>
-        <Button onClick={handleClick(minifyJson)} variant="contained">
-          압축
+        <Button onClick={handleClick(decode)} variant="contained">
+          디코딩
         </Button>
       </Stack>
 

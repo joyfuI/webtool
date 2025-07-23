@@ -27,6 +27,7 @@ const menu = [
   { title: '나이 계산기', href: '/age' },
   { title: '글자 수 세기', href: '/count' },
   { title: 'JSON 포매터', href: '/json' },
+  { title: 'Base64', href: '/base64' },
   { title: '피보나치킨', href: '/fibonachicken' },
   { title: 'FFmpeg', href: '/ffmpeg' },
   { title: 'etc.', href: '/etc' },
@@ -38,81 +39,79 @@ const Header = () => {
   const [open, toggleOpen] = useToggle(false);
 
   return (
-    <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Box sx={{ display: responsive('flex', 'none'), flexGrow: 1 }}>
-              <IconButton color="inherit" onClick={toggleOpen} size="large">
-                <MenuIcon />
-              </IconButton>
-              <Drawer
-                onClose={toggleOpen}
-                open={open}
-                sx={{ display: responsive('block', 'none') }}
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Box sx={{ display: responsive('flex', 'none'), flexGrow: 1 }}>
+            <IconButton color="inherit" onClick={toggleOpen} size="large">
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              onClose={toggleOpen}
+              open={open}
+              sx={{ display: responsive('block', 'none') }}
+            >
+              <Box role="presentation" sx={{ width: 250 }}>
+                <Toolbar sx={{ justifyContent: 'flex-end' }}>
+                  <IconButton onClick={toggleOpen}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </Toolbar>
+                <Divider />
+                <List>
+                  {menu.map((item) => (
+                    <ListItem disablePadding key={item.href}>
+                      <ListItemButton
+                        component={Link}
+                        href={item.href}
+                        onClick={toggleOpen}
+                      >
+                        <ListItemText primary={item.title} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Drawer>
+          </Box>
+
+          <Typography
+            component={Link}
+            href="/"
+            noWrap
+            sx={{
+              display: 'flex',
+              mr: 3,
+              flexGrow: responsive(1, 0),
+              color: 'inherit',
+              fontWeight: 700,
+              textDecoration: 'none',
+            }}
+            variant="h6"
+          >
+            웹툴
+          </Typography>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}
+          >
+            {menu.map((item) => (
+              <Button
+                component={Link}
+                href={item.href}
+                key={item.href}
+                sx={{ color: 'white' }}
               >
-                <Box role="presentation" sx={{ width: 250 }}>
-                  <Toolbar sx={{ justifyContent: 'flex-end' }}>
-                    <IconButton onClick={toggleOpen}>
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </Toolbar>
-                  <Divider />
-                  <List>
-                    {menu.map((item) => (
-                      <ListItem disablePadding key={item.href}>
-                        <ListItemButton
-                          component={Link}
-                          href={item.href}
-                          onClick={toggleOpen}
-                        >
-                          <ListItemText primary={item.title} />
-                        </ListItemButton>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
-              </Drawer>
-            </Box>
+                {item.title}
+              </Button>
+            ))}
+          </Stack>
 
-            <Typography
-              component={Link}
-              href="/"
-              noWrap
-              sx={{
-                display: 'flex',
-                mr: 3,
-                flexGrow: responsive(1, 0),
-                color: 'inherit',
-                fontWeight: 700,
-                textDecoration: 'none',
-              }}
-              variant="h6"
-            >
-              웹툴
-            </Typography>
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{ display: responsive('none', 'flex'), flexGrow: 1 }}
-            >
-              {menu.map((item) => (
-                <Button
-                  component={Link}
-                  href={item.href}
-                  key={item.href}
-                  sx={{ color: 'white' }}
-                >
-                  {item.title}
-                </Button>
-              ))}
-            </Stack>
-
-            <DarkModeButton />
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </>
+          <DarkModeButton />
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 
