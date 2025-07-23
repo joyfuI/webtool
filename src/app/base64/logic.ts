@@ -6,9 +6,7 @@ export const encode = (str: string): string => {
     );
   }
   const bytes = new TextEncoder().encode(str);
-  const binString = Array.from(bytes, (byte) =>
-    String.fromCodePoint(byte),
-  ).join('');
+  const binString = String.fromCodePoint(...bytes);
   return btoa(binString);
 };
 
