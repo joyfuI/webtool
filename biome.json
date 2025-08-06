@@ -24,7 +24,7 @@
     "enabled": true,
     "domains": {
       "next": "all",
-      "project": "all",
+      "project": "none",
       "react": "all"
     },
     "rules": {
