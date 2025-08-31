@@ -154,7 +154,7 @@ const Client = () => {
         <TextField
           label="1회 이용요금"
           onChange={(e) => {
-            setAmount(Number.parseInt(e.target.value));
+            setAmount(Number.parseInt(e.target.value, 10));
           }}
           slotProps={{
             htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
@@ -167,7 +167,7 @@ const Client = () => {
         <TextField
           label="이용횟수"
           onChange={(e) => {
-            setCount(Number.parseInt(e.target.value));
+            setCount(Number.parseInt(e.target.value, 10));
           }}
           slotProps={{
             htmlInput: { min: 0, inputMode: 'numeric' },

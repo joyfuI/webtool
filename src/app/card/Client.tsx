@@ -45,7 +45,7 @@ const Client = () => {
           fullWidth
           label="금액"
           onChange={(e) => {
-            const num = Number.parseInt(e.target.value);
+            const num = Number.parseInt(e.target.value, 10);
             setAmount(num);
           }}
           slotProps={{
@@ -58,7 +58,7 @@ const Client = () => {
         <TextField
           label="할인"
           onChange={(e) => {
-            const num = Number.parseInt(e.target.value);
+            const num = Number.parseInt(e.target.value, 10);
             setDiscount(Number.isNaN(num) ? null : num);
           }}
           slotProps={{

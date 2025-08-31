@@ -22,9 +22,11 @@ export const response = (str: string): string => {
       (a, b) =>
         Number.parseInt(
           b.querySelector('[kind="resolution"]')?.textContent ?? '0',
+          10,
         ) -
         Number.parseInt(
           a.querySelector('[kind="resolution"]')?.textContent ?? '0',
+          10,
         ),
     ); // 화질순으로 정렬
     const baseURL = videos[0].querySelector('BaseURL')?.textContent;

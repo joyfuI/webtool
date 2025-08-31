@@ -30,12 +30,12 @@
     "rules": {
       "recommended": true,
       "correctness": {
+        "noReactPropAssignments": "error",
         "noNodejsModules": "error",
         "noUndeclaredVariables": "error",
         "useImportExtensions": "off"
       },
       "nursery": {
-        "noReactPropAssign": "error",
         "noUnresolvedImports": "off"
       },
       "performance": {
@@ -72,7 +72,7 @@
               ],
               [
                 "react",
-                "react-dom"
+                "react-dom/**"
               ],
               ":PACKAGE:",
               ":BLANK_LINE:",

@@ -33,7 +33,7 @@ const TimeInput = ({
       ?.split(':')
       .slice(0, 3)
       .map((item) => {
-        const num = Number.parseInt(item);
+        const num = Number.parseInt(item, 10);
         return Number.isNaN(num) ? undefined : num;
       }) ?? [0, 0, 0],
   );
@@ -45,7 +45,7 @@ const TimeInput = ({
           .split(':')
           .slice(0, 3)
           .map((item) => {
-            const num = Number.parseInt(item);
+            const num = Number.parseInt(item, 10);
             return Number.isNaN(num) ? undefined : num;
           }),
       );
@@ -54,7 +54,7 @@ const TimeInput = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const nextTime = [...time];
-    const num = Number.parseInt(e.target.value);
+    const num = Number.parseInt(e.target.value, 10);
     switch (e.target.name) {
       case 'hour':
         nextTime[0] = Number.isNaN(num) ? undefined : num;

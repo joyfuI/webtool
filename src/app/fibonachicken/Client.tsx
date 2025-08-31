@@ -21,7 +21,7 @@ const Client = () => {
         fullWidth
         label="인원수"
         onChange={(e) => {
-          const num = Number.parseInt(e.target.value);
+          const num = Number.parseInt(e.target.value, 10);
           setCount(num);
         }}
         slotProps={{
