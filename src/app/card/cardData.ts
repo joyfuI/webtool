@@ -80,6 +80,17 @@ const cardData: CardType[] = [
     상품권: { rewardsRate: 0 },
     note: KFirst,
   },
+  {
+    name: 'MG+ S 하나 카드',
+    type: '할인',
+    rewardsRate: 0.1,
+    minimumPaymentAmount: 10000,
+    limit: 150000,
+    전기요금: { rewardsRate: 0 },
+    가스요금: { rewardsRate: 0 },
+    상품권: { rewardsRate: 0 },
+    note: '만원 이상 네이버페이, 카카오페이, 토스페이, SSG페이, 11pay, 스마일페이 10% 할인 / 유튜브프리미엄, 디즈니플러스, 웨이브, 넷플릭스, 티빙 월 정기결제 50% 할인 / 네이버플러스멤버십, 컬리멤버스, 쿠팡와우 월 정기결제 50% 할인 / 전월실적 30만원',
+  },
   // {
   //   name: '카드의정석 포인트 카드',
   //   type: '적립',
