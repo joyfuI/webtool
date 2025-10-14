@@ -34,7 +34,7 @@ const cardData: CardType[] = [
   {
     name: '원더 카드',
     type: '적립',
-    rewardsRate: 0.008,
+    rewardsRate: 0.012,
     음식점: { rewardsRate: 0.02, limit: 50000 },
     편의점: { rewardsRate: 0.03, limit: 50000 },
     패스트푸드: { rewardsRate: 0.04, limit: 50000 },
