@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { blueGrey } from '@mui/material/colors';
@@ -38,20 +38,17 @@ const Client = () => {
     }));
   }, [date]);
 
-  const style = useCallback(
-    (t: typeof theme) => {
-      const year = date.getFullYear();
-      const todayYear = new Date().getFullYear();
-      const i = todayYear - year + 1;
-      return {
-        [`& .MuiTableBody-root > .MuiTableRow-root:nth-child(${i})`]: {
-          bgcolor: blueGrey[50],
-          ...t.applyStyles('dark', { bgcolor: blueGrey[900] }),
-        },
-      };
-    },
-    [date],
-  );
+  const style = (t: typeof theme) => {
+    const year = date.getFullYear();
+    const todayYear = new Date().getFullYear();
+    const i = todayYear - year + 1;
+    return {
+      [`& .MuiTableBody-root > .MuiTableRow-root:nth-child(${i})`]: {
+        bgcolor: blueGrey[50],
+        ...t.applyStyles('dark', { bgcolor: blueGrey[900] }),
+      },
+    };
+  };
 
   return (
     <>

@@ -47,6 +47,12 @@
       },
       "style": {
         "noCommonJs": "error",
+        "useComponentExportOnlyModules": {
+          "level": "warn",
+          "options": {
+            "allowExportNames": ["metadata"]
+          }
+        },
         "noNamespace": "error",
         "useBlockStatements": "error",
         "useConsistentCurlyBraces": "error",
@@ -133,7 +139,11 @@
     }
   },
   "html": {
+    "experimentalFullSupportEnabled": true,
     "formatter": {
+      "enabled": true
+    },
+    "linter": {
       "enabled": true
     }
   }
