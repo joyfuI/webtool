@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useSyncExternalStore } from 'react';
+import { useCallback, useRef, useSyncExternalStore } from 'react';
 
 const subscribe = (callback: () => void) => {
   window.addEventListener('hashchange', callback);
@@ -8,35 +8,48 @@ const subscribe = (callback: () => void) => {
   };
 };
 
-const getSnapshot = () => decodeURIComponent(window.location.hash.slice(1));
-
-const getServerSnapshot = () => '';
-
 /**
- * url hash 훅
- * @returns [현재값, 설정함수]
+ * hash를 다루는 훅
+ * @param initialValue 값이 없을 때 사용할 기본값
+ * @returns [hash, 변경 함수]
  */
-const useHash = (): [string, (newValue: string) => void] => {
-  const hash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+const useHash = (initialValue: string | (() => string) = '') => {
+  const getSnapshot = useCallback(() => {
+    const value = decodeURIComponent(window.location.hash.slice(1));
+    return (
+      value ||
+      (typeof initialValue === 'function' ? initialValue() : initialValue)
+    );
+  }, [initialValue]);
 
-  const setHash = useCallback(
-    (newValue: string) => {
-      if (newValue === hash) {
-        return;
-      }
-      if (!newValue) {
-        // hash 제거
-        window.location.hash = '';
-        const newUrl = `${window.location.pathname}${window.location.search}`;
-        window.history.replaceState(null, '', newUrl); // url 끝에 #이 보기싫어서 제거
-      } else {
-        window.location.hash = newValue;
-      }
-    },
-    [hash],
+  const getServerSnapshot = useCallback(
+    () => (typeof initialValue === 'function' ? initialValue() : initialValue),
+    [initialValue],
   );
 
-  return [hash, setHash];
+  const hash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const hashRef = useRef(hash);
+  hashRef.current = hash;
+
+  const setHash = useCallback(
+    (newValue: string | ((oldValue: string) => string)) => {
+      const value =
+        typeof newValue === 'function'
+          ? (newValue as (oldValue: string) => string)(hashRef.current)
+          : newValue;
+      if (value) {
+        window.location.hash = value;
+      } else {
+        // 빈값일 때 url 끝에 #이 보기싫어서 제거
+        window.location.hash = '';
+        const newUrl = `${window.location.pathname}${window.location.search}`;
+        window.history.replaceState(null, '', newUrl);
+      }
+    },
+    [],
+  );
+
+  return [hash, setHash] as const;
 };
 
 export default useHash;

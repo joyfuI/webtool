@@ -5,11 +5,7 @@ import { useCallback, useMemo, useState } from 'react';
  * 모달 훅
  * @returns [open, data, 설정함수]
  */
-const useModal = <T>(): [
-  boolean,
-  T,
-  (value: undefined | boolean | T) => void,
-] => {
+const useModal = <T>() => {
   const [state, setState] = useState({ open: false, data: {} as T });
 
   const open = useMemo(() => state.open, [state.open]);
@@ -29,7 +25,7 @@ const useModal = <T>(): [
     }
   }, []);
 
-  return [open, data, setData];
+  return [open, data, setData] as const;
 };
 
 export default useModal;
