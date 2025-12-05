@@ -21,7 +21,7 @@
     "@mui/material-nextjs": "^7.3.6",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "next": "^16.0.7",
-    "nuqs": "^2.8.2",
+    "nuqs": "^2.8.3",
     "react": "^19.2.1",
     "react-dom": "^19.2.1"
   },
