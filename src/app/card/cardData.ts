@@ -32,15 +32,6 @@ export type CardType = {
 
 const cardData: CardType[] = [
   {
-    name: '원더 카드',
-    type: '적립',
-    rewardsRate: 0.012,
-    음식점: { rewardsRate: 0.02, limit: 50000 },
-    편의점: { rewardsRate: 0.03, limit: 50000 },
-    패스트푸드: { rewardsRate: 0.04, limit: 50000 },
-    note: OneThe,
-  },
-  {
     name: '더모아 카드',
     type: '적립',
     rewardsRate: 'themore',
@@ -58,6 +49,15 @@ const cardData: CardType[] = [
     가스요금: { rewardsRate: 0 },
     상품권: { rewardsRate: 0 },
     note: '1% 네이버페이 포인트 적립 / 네이버플러스 멤버십 적립 대상 5% 네이버페이 포인트 적립 / 전월실적 30만원',
+  },
+  {
+    name: '원더 카드',
+    type: '적립',
+    rewardsRate: 0.001,
+    음식점: { rewardsRate: 0.02, limit: 50000 },
+    편의점: { rewardsRate: 0.03, limit: 50000 },
+    패스트푸드: { rewardsRate: 0.04, limit: 50000 },
+    note: OneThe,
   },
   {
     name: '톡톡 마이포인트 카드',
