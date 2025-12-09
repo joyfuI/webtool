@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import {
   parseAsArrayOf,
   parseAsInteger,
-  parseAsIsoDate,
   parseAsString,
   useQueryState,
 } from 'nuqs';
@@ -28,7 +27,7 @@ import {
 const Client = () => {
   const [date, setDate] = useQueryState(
     'date',
-    parseAsIsoDate.withDefault(new Date()),
+    parseAsString.withDefault(toDateString(new Date())),
   );
   const [amount, setAmount] = useQueryState(
     'amount',
@@ -43,8 +42,9 @@ const Client = () => {
     parseAsString.withDefault('youth'),
   );
 
-  const endDate = addDays(date, 29);
-  const businessDay = differenceInBusinessDays(date, endDate);
+  const day = date ? new Date(date) : new Date();
+  const endDate = addDays(day, 29);
+  const businessDay = differenceInBusinessDays(day, endDate);
   const [count, setCount] = useQueryState(
     'count',
     parseAsInteger.withDefault(businessDay * 2),
@@ -126,11 +126,11 @@ const Client = () => {
           autoFocus
           label="시작일"
           onChange={(e) => {
-            setDate(e.target.value ? new Date(e.target.value) : new Date());
+            setDate(e.target.value);
           }}
           slotProps={{ inputLabel: { shrink: true } }}
           type="date"
-          value={toDateString(date)}
+          value={date}
         />
         <TextField
           disabled

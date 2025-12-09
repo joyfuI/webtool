@@ -1,26 +1,23 @@
-export const toDateString = (date: Date) =>
-  `${date.getFullYear()}-${(date.getMonth() + 1)
-    .toString()
-    .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-
 export const range = (length: number, start = 0) =>
   Array.from({ length }, (_, i) => i + start);
 
-export const getYearAge = (birth: Date, base: Date = new Date()) => {
-  return base.getFullYear() - birth.getFullYear();
+export const getYearAge = (birth: string, base: Date = new Date()) => {
+  const date = birth ? new Date(birth) : new Date();
+  return base.getFullYear() - date.getFullYear();
 };
 
-export const getAge = (birth: Date, base: Date = new Date()) => {
+export const getAge = (birth: string, base: Date = new Date()) => {
+  const date = birth ? new Date(birth) : new Date();
   const birthDay = new Date(
     base.getFullYear(),
-    birth.getMonth(),
-    birth.getDate(),
+    date.getMonth(),
+    date.getDate(),
   );
   const age = getYearAge(birth, base);
   return birthDay.getTime() <= base.getTime() ? age : age - 1;
 };
 
-export const getKoreanAge = (birth: Date, base: Date = new Date()) => {
+export const getKoreanAge = (birth: string, base: Date = new Date()) => {
   return getYearAge(birth, base) + 1;
 };
 

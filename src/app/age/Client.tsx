@@ -6,7 +6,7 @@ import { blueGrey } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { parseAsIsoDate, useQueryState } from 'nuqs';
+import { parseAsString, useQueryState } from 'nuqs';
 
 import Table from '@/components/Table';
 import type theme from '@/theme';
@@ -18,17 +18,17 @@ import {
   getKoreanAge,
   getYearAge,
   range,
-  toDateString,
 } from './logic';
 
 const Client = () => {
   const [date, setDate] = useQueryState(
     'date',
-    parseAsIsoDate.withDefault(new Date(1997, 0, 5)),
+    parseAsString.withDefault('1997-01-05'),
   );
 
   const rows = useMemo(() => {
-    const year = date.getFullYear();
+    const day = date ? new Date(date) : new Date();
+    const year = day.getFullYear();
     const todayYear = new Date().getFullYear();
     return range(100).map((_v, i) => ({
       year: `${year + i}년`,
@@ -39,7 +39,8 @@ const Client = () => {
   }, [date]);
 
   const style = (t: typeof theme) => {
-    const year = date.getFullYear();
+    const day = date ? new Date(date) : new Date();
+    const year = day.getFullYear();
     const todayYear = new Date().getFullYear();
     const i = todayYear - year + 1;
     return {
@@ -57,11 +58,11 @@ const Client = () => {
         fullWidth
         label="생년월일"
         onChange={(e) => {
-          setDate(e.target.value ? new Date(e.target.value) : new Date());
+          setDate(e.target.value);
         }}
         slotProps={{ inputLabel: { shrink: true } }}
         type="date"
-        value={toDateString(date)}
+        value={date}
       />
 
       <Stack

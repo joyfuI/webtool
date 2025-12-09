@@ -35,7 +35,6 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
         <TimeInput
           label="시작시간"
           onChange={(_e, v) => setSS(v)}
-          type="time"
           value={ss}
         />
         <Stack
@@ -46,7 +45,6 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
             disabled={distance}
             label="종료시간"
             onChange={(_e, v) => setTO(v)}
-            type="time"
             value={to}
           />
           <Switch
@@ -58,7 +56,6 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
             disabled={!distance}
             label="구간길이"
             onChange={(_e, v) => setT(v)}
-            type="time"
             value={t}
           />
         </Stack>
