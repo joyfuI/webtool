@@ -32,11 +32,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
         spacing={{ xs: 1, sm: 5 }}
         sx={{ mb: 1 }}
       >
-        <TimeInput
-          label="시작시간"
-          onChange={(_e, v) => setSS(v)}
-          value={ss}
-        />
+        <TimeInput label="시작시간" onChange={(_e, v) => setSS(v)} value={ss} />
         <Stack
           direction="row"
           sx={{ alignItems: 'flex-end', overflowX: 'auto' }}
