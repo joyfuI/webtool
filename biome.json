@@ -1,13 +1,10 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": true,
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
   },
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
@@ -22,11 +19,7 @@
   },
   "linter": {
     "enabled": true,
-    "domains": {
-      "next": "all",
-      "project": "none",
-      "react": "all"
-    },
+    "domains": { "next": "all", "project": "none", "react": "all" },
     "rules": {
       "recommended": true,
       "correctness": {
@@ -35,9 +28,7 @@
         "noUndeclaredVariables": "error",
         "useImportExtensions": "off"
       },
-      "nursery": {
-        "noUnresolvedImports": "off"
-      },
+      "nursery": { "noUnresolvedImports": "off" },
       "performance": {
         "noBarrelFile": "error",
         "noDelete": "error",
@@ -49,19 +40,14 @@
         "noCommonJs": "error",
         "useComponentExportOnlyModules": {
           "level": "warn",
-          "options": {
-            "allowExportNames": ["metadata"]
-          }
+          "options": { "allowExportNames": ["metadata"] }
         },
         "noNamespace": "error",
         "useBlockStatements": "error",
         "useConsistentCurlyBraces": "error",
         "useFragmentSyntax": "error"
       },
-      "suspicious": {
-        "noConsole": "warn",
-        "noEmptyBlockStatements": "warn"
-      }
+      "suspicious": { "noConsole": "warn", "noEmptyBlockStatements": "warn" }
     }
   },
   "assist": {
@@ -72,14 +58,7 @@
           "level": "on",
           "options": {
             "groups": [
-              [
-                "next",
-                "next/**"
-              ],
-              [
-                "react",
-                "react-dom/**"
-              ],
+              ":NODE:",
               ":PACKAGE:",
               ":BLANK_LINE:",
               ":ALIAS:",
@@ -105,46 +84,23 @@
       "arrowParentheses": "always",
       "bracketSameLine": false
     },
-    "linter": {
-      "enabled": true
-    },
-    "assist": {
-      "enabled": true
-    }
+    "linter": { "enabled": true },
+    "assist": { "enabled": true }
   },
   "json": {
-    "formatter": {
-      "enabled": false
-    },
-    "linter": {
-      "enabled": true
-    },
-    "assist": {
-      "enabled": true
-    }
+    "formatter": { "enabled": true },
+    "linter": { "enabled": true },
+    "assist": { "enabled": true }
   },
   "css": {
-    "parser": {
-      "cssModules": true
-    },
-    "formatter": {
-      "enabled": true,
-      "quoteStyle": "single"
-    },
-    "linter": {
-      "enabled": true
-    },
-    "assist": {
-      "enabled": true
-    }
+    "parser": { "cssModules": true },
+    "formatter": { "enabled": true, "quoteStyle": "single" },
+    "linter": { "enabled": true },
+    "assist": { "enabled": true }
   },
   "html": {
     "experimentalFullSupportEnabled": true,
-    "formatter": {
-      "enabled": true
-    },
-    "linter": {
-      "enabled": true
-    }
+    "formatter": { "enabled": true },
+    "linter": { "enabled": true }
   }
 }

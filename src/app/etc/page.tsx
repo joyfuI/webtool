@@ -1,6 +1,6 @@
+import Stack from '@mui/material/Stack';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import Stack from '@mui/material/Stack';
 
 import MultiView from './MultiView';
 import Uuid from './Uuid';

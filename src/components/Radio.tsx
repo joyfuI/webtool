@@ -1,5 +1,3 @@
-import type { Attributes, ReactNode, Ref } from 'react';
-import { useId } from 'react';
 import type { SxProps } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
@@ -8,6 +6,8 @@ import FormLabel from '@mui/material/FormLabel';
 import MuiRadio from '@mui/material/Radio';
 import type { RadioGroupProps } from '@mui/material/RadioGroup';
 import RadioGroup from '@mui/material/RadioGroup';
+import type { Attributes, ReactNode, Ref } from 'react';
+import { useId } from 'react';
 
 import type theme from '@/theme';
 

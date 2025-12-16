@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import useToggle from '@/hooks/useToggle';

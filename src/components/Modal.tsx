@@ -1,12 +1,12 @@
 'use client';
-import type { FormEvent, ReactNode, Ref } from 'react';
-import { useEffect, useId, useRef } from 'react';
 import Button from '@mui/material/Button';
 import type { DialogProps } from '@mui/material/Dialog';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import type { FormEvent, ReactNode, Ref } from 'react';
+import { useEffect, useId, useRef } from 'react';
 
 export type ModalProps = {
   ref?: Ref<HTMLDivElement>;
@@ -39,17 +39,19 @@ const Modal = ({
 
   return (
     <Dialog
-      PaperProps={{
-        component: 'form',
-        onSubmit: (e: FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          const formData = new FormData(e.currentTarget);
-          const formJson = Object.fromEntries(formData.entries());
-          onSubmit?.(e, formJson);
-          onClose?.();
+      scroll="paper"
+      slotProps={{
+        paper: {
+          component: 'form',
+          onSubmit: (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const formJson = Object.fromEntries(formData.entries());
+            onSubmit?.(e, formJson);
+            onClose?.();
+          },
         },
       }}
-      scroll="paper"
       {...props}
       aria-describedby={contentTextId}
       aria-labelledby={titleId}

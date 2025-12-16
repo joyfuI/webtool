@@ -1,10 +1,10 @@
 'use client';
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 
 import { decode, encode } from './logic';
 

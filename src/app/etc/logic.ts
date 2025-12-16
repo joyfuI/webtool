@@ -6,8 +6,7 @@ export const requestHeader = (str: string): Record<string, string> => {
       return [key.toLowerCase(), value.join(': ')];
     })
     .filter((entrie) => entrie.length === 2);
-  const obj = Object.fromEntries(entries);
-  return obj;
+  return Object.fromEntries(entries);
 };
 
 export const response = (str: string): string => {

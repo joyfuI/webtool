@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
+import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
 import TimeInput from '@/components/TimeInput';

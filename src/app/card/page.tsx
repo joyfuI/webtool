@@ -1,6 +1,6 @@
+import Box from '@mui/material/Box';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import Box from '@mui/material/Box';
 
 import Client from './Client';
 

@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Box from '@mui/material/Box';
@@ -7,6 +6,7 @@ import FormLabel from '@mui/material/FormLabel';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import { useState } from 'react';
 
 import copyText from '@/utils/copyText';
 
