@@ -138,7 +138,7 @@ const cardData: CardType[] = [
     오픈마켓: { rewardsRate: 0.015 },
     전기요금: { rewardsRate: 0 },
     가스요금: { rewardsRate: 0 },
-    해외: { rewardsRate: 0.03 },
+    해외: { rewardsRate: 0.02 },
     상품권: { rewardsRate: 0 },
     note: '0.3% 네이버페이 포인트 적립 / 네이버쇼핑 1.5% 네이버페이 포인트 적립 / 해외 3%, 수수료 네이버페이 포인트 적립 / 전월실적 X',
   },
