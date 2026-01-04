@@ -20,7 +20,7 @@ const streamerList: { nickname: string; id: string }[] = [
   { nickname: '또오냥', id: 'toocat030' },
   { nickname: '예다', id: 'yeda1224' },
   { nickname: '미현영', id: 'nunknown314' },
-  { nickname: '리브레', id: 'libre1900' },
+  { nickname: '에냐', id: 'onyu98' },
   { nickname: '우정잉', id: 'nanajam' },
 ];
 
