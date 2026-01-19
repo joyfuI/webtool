@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import type { MouseEventHandler } from 'react';
 import { useEffect, useState } from 'react';
@@ -76,21 +77,26 @@ const LiveListItem = ({
           <Tooltip
             followCursor
             title={
-              <Image
-                alt={data.broadTitle}
-                draggable={false}
-                height={135}
-                loading="lazy"
-                src={imageSrc}
-                unoptimized
-                width={240}
-              />
+              <>
+                <Image
+                  alt={data.broadTitle}
+                  draggable={false}
+                  height={180}
+                  loading="lazy"
+                  src={imageSrc}
+                  style={{ width: '100%', height: 'auto' }}
+                  unoptimized
+                  width={320}
+                />
+                <Typography variant="body2">{data.broadTitle}</Typography>
+              </>
             }
           >
             <LiveTvIcon />
           </Tooltip>
         ) : null
       }
+      sx={{ '& .MuiListItemSecondaryAction-root': { display: 'flex' } }}
     >
       <ListItemButton disableGutters onClick={onClick}>
         <ListItemIcon>
@@ -123,7 +129,7 @@ const Client = () => {
       <FormLabel component="legend" sx={{ mb: 1 }}>
         멀티뷰
       </FormLabel>
-      <Paper sx={{ width: 180, height: 230, overflow: 'auto' }}>
+      <Paper sx={{ width: 180, height: 240, overflow: 'auto' }}>
         <List component="div" dense role="list">
           {streamerList.map((item, index) => (
             <LiveListItem
