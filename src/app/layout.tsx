@@ -11,8 +11,6 @@ import Header from '@/components/Header';
 
 import theme from '../theme';
 
-import './globals.css';
-
 export const metadata: Metadata = {
   title: { template: '%s | 웹툴', default: '웹툴' },
 };
@@ -20,6 +18,14 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        <link
+          as="style"
+          crossOrigin="anonymous"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <NuqsAdapter>
           <AppRouterCacheProvider>
