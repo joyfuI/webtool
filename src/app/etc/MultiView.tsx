@@ -32,7 +32,8 @@ const streamerList: { nickname: string; id: string }[] = [
   { nickname: '예다', id: 'yeda1224' },
   { nickname: '미현영', id: 'nunknown314' },
   { nickname: '에냐', id: 'onyu98' },
-  { nickname: '지한', id: 'jihan110' },
+  { nickname: '지한이또', id: 'jihan110' },
+  { nickname: '캬루', id: 'kyaru96' },
 ];
 
 export type LiveListItemProps = {
