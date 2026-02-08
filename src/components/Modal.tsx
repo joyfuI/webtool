@@ -5,7 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import type { FormEvent, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref, SubmitEvent } from 'react';
 import { useEffect, useId, useRef } from 'react';
 
 export type ModalProps = {
@@ -13,7 +13,7 @@ export type ModalProps = {
   title?: ReactNode;
   onClose?: () => void;
   onSubmit?: (
-    event: FormEvent<HTMLFormElement>,
+    event: SubmitEvent<HTMLFormElement>,
     data: { [k: string]: FormDataEntryValue },
   ) => void;
 } & DialogProps;
@@ -43,7 +43,7 @@ const Modal = ({
       slotProps={{
         paper: {
           component: 'form',
-          onSubmit: (e: FormEvent<HTMLFormElement>) => {
+          onSubmit: (e: SubmitEvent<HTMLFormElement>) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const formJson = Object.fromEntries(formData.entries());
