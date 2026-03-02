@@ -28,7 +28,6 @@
         "noUndeclaredVariables": "error",
         "useImportExtensions": "off"
       },
-      "nursery": { "noUnresolvedImports": "off" },
       "performance": {
         "noBarrelFile": "error",
         "noDelete": "error",
