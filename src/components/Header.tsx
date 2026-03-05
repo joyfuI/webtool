@@ -28,6 +28,7 @@ const menu = [
   { title: '글자 수 세기', href: '/count' },
   { title: 'JSON 포매터', href: '/json' },
   { title: 'Base64', href: '/base64' },
+  { title: '해시', href: '/hash' },
   { title: '피보나치킨', href: '/fibonachicken' },
   { title: 'FFmpeg', href: '/ffmpeg' },
   { title: 'etc.', href: '/etc' },
