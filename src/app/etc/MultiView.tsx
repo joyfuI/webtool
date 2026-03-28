@@ -58,14 +58,14 @@ const LiveListItem = ({
 
   useEffect(() => {
     if (data?.broadNo) {
-      setImageSrc(`https://liveimg.sooplive.co.kr/h/${data.broadNo}.webp`);
+      setImageSrc(`https://liveimg.sooplive.com/h/${data.broadNo}.webp`);
     }
   }, [data?.broadNo]);
 
   useInterval(() => {
     if (data?.broadNo) {
       setImageSrc(
-        `https://liveimg.sooplive.co.kr/h/${data.broadNo}.webp?t=${Date.now()}`,
+        `https://liveimg.sooplive.com/h/${data.broadNo}.webp?t=${Date.now()}`,
       );
     }
   }, 10000);
