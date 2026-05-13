@@ -1,3 +1,5 @@
+const encoder = new TextEncoder();
+
 export const encode = (str: string): string => {
   if (!str.isWellFormed()) {
     throw new DOMException(
@@ -5,10 +7,11 @@ export const encode = (str: string): string => {
       'InvalidCharacterError',
     );
   }
-  const bytes = new TextEncoder().encode(str);
-  const binString = String.fromCodePoint(...bytes);
-  return btoa(binString);
+  const bytes = encoder.encode(str);
+  return bytes.toBase64();
 };
+
+const decoder = new TextDecoder();
 
 export const decode = (str: string): string => {
   if (!str.isWellFormed()) {
@@ -17,7 +20,6 @@ export const decode = (str: string): string => {
       'InvalidCharacterError',
     );
   }
-  const binString = atob(str);
-  const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0) ?? 0);
-  return new TextDecoder().decode(bytes);
+  const bytes = Uint8Array.fromBase64(str);
+  return decoder.decode(bytes);
 };
