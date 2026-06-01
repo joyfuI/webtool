@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 
 import KBank from './note/KBank';
 import KFirst from './note/KFirst';
-import OneThe from './note/OneThe';
 import TossBank from './note/TossBank';
 
 type RewardType = {
@@ -51,16 +50,6 @@ const cardData: CardType[] = [
     note: '1% 네이버페이 포인트 적립 / 네이버플러스 멤버십 적립 대상 5% 네이버페이 포인트 적립 / 전월실적 30만원',
   },
   {
-    name: '원더 카드',
-    type: '적립',
-    rewardsRate: 0.001,
-    편의점: { rewardsRate: 0.03, limit: 1666666 },
-    패스트푸드: { rewardsRate: 0.04, limit: 1250000 },
-    카페: { rewardsRate: 0.04, limit: 1250000 },
-    대형마트: { rewardsRate: 0.02, limit: 2500000 },
-    note: OneThe,
-  },
-  {
     name: '톡톡 마이포인트 카드',
     type: '적립',
     rewardsRate: 0.055,
@@ -80,6 +69,16 @@ const cardData: CardType[] = [
     대형마트: { rewardsRate: 'kfirst15' },
     상품권: { rewardsRate: 0 },
     note: KFirst,
+  },
+  {
+    name: 'GOAT BC바로 카드',
+    type: '적립',
+    rewardsRate: 0.015,
+    limit: 1000000,
+    전기요금: { rewardsRate: 0 },
+    가스요금: { rewardsRate: 0 },
+    해외: { rewardsRate: 0.06 },
+    note: '1.5% 적립 / 해외 3%(+3%) 적립 / 전월실적 X',
   },
   // {
   //   name: 'MG+ S 하나 카드',
@@ -131,17 +130,6 @@ const cardData: CardType[] = [
     패스트푸드: { rewardsRate: 'toss', minimumPaymentAmount: 3000 },
     카페: { rewardsRate: 'toss', minimumPaymentAmount: 3000 },
     note: TossBank,
-  },
-  {
-    name: '네이버페이 머니카드',
-    type: '적립',
-    rewardsRate: 0.003,
-    오픈마켓: { rewardsRate: 0.015 },
-    전기요금: { rewardsRate: 0 },
-    가스요금: { rewardsRate: 0 },
-    해외: { rewardsRate: 0.02 },
-    상품권: { rewardsRate: 0 },
-    note: '0.3% 네이버페이 포인트 적립 / 네이버쇼핑 1.5% 네이버페이 포인트 적립 / 해외 3%, 수수료 네이버페이 포인트 적립 / 전월실적 X',
   },
 ];
 
