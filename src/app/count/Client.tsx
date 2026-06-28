@@ -2,12 +2,17 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import { charCount, lineCount } from './logic';
 
 const Client = () => {
   const [value, setValue] = useState('');
+
+  const handleValueChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
+  };
 
   return (
     <>
@@ -36,7 +41,7 @@ const Client = () => {
         fullWidth
         minRows={15}
         multiline
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleValueChange}
         value={value}
       />
     </>

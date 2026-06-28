@@ -1,5 +1,6 @@
 'use client';
 import Input from '@mui/material/Input';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -8,6 +9,10 @@ import type { DefaultCommandProps } from '../../logic';
 
 const M3u8Download = ({ command, output }: DefaultCommandProps) => {
   const [url, setUrl] = useState('');
+
+  const handleUrlChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setUrl(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -22,7 +27,7 @@ const M3u8Download = ({ command, output }: DefaultCommandProps) => {
     >
       <Input
         fullWidth
-        onChange={(e) => setUrl(e.target.value)}
+        onChange={handleUrlChange}
         placeholder="미디어 주소"
         sx={{ mb: 1 }}
         value={url}

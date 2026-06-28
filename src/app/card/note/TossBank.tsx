@@ -9,16 +9,24 @@ const title = '오프라인 캐시백 영역';
 const TossBank = () => {
   const [open, , setOpen] = useModal();
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <span>
-        <Link component="button" onClick={() => setOpen(true)} type="button">
+        <Link component="button" onClick={handleOpen} type="button">
           {title}
         </Link>{' '}
         당 일1회 월10회 3천원~만원 100원, 만원 이상 500원 캐시백 / 전월실적 X
       </span>
 
-      <Modal onClose={() => setOpen(false)} open={open} title={title}>
+      <Modal onClose={handleClose} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '영역' },

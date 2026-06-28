@@ -9,17 +9,25 @@ const title = '생활 편의 업종';
 const KFirst = () => {
   const [open, , setOpen] = useModal();
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <span>
         1% 할인 / 만원 이상{' '}
-        <Link component="button" onClick={() => setOpen(true)} type="button">
+        <Link component="button" onClick={handleOpen} type="button">
           {title}
         </Link>{' '}
         1.5% 할인 / 전월실적 X / 무이자할부 3개월
       </span>
 
-      <Modal onClose={() => setOpen(false)} open={open} title={title}>
+      <Modal onClose={handleClose} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '업종' },

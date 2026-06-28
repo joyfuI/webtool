@@ -1,6 +1,7 @@
 'use client';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -10,6 +11,14 @@ import type { DefaultCommandProps } from '../../logic';
 const Stitch = ({ command, output }: DefaultCommandProps) => {
   const [video1, setVideo1] = useState('input1.mp4');
   const [video2, setVideo2] = useState('input2.mp4');
+
+  const handleVideo1Change = (e: ChangeEvent<HTMLInputElement>) => {
+    setVideo1(e.target.value);
+  };
+
+  const handleVideo2Change = (e: ChangeEvent<HTMLInputElement>) => {
+    setVideo2(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -30,13 +39,13 @@ const Stitch = ({ command, output }: DefaultCommandProps) => {
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <Input
           fullWidth
-          onChange={(e) => setVideo1(e.target.value)}
+          onChange={handleVideo1Change}
           placeholder="첫번째 동영상 파일"
           value={video1}
         />
         <Input
           fullWidth
-          onChange={(e) => setVideo2(e.target.value)}
+          onChange={handleVideo2Change}
           placeholder="두번째 동영상 파일"
           value={video2}
         />

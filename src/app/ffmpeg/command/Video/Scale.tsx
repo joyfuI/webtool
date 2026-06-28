@@ -2,6 +2,7 @@
 import FormLabel from '@mui/material/FormLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -11,6 +12,14 @@ import type { DefaultCommandProps } from '../../logic';
 const Scale = ({ command, input, output }: DefaultCommandProps) => {
   const [width, setWidth] = useState(-1);
   const [height, setHeight] = useState(720);
+
+  const handleWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setWidth(Number.parseFloat(e.target.value));
+  };
+
+  const handleHeightChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setHeight(Number.parseFloat(e.target.value));
+  };
 
   return (
     <CommandCopy
@@ -27,7 +36,7 @@ const Scale = ({ command, input, output }: DefaultCommandProps) => {
         <FormLabel sx={{ fontSize: 14 }}>크기</FormLabel>
         <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
           <Input
-            onChange={(e) => setWidth(Number.parseFloat(e.target.value))}
+            onChange={handleWidthChange}
             placeholder="가로"
             slotProps={{ input: { inputMode: 'numeric' } }}
             sx={{ width: '80px' }}
@@ -36,7 +45,7 @@ const Scale = ({ command, input, output }: DefaultCommandProps) => {
           />
           <span>:</span>
           <Input
-            onChange={(e) => setHeight(Number.parseFloat(e.target.value))}
+            onChange={handleHeightChange}
             placeholder="세로"
             slotProps={{ input: { inputMode: 'numeric' } }}
             sx={{ width: '80px' }}

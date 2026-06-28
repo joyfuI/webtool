@@ -33,7 +33,20 @@ const Client = () => {
     [amount, discount, industry],
   );
 
-  const handleChange = (_e: ChangeEvent<HTMLInputElement>, value: string) => {
+  const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const num = Number.parseInt(e.target.value, 10);
+    setAmount(num);
+  };
+
+  const handleDiscountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const num = Number.parseInt(e.target.value, 10);
+    setDiscount(Number.isNaN(num) ? null : num);
+  };
+
+  const handleIndustryChange = (
+    _e: ChangeEvent<HTMLInputElement>,
+    value: string,
+  ) => {
     setIndustry(value);
   };
 
@@ -44,10 +57,7 @@ const Client = () => {
           autoFocus
           fullWidth
           label="금액"
-          onChange={(e) => {
-            const num = Number.parseInt(e.target.value, 10);
-            setAmount(num);
-          }}
+          onChange={handleAmountChange}
           slotProps={{
             htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
             inputLabel: { shrink: true },
@@ -57,10 +67,7 @@ const Client = () => {
         />
         <TextField
           label="할인"
-          onChange={(e) => {
-            const num = Number.parseInt(e.target.value, 10);
-            setDiscount(Number.isNaN(num) ? null : num);
-          }}
+          onChange={handleDiscountChange}
           slotProps={{
             htmlInput: { min: 0, max: 100, inputMode: 'numeric' },
             input: {
@@ -76,7 +83,7 @@ const Client = () => {
       <Radio
         label="업종"
         name="industry"
-        onChange={handleChange}
+        onChange={handleIndustryChange}
         options={[
           { value: '음식점', label: '음식점' },
           { value: '편의점', label: '편의점' },

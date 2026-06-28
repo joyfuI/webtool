@@ -1,5 +1,6 @@
 'use client';
 import Input from '@mui/material/Input';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -9,6 +10,10 @@ import type { DefaultCommandProps } from '../../logic';
 
 const Metadata = ({ command, input, output }: DefaultCommandProps) => {
   const [metadata, setMetadata] = useState('metadata.mp3');
+
+  const handleMetadataChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setMetadata(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -25,7 +30,7 @@ const Metadata = ({ command, input, output }: DefaultCommandProps) => {
     >
       <Input
         fullWidth
-        onChange={(e) => setMetadata(e.target.value)}
+        onChange={handleMetadataChange}
         placeholder="mp3 메타데이터"
         sx={{ mb: 1 }}
         value={metadata}

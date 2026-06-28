@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { parseAsString, useQueryState } from 'nuqs';
+import type { ChangeEvent } from 'react';
 import { useMemo } from 'react';
 
 import Table from '@/components/Table';
@@ -38,6 +39,10 @@ const Client = () => {
     }));
   }, [date]);
 
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
+  };
+
   const style = (t: typeof theme) => {
     const day = date ? new Date(date) : new Date();
     const year = day.getFullYear();
@@ -57,9 +62,7 @@ const Client = () => {
         autoFocus
         fullWidth
         label="생년월일"
-        onChange={(e) => {
-          setDate(e.target.value);
-        }}
+        onChange={handleDateChange}
         slotProps={{ inputLabel: { shrink: true } }}
         type="date"
         value={date}

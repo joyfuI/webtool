@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import { parseAsString, useQueryState } from 'nuqs';
+import type { ChangeEvent, SyntheticEvent } from 'react';
 
 import useHash from '@/hooks/useHash';
 
@@ -32,6 +33,18 @@ const Client = () => {
   );
   const [tab, setTab] = useHash();
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleOutputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setOutput(e.target.value);
+  };
+
+  const handleTabChange = (_e: SyntheticEvent<Element, Event>, v: string) => {
+    setTab(v);
+  };
+
   return (
     <>
       <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
@@ -39,14 +52,14 @@ const Client = () => {
           autoFocus
           fullWidth
           label="변환할 파일명"
-          onChange={(e) => setInput(e.target.value)}
+          onChange={handleInputChange}
           slotProps={{ inputLabel: { shrink: true } }}
           value={input}
         />
         <TextField
           fullWidth
           label="변환된 파일명"
-          onChange={(e) => setOutput(e.target.value)}
+          onChange={handleOutputChange}
           slotProps={{ inputLabel: { shrink: true } }}
           value={output}
         />
@@ -54,7 +67,7 @@ const Client = () => {
 
       <TabContext value={tab || 'download'}>
         <Box sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={(_e, v) => setTab(v)}>
+          <TabList onChange={handleTabChange}>
             <Tab label="다운로드" value="download" />
             <Tab label="동영상" value="videoaudio" />
             <Tab label="비디오" value="video" />

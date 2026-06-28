@@ -21,7 +21,7 @@
     "enabled": true,
     "domains": { "next": "all", "project": "none", "react": "all" },
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "correctness": {
         "noReactPropAssignments": "error",
         "noNodejsModules": "error",

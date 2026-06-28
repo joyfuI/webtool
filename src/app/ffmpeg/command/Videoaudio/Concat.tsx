@@ -3,6 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -15,6 +16,10 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
   const [sameCodec, toggleSameCodec] = useToggle(true);
 
   const list = files.split('\n');
+
+  const handleFilesChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setFiles(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -45,9 +50,7 @@ const Concat = ({ command, output }: DefaultCommandProps) => {
         <Input
           fullWidth
           multiline
-          onChange={(e) => {
-            setFiles(e.target.value);
-          }}
+          onChange={handleFilesChange}
           placeholder="파일 목록"
           rows={3}
           value={files}

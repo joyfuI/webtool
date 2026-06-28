@@ -13,6 +13,14 @@ import copyText from '@/utils/copyText';
 const Client = () => {
   const [uuid, setUuid] = useState(() => crypto.randomUUID());
 
+  const handleCopyClick = () => {
+    copyText(uuid);
+  };
+
+  const handleRefreshClick = () => {
+    setUuid(crypto.randomUUID());
+  };
+
   return (
     <Box sx={{ width: '450px', minWidth: '200px', maxWidth: '100%' }}>
       <FormLabel component="legend" sx={{ mb: 1 }}>
@@ -21,10 +29,10 @@ const Client = () => {
       <OutlinedInput
         endAdornment={
           <InputAdornment position="end">
-            <IconButton onClick={() => copyText(uuid)}>
+            <IconButton onClick={handleCopyClick}>
               <ContentCopyIcon />
             </IconButton>
-            <IconButton onClick={() => setUuid(crypto.randomUUID())}>
+            <IconButton onClick={handleRefreshClick}>
               <RefreshIcon />
             </IconButton>
           </InputAdornment>

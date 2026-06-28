@@ -9,17 +9,25 @@ const title = '대상 가맹점';
 const KBank = () => {
   const [open, , setOpen] = useModal();
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <span>
         5천원 이상{' '}
-        <Link component="button" onClick={() => setOpen(true)} type="button">
+        <Link component="button" onClick={handleOpen} type="button">
           {title}
         </Link>{' '}
         각 영역별 일1회 300원 캐시백 / 전월실적 X
       </span>
 
-      <Modal onClose={() => setOpen(false)} open={open} title={title}>
+      <Modal onClose={handleClose} open={open} title={title}>
         <Table
           columns={[
             { field: 'area', headerName: '영역' },

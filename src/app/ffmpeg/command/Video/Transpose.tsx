@@ -1,4 +1,5 @@
 'use client';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -8,6 +9,13 @@ import type { DefaultCommandProps } from '../../logic';
 
 const Transpose = ({ command, input, output }: DefaultCommandProps) => {
   const [transpose, setTranspose] = useState('transpose=2');
+
+  const handleTransposeChange = (
+    _e: ChangeEvent<HTMLInputElement, Element>,
+    v: string,
+  ) => {
+    setTranspose(v);
+  };
 
   return (
     <CommandCopy
@@ -22,7 +30,7 @@ const Transpose = ({ command, input, output }: DefaultCommandProps) => {
     >
       <Radio
         name="transpose"
-        onChange={(_e, v) => setTranspose(v)}
+        onChange={handleTransposeChange}
         options={[
           { value: 'transpose=1', label: '90도' },
           { value: 'transpose=0', label: '90도/좌우반전' },

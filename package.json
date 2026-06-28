@@ -15,22 +15,22 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^9.0.1",
-    "@mui/lab": "9.0.0-beta.3",
-    "@mui/material": "^9.0.1",
-    "@mui/material-nextjs": "^9.0.1",
-    "next": "^16.2.6",
+    "@mui/icons-material": "^9.1.1",
+    "@mui/lab": "9.0.0-beta.5",
+    "@mui/material": "^9.1.2",
+    "@mui/material-nextjs": "^9.1.1",
+    "next": "^16.2.9",
     "nuqs": "^2.8.9",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.16",
-    "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
+    "@biomejs/biome": "^2.5.1",
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@11.5.0+sha512.dbfcc4f81cf48597afd4bc391ffdf12c11f1a9fb83a395bfa6b0a2d9cc2fd8ffebafdb1ccbd529632153f793904c2615b7f09fe1a345473fd1c35845172a8eb1"
+  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
 }

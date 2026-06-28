@@ -2,6 +2,7 @@
 import FormLabel from '@mui/material/FormLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -13,6 +14,22 @@ const Color = ({ command, output }: DefaultCommandProps) => {
   const [width, setWidth] = useState(1280);
   const [height, setHeight] = useState(720);
   const [second, setSecond] = useState<number>();
+
+  const handleColorChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setColor(e.target.value.replace('#', '0x'));
+  };
+
+  const handleWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setWidth(Number.parseFloat(e.target.value));
+  };
+
+  const handleHeightChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setHeight(Number.parseFloat(e.target.value));
+  };
+
+  const handleSecondChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSecond(Number.parseFloat(e.target.value));
+  };
 
   return (
     <CommandCopy
@@ -37,7 +54,7 @@ const Color = ({ command, output }: DefaultCommandProps) => {
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>색</FormLabel>
           <Input
-            onChange={(e) => setColor(e.target.value.replace('#', '0x'))}
+            onChange={handleColorChange}
             sx={{ width: '30px' }}
             type="color"
             value={color.replace('0x', '#')}
@@ -47,7 +64,7 @@ const Color = ({ command, output }: DefaultCommandProps) => {
           <FormLabel sx={{ fontSize: 14 }}>크기</FormLabel>
           <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
             <Input
-              onChange={(e) => setWidth(Number.parseFloat(e.target.value))}
+              onChange={handleWidthChange}
               placeholder="가로"
               slotProps={{ input: { inputMode: 'numeric' } }}
               sx={{ width: '80px' }}
@@ -56,7 +73,7 @@ const Color = ({ command, output }: DefaultCommandProps) => {
             />
             <span>:</span>
             <Input
-              onChange={(e) => setHeight(Number.parseFloat(e.target.value))}
+              onChange={handleHeightChange}
               placeholder="세로"
               slotProps={{ input: { inputMode: 'numeric' } }}
               sx={{ width: '80px' }}
@@ -68,7 +85,7 @@ const Color = ({ command, output }: DefaultCommandProps) => {
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>길이</FormLabel>
           <Input
-            onChange={(e) => setSecond(Number.parseFloat(e.target.value))}
+            onChange={handleSecondChange}
             placeholder="초"
             slotProps={{ input: { inputMode: 'numeric' } }}
             sx={{ width: '50px' }}
