@@ -12,6 +12,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
+import type { ChangeEvent, SyntheticEvent } from 'react';
 import { useEffect, useState } from 'react';
 
 import HiddenInput from '@/components/HiddenInput';
@@ -80,17 +81,27 @@ const Client = () => {
     };
   }, [activeTab, fileValue, textValue]);
 
+  const handleTabChange = (_e: SyntheticEvent, v: string) => {
+    setTab(v);
+    setFileValue(undefined);
+    setTextValue('');
+  };
+
+  const handleFileChange = (
+    e: ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    setFileValue(e.target.files?.[0]);
+  };
+
+  const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTextValue(e.target.value);
+  };
+
   return (
     <>
       <TabContext value={activeTab}>
         <Box sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}>
-          <TabList
-            onChange={(_e, v) => {
-              setTab(v);
-              setFileValue(undefined);
-              setTextValue('');
-            }}
-          >
+          <TabList onChange={handleTabChange}>
             <Tab label="파일" value="file" />
             <Tab label="텍스트" value="text" />
           </TabList>
@@ -103,46 +114,43 @@ const Client = () => {
             variant="contained"
           >
             파일 선택
-            <HiddenInput
-              onChange={(e) => setFileValue(e.target.files?.[0])}
-              type="file"
-            />
+            <HiddenInput onChange={handleFileChange} type="file" />
           </Button>
         </TabPanel>
         <TabPanel value="text">
-          <TextField
-            fullWidth
-            onChange={(e) => setTextValue(e.target.value)}
-            variant="outlined"
-          />
+          <TextField fullWidth onChange={handleTextChange} variant="outlined" />
         </TabPanel>
       </TabContext>
       <Divider sx={{ my: 3 }} />
 
       <Stack spacing={3}>
-        {ALGORITHMS.map((algorithm) => (
-          <TextField
-            fullWidth
-            key={algorithm}
-            label={algorithm}
-            slotProps={{
-              input: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => copyText(hashValue[algorithm] ?? '')}
-                    >
-                      <ContentCopyIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-                readOnly: true,
-              },
-            }}
-            value={hashValue[algorithm] ?? ''}
-            variant="outlined"
-          />
-        ))}
+        {ALGORITHMS.map((algorithm) => {
+          const handleClick = () => {
+            return copyText(hashValue[algorithm] ?? '');
+          };
+
+          return (
+            <TextField
+              fullWidth
+              key={algorithm}
+              label={algorithm}
+              slotProps={{
+                input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={handleClick}>
+                        <ContentCopyIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                  readOnly: true,
+                },
+              }}
+              value={hashValue[algorithm] ?? ''}
+              variant="outlined"
+            />
+          );
+        })}
       </Stack>
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -10,6 +11,14 @@ import type { DefaultCommandProps } from '../../logic';
 const Merge = ({ command, output }: DefaultCommandProps) => {
   const [video, setVideo] = useState('input.mp4');
   const [audio, setAudio] = useState('input.m4a');
+
+  const handleVideoChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setVideo(e.target.value);
+  };
+
+  const handleAudioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setAudio(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -25,13 +34,13 @@ const Merge = ({ command, output }: DefaultCommandProps) => {
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <Input
           fullWidth
-          onChange={(e) => setVideo(e.target.value)}
+          onChange={handleVideoChange}
           placeholder="비디오 파일"
           value={video}
         />
         <Input
           fullWidth
-          onChange={(e) => setAudio(e.target.value)}
+          onChange={handleAudioChange}
           placeholder="오디오 파일"
           value={audio}
         />

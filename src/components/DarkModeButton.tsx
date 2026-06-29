@@ -7,14 +7,14 @@ import { useColorScheme } from '@mui/material/styles';
 const DarkModeButton = () => {
   const { mode, setMode } = useColorScheme();
 
+  const handlerClick = (m: 'light' | 'dark' | 'system') => () => {
+    setMode(m);
+  };
+
   switch (mode) {
     case 'light':
       return (
-        <IconButton
-          color="inherit"
-          onClick={() => setMode('dark')}
-          size="large"
-        >
+        <IconButton color="inherit" onClick={handlerClick('dark')} size="large">
           <LightModeIcon />
         </IconButton>
       );
@@ -23,7 +23,7 @@ const DarkModeButton = () => {
       return (
         <IconButton
           color="inherit"
-          onClick={() => setMode('system')}
+          onClick={handlerClick('system')}
           size="large"
         >
           <DarkModeIcon />
@@ -34,7 +34,7 @@ const DarkModeButton = () => {
       return (
         <IconButton
           color="inherit"
-          onClick={() => setMode('light')}
+          onClick={handlerClick('light')}
           size="large"
         >
           <ContrastIcon />

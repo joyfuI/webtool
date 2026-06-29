@@ -2,6 +2,7 @@
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { parseAsInteger, useQueryState } from 'nuqs';
+import type { ChangeEvent } from 'react';
 
 import { fibonaChicken } from './logic';
 
@@ -10,6 +11,11 @@ const Client = () => {
     'count',
     parseAsInteger.withDefault(0),
   );
+
+  const handleCountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const num = Number.parseInt(e.target.value, 10);
+    setCount(num);
+  };
 
   return (
     <>
@@ -20,10 +26,7 @@ const Client = () => {
         autoFocus
         fullWidth
         label="인원수"
-        onChange={(e) => {
-          const num = Number.parseInt(e.target.value, 10);
-          setCount(num);
-        }}
+        onChange={handleCountChange}
         slotProps={{
           htmlInput: { min: 0, inputMode: 'numeric' },
           inputLabel: { shrink: true },

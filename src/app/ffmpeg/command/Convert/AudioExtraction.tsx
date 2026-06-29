@@ -1,5 +1,6 @@
 'use client';
 import MenuItem from '@mui/material/MenuItem';
+import type { SelectChangeEvent } from '@mui/material/Select';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
@@ -10,6 +11,10 @@ import type { DefaultCommandProps } from '../../logic';
 
 const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
   const [codec, setCodec] = useState('mp3');
+
+  const handleCodecChange = (e: SelectChangeEvent) => {
+    setCodec(e.target.value);
+  };
 
   return (
     <CommandCopy
@@ -25,9 +30,7 @@ const AudioExtraction = ({ command, input, output }: DefaultCommandProps) => {
       label="오디오 추출"
     >
       <Select
-        onChange={(e) => {
-          setCodec(e.target.value);
-        }}
+        onChange={handleCodecChange}
         sx={{ mb: 1 }}
         value={codec}
         variant="standard"

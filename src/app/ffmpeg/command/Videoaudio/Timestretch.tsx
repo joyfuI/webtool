@@ -4,6 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -14,6 +15,10 @@ import type { DefaultCommandProps } from '../../logic';
 const Timestretch = ({ command, input, output }: DefaultCommandProps) => {
   const [speed, setSpeed] = useState(0.5);
   const [keepPitch, toggleKeepPitch] = useToggle(true);
+
+  const handleSpeedChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSpeed(Number.parseFloat(e.target.value));
+  };
 
   return (
     <CommandCopy
@@ -34,7 +39,7 @@ const Timestretch = ({ command, input, output }: DefaultCommandProps) => {
         <Stack>
           <FormLabel sx={{ fontSize: 14 }}>배속</FormLabel>
           <Input
-            onChange={(e) => setSpeed(Number.parseFloat(e.target.value))}
+            onChange={handleSpeedChange}
             slotProps={{ input: { min: 0.1, step: 0.1, inputMode: 'numeric' } }}
             sx={{ width: '60px' }}
             type="number"

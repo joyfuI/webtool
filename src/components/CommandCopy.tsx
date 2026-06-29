@@ -44,6 +44,10 @@ const CommandCopy = ({
     [command, args],
   );
 
+  const handleClick = () => {
+    copyText(value);
+  };
+
   return (
     <Box ref={ref} sx={sx}>
       {label ? (
@@ -55,7 +59,7 @@ const CommandCopy = ({
       <OutlinedInput
         endAdornment={
           <InputAdornment position="end">
-            <IconButton onClick={() => copyText(value)}>
+            <IconButton onClick={handleClick}>
               <ContentCopyIcon />
             </IconButton>
           </InputAdornment>

@@ -8,6 +8,7 @@ import {
   parseAsString,
   useQueryState,
 } from 'nuqs';
+import type { ChangeEvent } from 'react';
 import { useMemo } from 'react';
 
 import CheckboxGroup from '@/components/CheckboxGroup';
@@ -115,6 +116,32 @@ const Client = () => {
     ];
   }, [amount, count, climateOption, kPassOption]);
 
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
+  };
+
+  const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setAmount(Number.parseInt(e.target.value, 10));
+  };
+
+  const handleCountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCount(Number.parseInt(e.target.value, 10));
+  };
+
+  const handleClimateOptionChange = (
+    _e: ChangeEvent<HTMLInputElement>,
+    v: string[],
+  ) => {
+    setClimateOption(v);
+  };
+
+  const handleKPassOptionChange = (
+    _e: ChangeEvent<HTMLInputElement>,
+    v: string,
+  ) => {
+    setKPassOption(v);
+  };
+
   return (
     <>
       <Stack
@@ -125,9 +152,7 @@ const Client = () => {
         <TextField
           autoFocus
           label="시작일"
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
+          onChange={handleDateChange}
           slotProps={{ inputLabel: { shrink: true } }}
           type="date"
           value={date}
@@ -153,9 +178,7 @@ const Client = () => {
       >
         <TextField
           label="1회 이용요금"
-          onChange={(e) => {
-            setAmount(Number.parseInt(e.target.value, 10));
-          }}
+          onChange={handleAmountChange}
           slotProps={{
             htmlInput: { min: 0, step: 100, inputMode: 'numeric' },
             inputLabel: { shrink: true },
@@ -166,9 +189,7 @@ const Client = () => {
         />
         <TextField
           label="이용횟수"
-          onChange={(e) => {
-            setCount(Number.parseInt(e.target.value, 10));
-          }}
+          onChange={handleCountChange}
           slotProps={{
             htmlInput: { min: 0, inputMode: 'numeric' },
             inputLabel: { shrink: true },
@@ -186,7 +207,7 @@ const Client = () => {
 
       <CheckboxGroup
         label="기후동행카드"
-        onChange={(_e, value) => setClimateOption(value)}
+        onChange={handleClimateOptionChange}
         options={[
           { value: 'youth', label: '청년할인(19~39세)' },
           { value: 'bikeseoul', label: '따릉이' },
@@ -197,7 +218,7 @@ const Client = () => {
       <Radio
         label="K-패스"
         name="kPass"
-        onChange={(_e, value) => setKPassOption(value)}
+        onChange={handleKPassOptionChange}
         options={[
           { value: 'common', label: '일반' },
           { value: 'youth', label: '청년(19~34세)' },

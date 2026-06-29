@@ -1,6 +1,7 @@
 'use client';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
 import CommandCopy from '@/components/CommandCopy';
@@ -14,6 +15,18 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
   const [to, setTO] = useState('00:00:00');
   const [t, setT] = useState('00:00:00');
   const [distance, toggleDistance] = useToggle(false);
+
+  const handleSSChange = (_e: ChangeEvent<HTMLInputElement>, v: string) => {
+    setSS(v);
+  };
+
+  const handleTOChange = (_e: ChangeEvent<HTMLInputElement>, v: string) => {
+    setTO(v);
+  };
+
+  const handleTChange = (_e: ChangeEvent<HTMLInputElement>, v: string) => {
+    setT(v);
+  };
 
   return (
     <CommandCopy
@@ -32,7 +45,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
         spacing={{ xs: 1, sm: 5 }}
         sx={{ mb: 1 }}
       >
-        <TimeInput label="시작시간" onChange={(_e, v) => setSS(v)} value={ss} />
+        <TimeInput label="시작시간" onChange={handleSSChange} value={ss} />
         <Stack
           direction="row"
           sx={{ alignItems: 'flex-end', overflowX: 'auto' }}
@@ -40,7 +53,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
           <TimeInput
             disabled={distance}
             label="종료시간"
-            onChange={(_e, v) => setTO(v)}
+            onChange={handleTOChange}
             value={to}
           />
           <Switch
@@ -51,7 +64,7 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
           <TimeInput
             disabled={!distance}
             label="구간길이"
-            onChange={(_e, v) => setT(v)}
+            onChange={handleTChange}
             value={t}
           />
         </Stack>
