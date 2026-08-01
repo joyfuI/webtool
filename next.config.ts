@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   basePath: process.env.BASE_PATH,
   allowedDevOrigins: ['*'],
   reactCompiler: true,
+  experimental: { useTypeScriptCli: true },
 };
 
 export default nextConfig;
