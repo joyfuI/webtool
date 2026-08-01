@@ -2,7 +2,6 @@ import Stack from '@mui/material/Stack';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import MultiView from './MultiView';
 import Uuid from './Uuid';
 import WeverseLive from './WeverseLive';
 import WeverseReplay from './WeverseReplay';
@@ -18,7 +17,6 @@ const Page = () => {
         <Uuid />
         <WeverseLive />
         <WeverseReplay />
-        <MultiView />
       </Suspense>
     </Stack>
   );
