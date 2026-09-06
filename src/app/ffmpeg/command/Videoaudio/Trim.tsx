@@ -31,10 +31,10 @@ const Trim = ({ command, input, output }: DefaultCommandProps) => {
   return (
     <CommandCopy
       args={{
-        '-i': `"${input}"`,
-        '-c': 'copy',
         '-ss': ss,
         [distance ? '-t' : '-to']: distance ? t : to,
+        '-i': `"${input}"`,
+        '-c': 'copy',
         '': `"${output}"`,
       }}
       command={command}
